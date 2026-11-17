@@ -1,0 +1,98 @@
+{
+  "id": "a2-handshake",
+  "seriesBadge": "you_hit_enter · 2/3",
+  "voiceover": "Before a website sends you a single pixel, your computer and the server do a handshake. That's literally what it's called. Step one, TCP: your computer says SYN, the server says SYN-ACK, you say ACK. Now you're connected. Step two, TLS, the S in HTTPS. The server shows a certificate proving it really is that domain, and both sides agree on encryption keys so nobody in between can read your traffic. That's what the lock icon means: private connection, right domain. It doesn't mean the site is honest. People misread it so much that one major browser replaced it. Part three: finally, the actual page.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "Your browser shakes hands first."
+    },
+    {
+      "type": "pair",
+      "at": "Step one, TCP",
+      "left": "you",
+      "right": "server",
+      "messages": [
+        {
+          "dir": "right",
+          "label": "SYN"
+        },
+        {
+          "dir": "left",
+          "label": "SYN-ACK"
+        },
+        {
+          "dir": "right",
+          "label": "ACK"
+        }
+      ],
+      "result": "TCP connected ✓"
+    },
+    {
+      "type": "statement",
+      "at": "Step two, TLS",
+      "big": "TLS = the S in HTTPS",
+      "small": "http:// → https://example.com"
+    },
+    {
+      "type": "pair",
+      "at": "The server shows a certificate",
+      "left": "you",
+      "right": "server",
+      "messages": [
+        {
+          "dir": "left",
+          "label": "cert: example.com ✓"
+        },
+        {
+          "dir": "right",
+          "label": "agree on keys"
+        },
+        {
+          "dir": "left",
+          "label": "x9#k@… (encrypted)"
+        }
+      ],
+      "result": "private ✓"
+    },
+    {
+      "type": "list",
+      "at": "That's what the lock icon means",
+      "title": "the lock icon means…",
+      "items": [
+        {
+          "text": "private connection",
+          "status": "ok"
+        },
+        {
+          "text": "right domain",
+          "status": "ok"
+        },
+        {
+          "text": "\"this site is honest\"",
+          "status": "bad"
+        }
+      ]
+    },
+    {
+      "type": "end",
+      "at": "Part three",
+      "text": "part 3: the actual page",
+      "sub": "HTTP/3 merges these steps (QUIC)"
+    }
+  ],
+  "keywords": [
+    "handshake",
+    "TCP",
+    "TLS",
+    "HTTPS",
+    "certificate",
+    "keys",
+    "lock",
+    "honest"
+  ],
+  "captions": {
+    "instagram": "TCP + TLS handshake: what happens before any page loads.\nThe lock icon doesn't mean \"safe.\" Part 2/3 of \"you hit enter.\"\n#https #networking #webdev #learntocode #cybersecurity",
+    "youtubeTitle": "The handshake before every website loads #networking"
+  }
+}

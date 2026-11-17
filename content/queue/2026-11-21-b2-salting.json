@@ -1,0 +1,92 @@
+{
+  "id": "b2-salting",
+  "seriesBadge": "behind_the_login · 2/3",
+  "voiceover": "If you and your friend both use \"password123,\" without a salt you'd get the exact same hash. That's a problem. Attackers precompute hashes for millions of common passwords, then just look up stolen hashes in a table. Instant match. The fix is a salt: a random string the site mixes into your password before hashing, unique for every user. It's stored right next to the hash. It isn't secret; it just makes every hash different, so those precomputed tables become useless. Good sites also use deliberately slow hashes, so every single guess costs time. Salt can't save a weak password, though. Part three: how a site remembers it's you.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "Same password. Different hash."
+    },
+    {
+      "type": "compare",
+      "at": "without a salt",
+      "left": {
+        "label": "you: password123",
+        "value": "ef92…a1c7"
+      },
+      "right": {
+        "label": "friend: password123",
+        "value": "ef92…a1c7"
+      },
+      "verdict": "no salt = same hash",
+      "verdictTone": "bad"
+    },
+    {
+      "type": "code",
+      "at": "Attackers precompute hashes",
+      "title": "lookup table",
+      "lines": [
+        "123456      → 8d96…f3a1",
+        "password123 → ef92…a1c7  ✗ match",
+        "qwerty      → 65e8…0b2c",
+        "// example values"
+      ],
+      "highlight": 1
+    },
+    {
+      "type": "code",
+      "at": "The fix is a salt",
+      "title": "salted",
+      "lines": [
+        "k9Qz… + password123 → 3b1d…f0e2",
+        "Tr4m… + password123 → a77c…19b8",
+        "// unique salt per user ✓"
+      ],
+      "highlight": 2
+    },
+    {
+      "type": "statement",
+      "at": "It's stored right next to the hash",
+      "big": "salt: not secret. tables: useless.",
+      "chips": [
+        "user",
+        "salt",
+        "hash"
+      ]
+    },
+    {
+      "type": "list",
+      "at": "Good sites also use",
+      "title": "defense",
+      "items": [
+        {
+          "text": "slow hash: every guess costs time",
+          "status": "ok"
+        },
+        {
+          "text": "weak password still guessable",
+          "status": "bad"
+        }
+      ]
+    },
+    {
+      "type": "end",
+      "at": "Part three",
+      "text": "part 3: how it remembers you"
+    }
+  ],
+  "keywords": [
+    "salt",
+    "hash",
+    "table",
+    "match",
+    "random",
+    "useless",
+    "slow",
+    "weak"
+  ],
+  "captions": {
+    "instagram": "Password salting: why two identical passwords get different hashes.\nAnd why it still can't save \"password123.\" Part 2/3 of \"behind the login.\"\n#cybersecurity #infosec #learntocode #webdev #backend",
+    "youtubeTitle": "Why 2 identical passwords get different hashes #infosec"
+  }
+}

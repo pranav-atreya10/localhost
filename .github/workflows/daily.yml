@@ -1,0 +1,77 @@
+name: daily post
+
+on:
+  schedule:
+    - cron: '0 18 * * *' # 18:00 UTC = 1pm ET. Posts go live at 21:00 UTC (4pm ET); X at 23:30 UTC.
+  workflow_dispatch:
+    inputs:
+      dry:
+        description: 'Dry run (fake voice, no Buffer posts)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: daily-post
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: video/package-lock.json
+
+      - name: Install
+        working-directory: video
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
+          npm ci
+          npx remotion browser ensure
+
+      - name: Make video
+        id: make
+        working-directory: video
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+        run: node pipeline/make.mjs ${{ inputs.dry && '--dry' || '' }}
+
+      - name: Upload video to GitHub Pages
+        if: steps.make.outputs.ready == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy GitHub Pages
+        id: deploy
+        if: steps.make.outputs.ready == 'true'
+        uses: actions/deploy-pages@v4
+
+      - name: Send to Buffer
+        if: ${{ !inputs.dry }}
+        working-directory: video
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+        run: node pipeline/publish.mjs
+
+      - name: Save queue + log
+        if: always()
+        run: |
+          git config user.name "localhost-bot"
+          git config user.email "localhost-bot@users.noreply.github.com"
+          git add content status || true
+          git diff --cached --quiet || git commit -m "post: $(date -u +%F)"
+          git push || true

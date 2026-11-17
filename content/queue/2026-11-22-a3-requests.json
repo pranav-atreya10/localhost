@@ -1,0 +1,95 @@
+{
+  "id": "a3-requests",
+  "seriesBadge": "you_hit_enter · 3/3",
+  "voiceover": "DNS found the server, the handshake's done, now your browser finally asks for the page. It sends a request: GET, slash, plus a header saying which site it wants. The server answers with a status code. 200 means OK, 404 means not found, 500 means the server broke. And then the HTML. But HTML is just the skeleton. The browser reads it, finds the CSS, JavaScript, images and fonts, and requests each one. A single page can be dozens of requests. Then it builds the page and paints it on your screen. All of that, every time you hit enter. Send this to whoever thinks Wi-Fi is the internet.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "One page. Dozens of requests."
+    },
+    {
+      "type": "list",
+      "at": "DNS found the server",
+      "title": "so far…",
+      "items": [
+        {
+          "text": "DNS",
+          "status": "ok"
+        },
+        {
+          "text": "handshake",
+          "status": "ok"
+        },
+        {
+          "text": "request…",
+          "status": "none"
+        }
+      ]
+    },
+    {
+      "type": "code",
+      "at": "It sends a request",
+      "title": "request",
+      "lines": [
+        "GET / HTTP/1.1",
+        "Host: example.com"
+      ],
+      "highlight": 1
+    },
+    {
+      "type": "code",
+      "at": "The server answers",
+      "title": "response",
+      "lines": [
+        "HTTP/1.1 200 OK",
+        "Content-Type: text/html",
+        "// 404 Not Found · 500 Server Error"
+      ],
+      "highlight": 0
+    },
+    {
+      "type": "statement",
+      "at": "But HTML is just the skeleton",
+      "big": "HTML is just the skeleton",
+      "chips": [
+        "style.css",
+        "app.js",
+        "logo.png",
+        "font.woff2",
+        "+ dozens more"
+      ]
+    },
+    {
+      "type": "flow",
+      "at": "Then it builds the page",
+      "title": "render",
+      "nodes": [
+        "HTML + CSS",
+        "build the page",
+        "layout",
+        "paint ✓"
+      ]
+    },
+    {
+      "type": "end",
+      "at": "Send this",
+      "text": "you_hit_enter ✓ complete",
+      "sub": "send to whoever thinks wi-fi is the internet"
+    }
+  ],
+  "keywords": [
+    "request",
+    "GET",
+    "status",
+    "200",
+    "404",
+    "500",
+    "skeleton",
+    "dozens",
+    "paints"
+  ],
+  "captions": {
+    "instagram": "HTTP requests: your browser asks for way more than one file.\n200, 404, 500, and the dozens of requests behind one page. Part 3/3 of \"you hit enter.\"\n#http #webdev #frontend #learntocode #codinglife",
+    "youtubeTitle": "Why one webpage = dozens of requests #webdev"
+  }
+}

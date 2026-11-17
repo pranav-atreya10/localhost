@@ -1,0 +1,3 @@
+{
+  "text": "a good website doesn't know your password.\n\nit stores a hash: a one-way scramble of it. when you log in, it scrambles what you typed and checks if they match.\n\nif a site can email you your actual password, that's a red flag."
+}

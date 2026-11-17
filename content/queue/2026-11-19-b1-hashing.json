@@ -1,0 +1,88 @@
+{
+  "id": "b1-hashing",
+  "seriesBadge": "behind_the_login · 1/3",
+  "voiceover": "A well-built website doesn't actually know your password. When you sign up, it runs your password through a hash function, basically a one-way blender. Same input, same output, but you can't un-blend it back. The site stores only that hash. When you log in, it hashes what you typed and checks whether it matches. That's why \"forgot password\" sends you a reset link instead of your old password. They don't have it. If a site ever emails you your actual password, it's storing it in a way that can be read. That's a red flag. Part two: why the same password can get different hashes.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "That site doesn't know your password.",
+      "sub": "••••••••"
+    },
+    {
+      "type": "code",
+      "at": "When you sign up",
+      "title": "sign up",
+      "lines": [
+        "\"hunter2\" → hash() → 7f3a…e91c",
+        "7f3a…e91c → ??? ✗ one-way",
+        "// example hash, shortened"
+      ],
+      "highlight": 1
+    },
+    {
+      "type": "compare",
+      "at": "The site stores only that hash",
+      "left": {
+        "label": "user",
+        "value": "you"
+      },
+      "right": {
+        "label": "stored",
+        "value": "7f3a…e91c"
+      },
+      "verdict": "no password column",
+      "verdictTone": "ok"
+    },
+    {
+      "type": "code",
+      "at": "When you log in",
+      "title": "log in",
+      "lines": [
+        "hash(\"hunter2\") → 7f3a…e91c  ✓ match",
+        "hash(\"hunter3\") → c02b…4d17  ✗ no match",
+        "// one letter = totally different"
+      ],
+      "highlight": 0
+    },
+    {
+      "type": "list",
+      "at": "That's why",
+      "title": "forgot password?",
+      "items": [
+        {
+          "text": "\"click to set a new password\"",
+          "status": "ok"
+        },
+        {
+          "text": "\"your password is: hunter2\"",
+          "status": "bad"
+        }
+      ]
+    },
+    {
+      "type": "statement",
+      "at": "That's a red flag",
+      "big": "site emails your password = red flag",
+      "small": "real sites use slow hashes: bcrypt, Argon2"
+    },
+    {
+      "type": "end",
+      "at": "Part two",
+      "text": "part 2: same password, different hash"
+    }
+  ],
+  "keywords": [
+    "password",
+    "hash",
+    "one-way",
+    "stores",
+    "matches",
+    "reset",
+    "red",
+    "flag"
+  ],
+  "captions": {
+    "instagram": "Password hashing: good sites never store your real password.\nIf they can email it back to you, that's a red flag. Part 1/3 of \"behind the login.\"\n#cybersecurity #learntocode #webdev #computerscience #infosec",
+    "youtubeTitle": "That website doesn't know your password #cybersecurity"
+  }
+}

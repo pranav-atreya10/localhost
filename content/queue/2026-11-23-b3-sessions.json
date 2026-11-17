@@ -1,0 +1,104 @@
+{
+  "id": "b3-sessions",
+  "seriesBadge": "behind_the_login · 3/3",
+  "voiceover": "Every request your browser sends is separate. HTTP has no memory. So how does a site know it's still you? After you log in, the server creates a session and sends your browser a cookie holding a long random ID. Your browser automatically attaches that cookie to every request to that site. The server sees the ID, looks it up: oh, it's you. That's why a stolen session cookie can let someone in without your password, and why \"log out of all devices\" exists: it ends those sessions on the server. Good sites also mark that cookie so page scripts can't read it. Send this to whoever's still logged in on the school computer.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "How it knows it's you."
+    },
+    {
+      "type": "list",
+      "at": "Every request your browser sends",
+      "title": "HTTP has no memory",
+      "items": [
+        {
+          "text": "GET /home — who is this?",
+          "status": "none"
+        },
+        {
+          "text": "GET /profile — who is this?",
+          "status": "none"
+        },
+        {
+          "text": "GET /settings — who is this?",
+          "status": "none"
+        }
+      ]
+    },
+    {
+      "type": "pair",
+      "at": "After you log in",
+      "left": "you",
+      "right": "server",
+      "messages": [
+        {
+          "dir": "right",
+          "label": "login ✓"
+        },
+        {
+          "dir": "left",
+          "label": "Set-Cookie: session=a8f3…"
+        }
+      ],
+      "result": "cookie saved"
+    },
+    {
+      "type": "code",
+      "at": "Your browser automatically attaches",
+      "title": "every request",
+      "lines": [
+        "GET /profile",
+        "Cookie: session=a8f3…",
+        "lookup(a8f3…) → you ✓"
+      ],
+      "highlight": 2
+    },
+    {
+      "type": "list",
+      "at": "That's why a stolen session cookie",
+      "title": "stolen cookie?",
+      "items": [
+        {
+          "text": "someone else gets in",
+          "status": "bad"
+        },
+        {
+          "text": "log out of all devices → session ended",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "type": "code",
+      "at": "Good sites also mark that cookie",
+      "title": "response header",
+      "lines": [
+        "Set-Cookie: session=a8f3…;",
+        "  HttpOnly; Secure",
+        "// scripts can't read it · HTTPS only"
+      ],
+      "highlight": 1
+    },
+    {
+      "type": "end",
+      "at": "Send this",
+      "text": "behind_the_login ✓ complete",
+      "sub": "send to whoever's logged in on the school computer"
+    }
+  ],
+  "keywords": [
+    "memory",
+    "session",
+    "cookie",
+    "ID",
+    "stolen",
+    "log",
+    "out",
+    "scripts"
+  ],
+  "captions": {
+    "instagram": "Session cookies: how websites remember you're logged in.\nHTTP forgets you after every request. The cookie is why it doesn't. Part 3/3 of \"behind the login.\"\n#webdev #cybersecurity #backend #learntocode #codinglife",
+    "youtubeTitle": "How websites remember you're logged in #webdev"
+  }
+}

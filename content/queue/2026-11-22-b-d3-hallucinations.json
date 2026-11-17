@@ -1,0 +1,66 @@
+{
+  "id": "d3-hallucinations",
+  "seriesBadge": "how_ai_codes · 3/3",
+  "voiceover": "Sometimes AI invents a function, a setting, or even a whole package that doesn't exist. That's called a hallucination. Remember, it predicts what looks right, so a made-up name that sounds real can come out sounding totally confident. With packages, that's actually a security risk: attackers can register those made-up names as real packages, hoping someone installs them. So before you install something an AI suggested, check that it exists, that people actually use it, and that it's the one you meant. Run the code. Read the error. AI is a fast intern, not an oracle. Send this to whoever pastes AI code without reading it.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "AI makes up code sometimes."
+    },
+    {
+      "type": "code",
+      "at": "That's called a hallucination",
+      "title": "AI suggestion",
+      "lines": [
+        "import totally_real_json",
+        "✗ ModuleNotFoundError",
+        "// made-up example name"
+      ],
+      "highlight": 1
+    },
+    {
+      "type": "statement",
+      "at": "With packages",
+      "big": "made-up names can become real traps",
+      "small": "fake name → someone registers it → you install it"
+    },
+    {
+      "type": "list",
+      "at": "So before you install",
+      "title": "before you install",
+      "items": [
+        {
+          "text": "does it exist?",
+          "status": "ok"
+        },
+        {
+          "text": "do people actually use it?",
+          "status": "ok"
+        },
+        {
+          "text": "is it the one you meant?",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "type": "end",
+      "at": "Send this",
+      "text": "how_ai_codes ✓ complete",
+      "sub": "AI is a fast intern, not an oracle"
+    }
+  ],
+  "keywords": [
+    "invents",
+    "hallucination",
+    "confident",
+    "security",
+    "register",
+    "check",
+    "error"
+  ],
+  "captions": {
+    "instagram": "AI hallucinations in code: when it invents packages that don't exist.\nCheck before you install. Part 3/3 of \"how AI codes.\"\n#vibecoding #ai #cybersecurity #learntocode #coding",
+    "youtubeTitle": "When AI invents code that doesn't exist #ai"
+  }
+}

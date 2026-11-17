@@ -1,0 +1,77 @@
+{
+  "id": "d1-tokens",
+  "seriesBadge": "how_ai_codes · 1/3",
+  "voiceover": "When AI writes code, it isn't looking anything up. It's predicting. A language model breaks text into tokens: chunks of characters, often pieces of words. Then it guesses the most likely next token, adds it, and guesses again. One token at a time. It learned those patterns from a huge amount of text and code during training. That's why it's great at common patterns, like a for loop or a login form, and why it can sound confident about stuff that's wrong. It's predicting what looks right, not checking what is right. Part two: why it forgets what you told it earlier.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "AI doesn't look up your code."
+    },
+    {
+      "type": "code",
+      "at": "A language model breaks text into tokens",
+      "title": "tokens (example split)",
+      "lines": [
+        "for i in range(10):",
+        "[for][ i][ in][ range][(][10][):]",
+        "// real splits vary by model"
+      ],
+      "highlight": 1
+    },
+    {
+      "type": "flow",
+      "at": "Then it guesses the most likely next token",
+      "title": "one token at a time",
+      "nodes": [
+        "for i in",
+        "+ range",
+        "+ (",
+        "+ 10",
+        "+ ):"
+      ]
+    },
+    {
+      "type": "statement",
+      "at": "It learned those patterns",
+      "big": "patterns from training, not a database"
+    },
+    {
+      "type": "list",
+      "at": "That's why it's great",
+      "title": "so…",
+      "items": [
+        {
+          "text": "common patterns: strong",
+          "status": "ok"
+        },
+        {
+          "text": "confident + wrong: possible",
+          "status": "bad"
+        }
+      ]
+    },
+    {
+      "type": "statement",
+      "at": "It's predicting what looks right",
+      "big": "looks right ≠ is right"
+    },
+    {
+      "type": "end",
+      "at": "Part two",
+      "text": "part 2: the context window"
+    }
+  ],
+  "keywords": [
+    "predicting",
+    "tokens",
+    "next",
+    "token",
+    "patterns",
+    "confident",
+    "right"
+  ],
+  "captions": {
+    "instagram": "How AI writes code: it predicts the next token.\nIt's not looking anything up. Part 1/3 of \"how AI codes.\"\n#vibecoding #ai #learntocode #llm #coding",
+    "youtubeTitle": "How AI actually writes code #ai #coding"
+  }
+}

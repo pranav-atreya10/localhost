@@ -1,0 +1,79 @@
+{
+  "id": "c1-compiled",
+  "seriesBadge": "inside_your_computer · 1/3",
+  "voiceover": "Your computer doesn't understand Python. Or JavaScript. Or any language you type. It only runs machine code: raw instructions for the processor. So something has to translate. A compiler translates the whole program ahead of time into a file the computer can run directly. That's languages like C, Rust and Go. An interpreter reads your code and runs it as it goes. That's roughly how Python works. Modern JavaScript engines do both: they start by interpreting, then compile the busy parts while your code is running. That's called just-in-time compilation. Part two: where your program actually lives while it runs.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "Your computer doesn't speak Python."
+    },
+    {
+      "type": "code",
+      "at": "It only runs machine code",
+      "title": "what the CPU sees",
+      "lines": [
+        "print(\"hi\")        // you",
+        "10110000 01100001…  // CPU",
+        "// example bytes"
+      ],
+      "highlight": 1
+    },
+    {
+      "type": "flow",
+      "at": "A compiler translates",
+      "title": "compiled: C, Rust, Go",
+      "nodes": [
+        "main.c",
+        "compiler",
+        "program file",
+        "run ✓"
+      ]
+    },
+    {
+      "type": "list",
+      "at": "An interpreter reads your code",
+      "title": "interpreted: line by line",
+      "items": [
+        {
+          "text": "read line 1 → run",
+          "status": "ok"
+        },
+        {
+          "text": "read line 2 → run",
+          "status": "ok"
+        },
+        {
+          "text": "read line 3 → run",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "type": "statement",
+      "at": "Modern JavaScript engines do both",
+      "big": "JIT: interpret first, compile the busy parts",
+      "chips": [
+        "just-in-time",
+        "JavaScript"
+      ]
+    },
+    {
+      "type": "end",
+      "at": "Part two",
+      "text": "part 2: where your program lives"
+    }
+  ],
+  "keywords": [
+    "machine",
+    "code",
+    "compiler",
+    "interpreter",
+    "translate",
+    "just-in-time",
+    "JIT"
+  ],
+  "captions": {
+    "instagram": "Compiled vs interpreted languages, explained in 40 seconds.\nYour CPU only speaks machine code. Part 1/3 of \"inside your computer.\"\n#learntocode #python #javascript #computerscience #programming",
+    "youtubeTitle": "Compiled vs interpreted, explained #programming"
+  }
+}

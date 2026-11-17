@@ -1,0 +1,78 @@
+{
+  "id": "c2-ram",
+  "seriesBadge": "inside_your_computer · 2/3",
+  "voiceover": "Every app you open gets copied from storage into RAM. Storage, your SSD, is huge and keeps everything when the power's off, but it's slower. RAM is much faster, but smaller, and it forgets everything when you shut down. The processor works on what's in RAM. When RAM fills up, your computer starts parking pieces of it back on the SSD. That's called swap, and it's why everything suddenly gets laggy with fifty tabs open. Closing apps frees RAM. Restarting clears it completely. That's why turning it off and on again actually works sometimes. Part three: what the processor does with all of it.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "Your apps live in two places."
+    },
+    {
+      "type": "compare",
+      "at": "Storage, your SSD",
+      "left": {
+        "label": "storage (SSD)",
+        "value": "huge · slower · keeps data"
+      },
+      "right": {
+        "label": "RAM",
+        "value": "smaller · fast · forgets"
+      }
+    },
+    {
+      "type": "statement",
+      "at": "The processor works on what's in RAM",
+      "big": "the CPU works from RAM",
+      "small": "SSD → RAM → CPU"
+    },
+    {
+      "type": "list",
+      "at": "When RAM fills up",
+      "title": "RAM full",
+      "items": [
+        {
+          "text": "pieces parked on SSD (swap)",
+          "status": "bad"
+        },
+        {
+          "text": "50 tabs → lag",
+          "status": "bad"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "at": "Closing apps frees RAM",
+      "title": "fixes",
+      "items": [
+        {
+          "text": "close apps → RAM freed",
+          "status": "ok"
+        },
+        {
+          "text": "restart → RAM cleared",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "type": "end",
+      "at": "Part three",
+      "text": "part 3: the processor"
+    }
+  ],
+  "keywords": [
+    "storage",
+    "RAM",
+    "SSD",
+    "faster",
+    "swap",
+    "laggy",
+    "frees",
+    "clears"
+  ],
+  "captions": {
+    "instagram": "RAM vs storage: why 50 tabs make your laptop lag.\nAnd why restarting actually helps. Part 2/3 of \"inside your computer.\"\n#computerscience #techtips #learntocode #hardware #coding",
+    "youtubeTitle": "RAM vs storage: why your laptop lags #tech"
+  }
+}

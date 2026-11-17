@@ -1,0 +1,73 @@
+{
+  "id": "d2-context",
+  "seriesBadge": "how_ai_codes · 2/3",
+  "voiceover": "AI doesn't remember your whole project. It only sees its context window: the text it can read at once, measured in tokens. Your messages, its replies, any files you paste in, all of it has to fit. Newer models have huge windows, but it's still a limit. When a conversation gets too long, older parts get cut or summarized, depending on the tool. That's why after an hour of vibe coding, it suddenly forgets the rule you set at the start. The fix: start fresh chats for new features, and restate the important stuff. Part three: why AI sometimes invents code that doesn't exist.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "AI doesn't remember your project."
+    },
+    {
+      "type": "statement",
+      "at": "It only sees its context window",
+      "big": "context window = what it can read at once",
+      "chips": [
+        "your messages",
+        "its replies",
+        "pasted files"
+      ]
+    },
+    {
+      "type": "list",
+      "at": "When a conversation gets too long",
+      "title": "hour 1 → hour 3",
+      "items": [
+        {
+          "text": "\"always use TypeScript\" — cut",
+          "status": "bad"
+        },
+        {
+          "text": "\"write the login page\"",
+          "status": "none"
+        },
+        {
+          "text": "writes plain JavaScript",
+          "status": "bad"
+        }
+      ]
+    },
+    {
+      "type": "list",
+      "at": "The fix",
+      "title": "the fix",
+      "items": [
+        {
+          "text": "new chat per feature",
+          "status": "ok"
+        },
+        {
+          "text": "restate the important rules",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "type": "end",
+      "at": "Part three",
+      "text": "part 3: made-up code"
+    }
+  ],
+  "keywords": [
+    "remember",
+    "context",
+    "window",
+    "tokens",
+    "forgets",
+    "fresh",
+    "restate"
+  ],
+  "captions": {
+    "instagram": "Why AI forgets what you told it: the context window.\nThe fix takes 5 seconds. Part 2/3 of \"how AI codes.\"\n#vibecoding #ai #llm #learntocode #buildinpublic",
+    "youtubeTitle": "Why AI forgets what you told it #vibecoding"
+  }
+}

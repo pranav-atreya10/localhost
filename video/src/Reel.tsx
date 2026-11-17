@@ -76,7 +76,7 @@ export const Reel: React.FC<ReelProps> = (props) => {
       <Badge text={props.seriesBadge} />
       <Captions words={props.words} keywords={props.keywords} />
       {props.voiceSrc ? <Audio src={staticFile(props.voiceSrc)} /> : null}
-      {props.musicSrc ? <Audio src={staticFile(props.musicSrc)} volume={0.13} loop /> : null}
+      {props.musicSrc ? <Audio src={staticFile(props.musicSrc)} volume={0.22} loop /> : null}
     </AbsoluteFill>
   );
 };

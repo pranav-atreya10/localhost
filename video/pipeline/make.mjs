@@ -103,6 +103,7 @@ if (DRY) {
   fs.writeFileSync(voiceFile, Buffer.from(data.audio_base64, 'base64'));
   words = wordsFromAlignment(data.alignment);
   duration = audioDuration(voiceFile);
+  if (!(duration > 5) || words.length < 20) throw new Error(`Voiceover looks broken (${duration}s, ${words.length} words) — not posting a silent video`);
 }
 
 // ---------- music (generated, so it's 100% copyright-free) ----------
@@ -119,7 +120,7 @@ const expr = [
 ].join('+');
 execFileSync('ffmpeg', [
   '-y', '-loglevel', 'error', '-f', 'lavfi', '-i', `aevalsrc='${expr}':s=44100:d=${Math.ceil(duration + 3)}`,
-  '-af', 'lowpass=f=1400,aecho=0.8:0.6:420|700:0.25|0.18,afade=t=in:d=1.5,volume=0.9', musicFile,
+  '-af', 'lowpass=f=1600,aecho=0.8:0.6:420|700:0.25|0.18,afade=t=in:d=1.5,loudnorm=I=-16:TP=-2:LRA=7', musicFile,
 ]);
 
 // ---------- render ----------

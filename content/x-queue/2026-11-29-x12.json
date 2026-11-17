@@ -1,0 +1,3 @@
+{
+  "text": "why does 50 tabs make your laptop lag?\n\nRAM fills up, so your computer starts parking stuff on the SSD (swap). the SSD is way slower than RAM.\n\nclose tabs = free RAM. restart = clear RAM."
+}

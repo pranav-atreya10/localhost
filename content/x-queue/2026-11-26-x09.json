@@ -1,0 +1,3 @@
+{
+  "text": "your computer doesn't understand python.\n\nit only runs machine code. something has to translate: a compiler (all at once, ahead of time) or an interpreter (line by line, as it runs).\n\nthat's the whole difference."
+}

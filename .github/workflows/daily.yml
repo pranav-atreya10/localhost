@@ -2,8 +2,8 @@ name: post reels (2x daily)
 
 on:
   schedule:
-    - cron: '0 18 * * *'  # afternoon run (1pm ET): reel posts 3:30pm ET, X post 6:30pm ET
-    - cron: '30 22 * * *' # evening run (5:30pm ET): reel posts 8pm ET
+    - cron: '0 18 * * *'  # afternoon run (1pm ET): reel 4:30pm ET, X 6pm ET + 6:15am ET next day
+    - cron: '30 22 * * *' # evening run (5:30pm ET): reel 8pm ET, X 9:30pm ET
   workflow_dispatch:
     inputs:
       dry:

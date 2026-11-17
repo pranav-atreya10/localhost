@@ -2,8 +2,8 @@
 
 This repo runs the **localhost** (@localhost.wear) content machine. A GitHub Action runs **twice a day** (18:00 and 22:30 UTC):
 each run takes the **oldest** file in `content/queue/`, makes the voiceover (ElevenLabs), renders the reel (Remotion),
-hosts it on GitHub Pages, and schedules it in Buffer for Instagram (Reel) + YouTube (Short). The 18:00 UTC run also schedules the
-oldest file in `content/x-queue/` as a text post on X (one X post per day). Posted files move to `content/posted/` and `content/x-posted/`.
+hosts it on GitHub Pages, and schedules it in Buffer for Instagram (Reel) + YouTube (Short). The runs also schedule the oldest files in
+`content/x-queue/` as text posts on X: **3 X posts per day** (6:15am, 6pm, 9:30pm ET). Posted files move to `content/posted/` and `content/x-posted/`.
 `status/log.md` records every run.
 
 ## Brand
@@ -15,7 +15,7 @@ oldest file in `content/x-queue/` as a text post on X (one X post per day). Post
 - Security topics: explain defenses only, never attack how-tos.
 
 ## Reel file: `content/queue/YYYY-MM-DD-<a|b>-<id>.json`
-File names sort = posting order. **Two reels per day**: `-a-` posts 3:30pm ET, `-b-` posts 8pm ET.
+File names sort = posting order. **Two reels per day**: `-a-` posts 4:30pm ET, `-b-` posts 8pm ET.
 Run **two series in parallel**: series 1 always takes the `a` slot, series 2 always takes the `b` slot
 (e.g. 2026-11-24-a-… = series 1 part 1, 2026-11-24-b-… = series 2 part 1). Keep at least 14 reels queued.
 
@@ -49,6 +49,8 @@ Scene types (all text must be short; the card is ~730 px wide):
 Check before committing: `cd video && npm ci && node pipeline/check.mjs` (validates every queued file).
 
 ## X file: `content/x-queue/YYYY-MM-DD-xN.json`
-`{"text": "≤ 280 chars, no links, no hashtags spam"}`. One per day.
-Weekly mix (7 posts): 3 one-liner coding jokes, 2 build-in-public posts (true facts only, no made-up numbers),
-1 mini-explainer tied to that week's reels, 1 question that invites replies.
+`{"text": "≤ 280 chars, no links, no hashtag spam"}`. **Three per day; keep at least 21 queued.**
+Name files `YYYY-MM-DD-xN.json` so they sort in posting order.
+Weekly mix (21 posts): 8 one-liner coding jokes/observations, 4 build-in-public posts (true facts only, no
+made-up numbers), 4 mini-explainers tied to that week's reels, 3 questions that invite replies, 2 "hot takes"
+about coding/AI (light, never mean). Morning posts (the 6:15am one) work best as quick jokes or questions.

@@ -11,21 +11,33 @@
     }
   },
   "schedule": {
-    "_note": "Times are UTC. afternoon run 18:00 UTC -> posts 20:30 UTC (3:30pm ET) + X at 23:30 UTC. evening run 22:30 UTC -> posts 01:00 UTC (8pm ET).",
+    "_note": "Times are UTC (ET = UTC-5 in winter). Afternoon run 18:00 UTC: reel 4:30pm ET, X 6pm ET + 6:15am ET next morning. Evening run 22:30 UTC: reel 8pm ET, X 9:30pm ET.",
     "slots": {
       "afternoon": {
-        "hourUTC": 20,
+        "hourUTC": 21,
         "minuteUTC": 30,
-        "postX": true
+        "x": [
+          {
+            "hourUTC": 23,
+            "minuteUTC": 0
+          },
+          {
+            "hourUTC": 11,
+            "minuteUTC": 15
+          }
+        ]
       },
       "evening": {
         "hourUTC": 1,
         "minuteUTC": 0,
-        "postX": false
+        "x": [
+          {
+            "hourUTC": 2,
+            "minuteUTC": 30
+          }
+        ]
       }
-    },
-    "xHourUTC": 23,
-    "xMinuteUTC": 30
+    }
   },
   "youtube": {
     "categoryId": "27",

@@ -145,30 +145,36 @@ if (fs.existsSync(planFile)) {
 }
 
 // ---------- X ----------
-const xq = listJson(X_QUEUE);
 const xc = byService('twitter') || byService('x');
-if (!SLOT.postX) {
-  console.log(`${SLOT_NAME} run: no X post`);
-} else if (xq.length && xc) {
+const xSlots = SLOT.x || [];
+if (xSlots.length && !xc) failures.push('No X channel connected in Buffer');
+for (const xs of xc ? xSlots : []) {
+  const xq = listJson(X_QUEUE);
+  if (!xq.length) {
+    failures.push('X queue is empty');
+    break;
+  }
   const file = xq[0];
   const item = readJson(path.join(X_QUEUE, file));
   const errs = validateX(item);
   if (errs.length) {
     failures.push(`X post ${file}: ${errs.join(', ')}`);
-    log(`X post ${file} ❌ failed checks: ${errs.join(', ')}`);
-  } else {
-    const dueAt = slot(config.schedule.xHourUTC, config.schedule.xMinuteUTC);
-    try {
-      await createPost({channelId: xc.id, text: item.text, schedulingType: 'automatic', mode: 'customScheduled', dueAt});
-      writeJson(path.join(X_POSTED, file), {...item, scheduledFor: dueAt});
-      fs.rmSync(path.join(X_QUEUE, file));
-      log(`X post "${item.text.slice(0, 50).replace(/\n/g, ' ')}…" ✅`);
-    } catch (e) {
-      failures.push(`X: ${e.message}`);
-      log(`X post ❌ ${e.message.slice(0, 120)}`);
-    }
+    // park the bad post so it doesn't block the queue
+    writeJson(path.join(X_POSTED, 'FAILED-' + file), {...item, errors: errs});
+    fs.rmSync(path.join(X_QUEUE, file));
+    continue;
   }
-} else if (!xc) failures.push('No X channel connected in Buffer');
+  const dueAt = slot(xs.hourUTC, xs.minuteUTC);
+  try {
+    await createPost({channelId: xc.id, text: item.text, schedulingType: 'automatic', mode: 'customScheduled', dueAt});
+    writeJson(path.join(X_POSTED, file), {...item, scheduledFor: dueAt});
+    fs.rmSync(path.join(X_QUEUE, file));
+    log(`X post for ${dueAt.slice(0, 16).replace('T', ' ')} UTC "${item.text.slice(0, 40).replace(/\n/g, ' ')}…" ✅`);
+  } catch (e) {
+    failures.push(`X: ${e.message}`);
+    break;
+  }
+}
 
 if (failures.length) {
   for (const f of failures) log(`❌ ${f.slice(0, 300)}`);

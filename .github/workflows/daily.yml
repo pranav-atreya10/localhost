@@ -1,8 +1,9 @@
-name: daily post
+name: post reels (2x daily)
 
 on:
   schedule:
-    - cron: '0 18 * * *' # 18:00 UTC = 1pm ET. Posts go live at 21:00 UTC (4pm ET); X at 23:30 UTC.
+    - cron: '0 18 * * *'  # afternoon run (1pm ET): reel posts 3:30pm ET, X post 6:30pm ET
+    - cron: '30 22 * * *' # evening run (5:30pm ET): reel posts 8pm ET
   workflow_dispatch:
     inputs:
       dry:
@@ -65,6 +66,7 @@ jobs:
         working-directory: video
         env:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          REEL_SLOT: ${{ github.event.schedule == '30 22 * * *' && 'evening' || 'afternoon' }}
         run: node pipeline/publish.mjs
 
       - name: Save queue + log
@@ -73,5 +75,5 @@ jobs:
           git config user.name "localhost-bot"
           git config user.email "localhost-bot@users.noreply.github.com"
           git add content status || true
-          git diff --cached --quiet || git commit -m "post: $(date -u +%F)"
+          git diff --cached --quiet || git commit -m "post: $(date -u +%F\ %H:%M)"
           git push || true

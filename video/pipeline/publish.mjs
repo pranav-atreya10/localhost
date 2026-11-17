@@ -51,13 +51,18 @@ const createPost = async (input) => {
   return r.post.id;
 };
 
-// Next time today at hh:mm UTC; if it's too close/past, 30 minutes from now.
+// Next hh:mm UTC that's at least 20 min away (within the next ~20 hours); otherwise 30 minutes from now.
 const slot = (h, m = 0) => {
   const now = new Date();
   const t = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), h, m));
-  if (t.getTime() - now.getTime() < 20 * 60 * 1000) return new Date(now.getTime() + 30 * 60 * 1000).toISOString();
+  if (t.getTime() - now.getTime() < 20 * 60 * 1000) t.setUTCDate(t.getUTCDate() + 1);
+  if (t.getTime() - now.getTime() > 20 * 3600 * 1000) return new Date(now.getTime() + 30 * 60 * 1000).toISOString();
   return t.toISOString();
 };
+
+const SLOT_NAME = process.env.REEL_SLOT || 'afternoon';
+const SLOT = config.schedule.slots[SLOT_NAME];
+if (!SLOT) throw new Error(`Unknown REEL_SLOT "${SLOT_NAME}"`);
 
 const waitForUrl = async (url) => {
   for (let i = 0; i < 40; i++) {
@@ -80,7 +85,7 @@ if (fs.existsSync(planFile)) {
   const script = readJson(path.join(ROOT, plan.scriptPath));
   const url = `${config.pagesBase}/${plan.video}`;
   await waitForUrl(url);
-  const dueAt = slot(config.schedule.reelHourUTC);
+  const dueAt = slot(SLOT.hourUTC, SLOT.minuteUTC);
   const video = {video: {url, metadata: {thumbnailOffset: 1200}}};
   const results = [];
 
@@ -136,13 +141,15 @@ if (fs.existsSync(planFile)) {
     writeJson(path.join(POSTED, path.basename(plan.scriptPath)), {...script, scheduledFor: dueAt, results});
     fs.rmSync(path.join(ROOT, plan.scriptPath));
   }
-  log(`reel **${script.id}** for ${dueAt.slice(0, 16).replace('T', ' ')} UTC — ${results.join(', ')}`);
+  log(`${SLOT_NAME} reel **${script.id}** for ${dueAt.slice(0, 16).replace('T', ' ')} UTC — ${results.join(', ')}`);
 }
 
 // ---------- X ----------
 const xq = listJson(X_QUEUE);
 const xc = byService('twitter') || byService('x');
-if (xq.length && xc) {
+if (!SLOT.postX) {
+  console.log(`${SLOT_NAME} run: no X post`);
+} else if (xq.length && xc) {
   const file = xq[0];
   const item = readJson(path.join(X_QUEUE, file));
   const errs = validateX(item);

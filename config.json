@@ -3,12 +3,32 @@
   "elevenlabs": {
     "voiceId": "QIhD5ivPGEoYZQDocuHI",
     "modelId": "eleven_multilingual_v2",
-    "voiceSettings": {"stability": 0.45, "similarity_boost": 0.8, "style": 0.15, "use_speaker_boost": true}
+    "voiceSettings": {
+      "stability": 0.45,
+      "similarity_boost": 0.8,
+      "style": 0.15,
+      "use_speaker_boost": true
+    }
   },
   "schedule": {
-    "reelHourUTC": 21,
+    "_note": "Times are UTC. afternoon run 18:00 UTC -> posts 20:30 UTC (3:30pm ET) + X at 23:30 UTC. evening run 22:30 UTC -> posts 01:00 UTC (8pm ET).",
+    "slots": {
+      "afternoon": {
+        "hourUTC": 20,
+        "minuteUTC": 30,
+        "postX": true
+      },
+      "evening": {
+        "hourUTC": 1,
+        "minuteUTC": 0,
+        "postX": false
+      }
+    },
     "xHourUTC": 23,
     "xMinuteUTC": 30
   },
-  "youtube": {"categoryId": "27", "privacy": "public"}
+  "youtube": {
+    "categoryId": "27",
+    "privacy": "public"
+  }
 }

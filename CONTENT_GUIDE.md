@@ -1,9 +1,9 @@
 # Content guide (read this before writing new posts)
 
-This repo runs the **localhost** (@localhost.wear) content machine. A GitHub Action runs daily at 18:00 UTC:
-it takes the **oldest** file in `content/queue/`, makes the voiceover (ElevenLabs), renders the reel (Remotion),
-hosts it on GitHub Pages, and schedules it in Buffer for Instagram (Reel) + YouTube (Short). It also schedules the
-oldest file in `content/x-queue/` as a text post on X. Posted files move to `content/posted/` and `content/x-posted/`.
+This repo runs the **localhost** (@localhost.wear) content machine. A GitHub Action runs **twice a day** (18:00 and 22:30 UTC):
+each run takes the **oldest** file in `content/queue/`, makes the voiceover (ElevenLabs), renders the reel (Remotion),
+hosts it on GitHub Pages, and schedules it in Buffer for Instagram (Reel) + YouTube (Short). The 18:00 UTC run also schedules the
+oldest file in `content/x-queue/` as a text post on X (one X post per day). Posted files move to `content/posted/` and `content/x-posted/`.
 `status/log.md` records every run.
 
 ## Brand
@@ -14,8 +14,10 @@ oldest file in `content/x-queue/` as a text post on X. Posted files move to `con
 - Every technical fact must be correct. Use `example.com` and IPs from `203.0.113.0/24` for examples, labeled as examples.
 - Security topics: explain defenses only, never attack how-tos.
 
-## Reel file: `content/queue/YYYY-MM-DD-<id>.json`
-File names sort = posting order. One reel per day.
+## Reel file: `content/queue/YYYY-MM-DD-<a|b>-<id>.json`
+File names sort = posting order. **Two reels per day**: `-a-` posts 3:30pm ET, `-b-` posts 8pm ET.
+Run **two series in parallel**: series 1 always takes the `a` slot, series 2 always takes the `b` slot
+(e.g. 2026-11-24-a-… = series 1 part 1, 2026-11-24-b-… = series 2 part 1). Keep at least 14 reels queued.
 
 ```json
 {

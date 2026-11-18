@@ -1,0 +1,81 @@
+{
+  "id": "a1-dns",
+  "seriesBadge": "you_hit_enter · 1/3",
+  "voiceover": "Your computer can't connect to a name. It needs a number, an IP address. So when you hit enter, it first checks its own memory: have I looked this up recently? If not, it asks a resolver, usually run by your internet provider or a public DNS service. The resolver asks a root server, which points it to the servers for the ending, like dot com. Those point it to the site's own name server, which finally answers: here's the IP. That's DNS, basically the internet's contacts app. The answer gets cached, so next time it's instant. Part two: now your computer has to say hi.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "Computers don't do names."
+    },
+    {
+      "type": "code",
+      "at": "So when you hit enter",
+      "title": "browser",
+      "lines": [
+        "example.com ↵",
+        "connect(\"example.com\")",
+        "✗ need an IP address"
+      ],
+      "highlight": 2
+    },
+    {
+      "type": "list",
+      "at": "it first checks its own memory",
+      "title": "checking memory…",
+      "items": [
+        {
+          "text": "browser cache — miss",
+          "status": "bad"
+        },
+        {
+          "text": "OS cache — miss",
+          "status": "bad"
+        }
+      ]
+    },
+    {
+      "type": "flow",
+      "at": "If not, it asks a resolver",
+      "title": "who knows the IP?",
+      "nodes": [
+        "you",
+        "resolver",
+        "root server (.)",
+        ".com servers",
+        "name server"
+      ]
+    },
+    {
+      "type": "statement",
+      "at": "That's DNS",
+      "big": "DNS = the internet's contacts app",
+      "small": "example.com → 203.0.113.42   // example IP",
+      "chips": [
+        "cached ✓"
+      ]
+    },
+    {
+      "type": "end",
+      "at": "Part two",
+      "text": "part 2: the handshake"
+    }
+  ],
+  "keywords": [
+    "IP",
+    "memory",
+    "resolver",
+    "root",
+    "DNS",
+    "cached",
+    "hi"
+  ],
+  "captions": {
+    "instagram": "DNS is why typing a name works at all.\nYour computer only speaks IP addresses. Part 1/3 of \"you hit enter.\"\n#dns #learntocode #webdev #codinglife #computerscience",
+    "youtubeTitle": "What DNS actually does when you hit Enter #webdev"
+  },
+  "scheduledFor": "2026-11-18T21:30:00.000Z",
+  "results": [
+    "Instagram ✅",
+    "YouTube ✅"
+  ]
+}

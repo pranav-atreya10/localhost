@@ -4,7 +4,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {execFileSync} from 'node:child_process';
-import {ROOT, VIDEO_DIR, QUEUE, POSTED, OUT, SITE, config, listJson, readJson, writeJson, validateReel} from './lib.mjs';
+import {ROOT, VIDEO_DIR, QUEUE, POSTED, OUT, SITE, config, listJson, readJson, writeJson, validateReel, reelSlotTaken} from './lib.mjs';
 
 const args = process.argv.slice(2);
 const DRY = args.includes('--dry');
@@ -13,6 +13,12 @@ const fileArg = args.includes('--file') ? args[args.indexOf('--file') + 1] : nul
 const setOutput = (k, v) => {
   if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `${k}=${v}\n`);
 };
+
+if (!DRY && !fileArg && reelSlotTaken()) {
+  console.log('A reel is already scheduled for this time slot — skipping the reel this run.');
+  setOutput('ready', 'false');
+  process.exit(0);
+}
 
 const queue = listJson(QUEUE);
 const scriptPath = fileArg ? path.resolve(ROOT, fileArg) : queue.length ? path.join(QUEUE, queue[0]) : null;

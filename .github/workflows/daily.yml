@@ -48,6 +48,7 @@ jobs:
         working-directory: video
         env:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          REEL_SLOT: ${{ github.event.schedule == '30 22 * * *' && 'evening' || 'afternoon' }}
         run: node pipeline/make.mjs ${{ inputs.dry && '--dry' || '' }}
 
       - name: Upload video to GitHub Pages

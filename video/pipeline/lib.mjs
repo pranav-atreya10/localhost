@@ -83,3 +83,29 @@ export const validateX = (x) => {
   if (/https?:\/\//i.test(x.text || '')) errs.push('no links in X posts');
   return errs;
 };
+
+// Next hh:mm UTC that's at least 20 min away (within the next ~20 hours); otherwise 30 minutes from now.
+export const slot = (h, m = 0) => {
+  const now = new Date();
+  const t = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), h, m));
+  if (t.getTime() - now.getTime() < 20 * 60 * 1000) t.setUTCDate(t.getUTCDate() + 1);
+  if (t.getTime() - now.getTime() > 20 * 3600 * 1000) return new Date(now.getTime() + 30 * 60 * 1000).toISOString();
+  return t.toISOString();
+};
+
+export const currentSlot = () => {
+  const name = process.env.REEL_SLOT || 'afternoon';
+  const s = config.schedule.slots[name];
+  if (!s) throw new Error(`Unknown REEL_SLOT "${name}"`);
+  return {name, slot: s};
+};
+
+// True if a reel is already scheduled within 2 hours of this run's reel time.
+export const reelSlotTaken = () => {
+  const {slot: s} = currentSlot();
+  const due = new Date(slot(s.hourUTC, s.minuteUTC)).getTime();
+  return listJson(POSTED).some((f) => {
+    const at = readJson(POSTED + '/' + f).scheduledFor;
+    return at && Math.abs(new Date(at).getTime() - due) < 2 * 3600 * 1000;
+  });
+};

@@ -2,7 +2,7 @@
 // Needs env BUFFER_API_KEY. Run after make.mjs and after the video is live on GitHub Pages.
 import fs from 'node:fs';
 import path from 'node:path';
-import {ROOT, OUT, POSTED, X_QUEUE, X_POSTED, config, listJson, readJson, writeJson, log, validateX} from './lib.mjs';
+import {ROOT, OUT, POSTED, X_QUEUE, X_POSTED, config, listJson, readJson, writeJson, log, validateX, slot, currentSlot} from './lib.mjs';
 
 const KEY = process.env.BUFFER_API_KEY;
 if (!KEY) throw new Error('BUFFER_API_KEY is not set');
@@ -51,18 +51,7 @@ const createPost = async (input) => {
   return r.post.id;
 };
 
-// Next hh:mm UTC that's at least 20 min away (within the next ~20 hours); otherwise 30 minutes from now.
-const slot = (h, m = 0) => {
-  const now = new Date();
-  const t = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), h, m));
-  if (t.getTime() - now.getTime() < 20 * 60 * 1000) t.setUTCDate(t.getUTCDate() + 1);
-  if (t.getTime() - now.getTime() > 20 * 3600 * 1000) return new Date(now.getTime() + 30 * 60 * 1000).toISOString();
-  return t.toISOString();
-};
-
-const SLOT_NAME = process.env.REEL_SLOT || 'afternoon';
-const SLOT = config.schedule.slots[SLOT_NAME];
-if (!SLOT) throw new Error(`Unknown REEL_SLOT "${SLOT_NAME}"`);
+const {name: SLOT_NAME, slot: SLOT} = currentSlot();
 
 const waitForUrl = async (url) => {
   for (let i = 0; i < 40; i++) {

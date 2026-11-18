@@ -15,6 +15,8 @@ for (const f of listJson(QUEUE)) {
 }
 for (const f of listJson(X_QUEUE)) {
   const errs = validateX(readJson(path.join(X_QUEUE, f)));
+  const card = readJson(path.join(X_QUEUE, f)).card;
+  if (card && !['hook', 'statement', 'code', 'list', 'flow', 'pair', 'compare'].includes(card.type)) errs.push(`card type "${card.type}" not allowed`);
   console.log(errs.length ? `❌ ${f}: ${errs.join(', ')}` : `✅ ${f}`);
   bad += errs.length;
 }

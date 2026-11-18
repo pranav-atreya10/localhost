@@ -1,3 +1,16 @@
 {
-  "text": "tabs or spaces. wrong answers only."
+  "text": "tabs or spaces. wrong answers only.",
+  "card": {
+    "type": "compare",
+    "left": {
+      "label": "tabs",
+      "value": "\\t"
+    },
+    "right": {
+      "label": "spaces",
+      "value": "····"
+    },
+    "verdict": "choose wisely",
+    "verdictTone": "ok"
+  }
 }

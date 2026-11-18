@@ -1,3 +1,21 @@
 {
-  "text": "why AI forgets the rule you told it an hour ago: the context window.\n\nit can only read so much at once. long chats get old parts cut or summarized.\n\nfix: new chat per feature, restate the important rules."
+  "text": "why AI forgets the rule you told it an hour ago: the context window.\n\nit can only read so much at once. long chats get old parts cut or summarized.\n\nfix: new chat per feature, restate the important rules.",
+  "card": {
+    "type": "list",
+    "title": "AI context window",
+    "items": [
+      {
+        "text": "msg 1: \"use TypeScript\" — cut",
+        "status": "bad"
+      },
+      {
+        "text": "msg 200: writes JavaScript",
+        "status": "bad"
+      },
+      {
+        "text": "fix: new chat per feature",
+        "status": "ok"
+      }
+    ]
+  }
 }

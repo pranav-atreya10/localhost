@@ -2,7 +2,7 @@
 // Needs env BUFFER_API_KEY. Run after make.mjs and after the video is live on GitHub Pages.
 import fs from 'node:fs';
 import path from 'node:path';
-import {ROOT, OUT, POSTED, X_QUEUE, X_POSTED, config, listJson, readJson, writeJson, log, validateX, slot, currentSlot} from './lib.mjs';
+import {ROOT, OUT, POSTED, X_QUEUE, X_POSTED, config, listJson, readJson, writeJson, log, validateX, openXSlots, cardName} from './lib.mjs';
 
 const KEY = process.env.BUFFER_API_KEY;
 if (!KEY) throw new Error('BUFFER_API_KEY is not set');
@@ -55,7 +55,6 @@ const track = async (service, input) => {
   bufferIds[service] = await createPost(input);
 };
 
-const {name: SLOT_NAME, slot: SLOT} = currentSlot();
 
 const waitForUrl = async (url) => {
   for (let i = 0; i < 40; i++) {
@@ -71,16 +70,17 @@ console.log('Buffer channels:', channels.map((c) => `${c.service}:${c.name}`).jo
 const byService = (s) => channels.find((c) => c.service === s);
 const failures = [];
 
-// ---------- reel ----------
+// ---------- reels ----------
 const planFile = path.join(OUT, 'plan.json');
-if (fs.existsSync(planFile)) {
-  const plan = readJson(planFile);
-  const script = readJson(path.join(ROOT, plan.scriptPath));
-  const url = `${config.pagesBase}/${plan.video}`;
+const plan = fs.existsSync(planFile) ? readJson(planFile) : [];
+for (const item of plan) {
+  const script = readJson(path.join(ROOT, item.scriptPath));
+  const url = `${config.pagesBase}/${item.video}`;
   await waitForUrl(url);
-  const dueAt = slot(SLOT.hourUTC, SLOT.minuteUTC);
+  const dueAt = item.dueAt;
   const video = {video: {url, metadata: {thumbnailOffset: 1200}}};
   const results = [];
+  for (const k of Object.keys(bufferIds)) delete bufferIds[k];
 
   const ig = byService('instagram');
   if (ig) {
@@ -131,17 +131,17 @@ if (fs.existsSync(planFile)) {
 
   // Move the script out of the queue as long as at least one platform took it (so nothing double-posts).
   if (results.some((r) => r.includes('✅'))) {
-    writeJson(path.join(POSTED, path.basename(plan.scriptPath)), {...script, scheduledFor: dueAt, results, bufferIds});
-    fs.rmSync(path.join(ROOT, plan.scriptPath));
+    writeJson(path.join(POSTED, path.basename(item.scriptPath)), {...script, scheduledFor: dueAt, results, bufferIds: {...bufferIds}});
+    fs.rmSync(path.join(ROOT, item.scriptPath));
   }
-  log(`${SLOT_NAME} reel **${script.id}** for ${dueAt.slice(0, 16).replace('T', ' ')} UTC — ${results.join(', ')}`);
+  log(`reel **${script.id}** for ${dueAt.slice(0, 16).replace('T', ' ')} UTC — ${results.join(', ')}`);
 }
 
 // ---------- X ----------
 const xc = byService('twitter') || byService('x');
-const xSlots = SLOT.x || [];
+const xSlots = openXSlots();
 if (xSlots.length && !xc) failures.push('No X channel connected in Buffer');
-for (const xs of xc ? xSlots : []) {
+for (const dueAt of xc ? xSlots : []) {
   const xq = listJson(X_QUEUE);
   if (!xq.length) {
     failures.push('X queue is empty');
@@ -152,17 +152,25 @@ for (const xs of xc ? xSlots : []) {
   const errs = validateX(item);
   if (errs.length) {
     failures.push(`X post ${file}: ${errs.join(', ')}`);
-    // park the bad post so it doesn't block the queue
     writeJson(path.join(X_POSTED, 'FAILED-' + file), {...item, errors: errs});
     fs.rmSync(path.join(X_QUEUE, file));
     continue;
   }
-  const dueAt = slot(xs.hourUTC, xs.minuteUTC);
+  const input = {channelId: xc.id, text: item.text, schedulingType: 'automatic', mode: 'customScheduled', dueAt};
+  if (item.card) {
+    const url = `${config.pagesBase}/cards/${cardName(file)}`;
+    try {
+      await waitForUrl(url);
+      input.assets = [{image: {url}}];
+    } catch {
+      failures.push(`X card missing for ${file} — posted as text only`);
+    }
+  }
   try {
-    const bufferId = await createPost({channelId: xc.id, text: item.text, schedulingType: 'automatic', mode: 'customScheduled', dueAt});
+    const bufferId = await createPost(input);
     writeJson(path.join(X_POSTED, file), {...item, scheduledFor: dueAt, bufferId});
     fs.rmSync(path.join(X_QUEUE, file));
-    log(`X post for ${dueAt.slice(0, 16).replace('T', ' ')} UTC "${item.text.slice(0, 40).replace(/\n/g, ' ')}…" ✅`);
+    log(`X post${input.assets ? ' + card' : ''} for ${dueAt.slice(0, 16).replace('T', ' ')} UTC "${item.text.slice(0, 40).replace(/\n/g, ' ')}…" ✅`);
   } catch (e) {
     failures.push(`X: ${e.message}`);
     break;

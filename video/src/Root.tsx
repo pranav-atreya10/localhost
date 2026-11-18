@@ -1,11 +1,13 @@
 import React from 'react';
 import {Composition} from 'remotion';
+import {Card} from './Card';
 import {Reel} from './Reel';
 import {ReelProps} from './types';
 import {FPS, H, W} from './theme';
 import sample from './sample-props.json';
 
 export const Root: React.FC = () => (
+  <>
   <Composition
     id="Reel"
     component={Reel as unknown as React.FC<Record<string, unknown>>}
@@ -19,4 +21,14 @@ export const Root: React.FC = () => (
       return {durationInFrames: Math.ceil((p.audioDuration + 1.6) * FPS)};
     }}
   />
+  <Composition
+    id="Card"
+    component={Card as unknown as React.FC<Record<string, unknown>>}
+    width={1080}
+    height={1080}
+    fps={FPS}
+    durationInFrames={150}
+    defaultProps={{scene: {type: 'statement', at: '', big: 'DNS = the internet\'s contacts app', small: 'example.com → 203.0.113.42'}}}
+  />
+  </>
 );

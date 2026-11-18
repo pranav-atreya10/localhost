@@ -1,9 +1,13 @@
 name: post reels (2x daily)
 
+# One main run a day schedules everything for the next ~24 hours in Buffer:
+#   reel a 4:30pm ET, reel b 8pm ET (Instagram + YouTube), X at 6pm, 9:30pm and 6:15am ET.
+# GitHub's scheduled runs can start hours late or get skipped, so there's a backup run;
+# anything already scheduled is skipped, so nothing double-posts.
 on:
   schedule:
-    - cron: '0 18 * * *'  # afternoon run (1pm ET): reel 4:30pm ET, X 6pm ET + 6:15am ET next day
-    - cron: '30 22 * * *' # evening run (5:30pm ET): reel 8pm ET, X 9:30pm ET
+    - cron: '0 12 * * *' # main (7am ET)
+    - cron: '0 15 * * *' # backup (10am ET)
   workflow_dispatch:
     inputs:
       dry:
@@ -31,7 +35,7 @@ concurrency:
 jobs:
   post:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
@@ -58,24 +62,29 @@ jobs:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
         run: node pipeline/inspect.mjs && exit 1
 
-      - name: Make video
+      - name: Make videos
         id: make
         if: ${{ !inputs.stats_only }}
         working-directory: video
         env:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
-          REEL_SLOT: ${{ github.event.schedule == '30 22 * * *' && 'evening' || 'afternoon' }}
         run: node pipeline/make.mjs ${{ inputs.dry && '--dry' || '' }}
 
-      - name: Upload video to GitHub Pages
-        if: steps.make.outputs.ready == 'true'
+      - name: Make X cards
+        id: cards
+        if: ${{ !inputs.stats_only && !inputs.dry }}
+        working-directory: video
+        run: node pipeline/cards.mjs
+
+      - name: Upload media to GitHub Pages
+        if: steps.make.outputs.ready == 'true' || steps.cards.outputs.ready == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
 
       - name: Deploy GitHub Pages
         id: deploy
-        if: steps.make.outputs.ready == 'true'
+        if: steps.make.outputs.ready == 'true' || steps.cards.outputs.ready == 'true'
         uses: actions/deploy-pages@v4
 
       - name: Send to Buffer
@@ -83,7 +92,6 @@ jobs:
         working-directory: video
         env:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
-          REEL_SLOT: ${{ github.event.schedule == '30 22 * * *' && 'evening' || 'afternoon' }}
         run: node pipeline/publish.mjs
 
       - name: Update performance stats
@@ -106,6 +114,7 @@ jobs:
         run: |
           git config user.name "localhost-bot"
           git config user.email "localhost-bot@users.noreply.github.com"
-          git add content status || true
+          git add content status media || true
           git diff --cached --quiet || git commit -m "post: $(date -u +%F\ %H:%M)"
+          git pull --rebase -q || true
           git push || true

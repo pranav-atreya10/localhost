@@ -420,7 +420,7 @@ const Compare: React.FC<{
           <Rise key={i} delay={i * 8} style={{flex: 1}}>
             <Glass style={{padding: '28px 26px', minHeight: 220}}>
               <Label>{s.label}</Label>
-              <div style={{fontFamily: FONT.mono, fontSize: 34, color: C.text, wordBreak: 'break-all', lineHeight: 1.35}}>
+              <div style={{fontFamily: FONT.mono, fontSize: 34, color: C.text, overflowWrap: 'anywhere', lineHeight: 1.35}}>
                 {s.value}
               </div>
             </Glass>

@@ -11,33 +11,33 @@
     }
   },
   "schedule": {
-    "_note": "Times are UTC (ET = UTC-5 in winter). Afternoon run 18:00 UTC: reel 4:30pm ET, X 6pm ET + 6:15am ET next morning. Evening run 22:30 UTC: reel 8pm ET, X 9:30pm ET.",
-    "slots": {
-      "afternoon": {
+    "_note": "Times are UTC (ET = UTC-5 in winter). One main run a day (12:00 UTC, backup 15:00 UTC) schedules everything for the next ~24h. Reel a = 4:30pm ET, reel b = 8pm ET; X = 6pm, 9:30pm, 6:15am ET.",
+    "reels": [
+      {
+        "letter": "a",
         "hourUTC": 21,
-        "minuteUTC": 30,
-        "x": [
-          {
-            "hourUTC": 23,
-            "minuteUTC": 0
-          },
-          {
-            "hourUTC": 11,
-            "minuteUTC": 15
-          }
-        ]
+        "minuteUTC": 30
       },
-      "evening": {
+      {
+        "letter": "b",
         "hourUTC": 1,
-        "minuteUTC": 0,
-        "x": [
-          {
-            "hourUTC": 2,
-            "minuteUTC": 30
-          }
-        ]
+        "minuteUTC": 0
       }
-    }
+    ],
+    "x": [
+      {
+        "hourUTC": 23,
+        "minuteUTC": 0
+      },
+      {
+        "hourUTC": 2,
+        "minuteUTC": 30
+      },
+      {
+        "hourUTC": 11,
+        "minuteUTC": 15
+      }
+    ]
   },
   "youtube": {
     "categoryId": "27",

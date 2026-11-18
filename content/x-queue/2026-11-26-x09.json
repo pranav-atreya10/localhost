@@ -1,3 +1,16 @@
 {
-  "text": "your computer doesn't understand python.\n\nit only runs machine code. something has to translate: a compiler (all at once, ahead of time) or an interpreter (line by line, as it runs).\n\nthat's the whole difference."
+  "text": "your computer doesn't understand python.\n\nit only runs machine code. something has to translate: a compiler (all at once, ahead of time) or an interpreter (line by line, as it runs).\n\nthat's the whole difference.",
+  "card": {
+    "type": "compare",
+    "left": {
+      "label": "compiled",
+      "value": "translate all, then run"
+    },
+    "right": {
+      "label": "interpreted",
+      "value": "translate as it runs"
+    },
+    "verdict": "same goal, different timing",
+    "verdictTone": "ok"
+  }
 }

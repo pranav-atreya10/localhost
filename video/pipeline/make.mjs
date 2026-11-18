@@ -1,10 +1,11 @@
-// Picks the next reel script, makes the voiceover (ElevenLabs), renders the video (Remotion).
+// Makes the reels for every open time slot: voiceover (ElevenLabs) + render (Remotion), staged in site/ for hosting.
 // Usage: node pipeline/make.mjs [--dry] [--file content/queue/xyz.json]
-//   --dry  fake voice (silence + estimated timings) so you can test the look without using credits.
+//   --dry   fake voice (silence + estimated timings) so you can test the look without using credits.
+//   --file  make just this script (for testing).
 import fs from 'node:fs';
 import path from 'node:path';
 import {execFileSync} from 'node:child_process';
-import {ROOT, VIDEO_DIR, QUEUE, POSTED, OUT, SITE, config, listJson, readJson, writeJson, validateReel, reelSlotTaken} from './lib.mjs';
+import {ROOT, VIDEO_DIR, QUEUE, POSTED, OUT, SITE, config, listJson, readJson, writeJson, validateReel, openReelSlots, nextReelFor} from './lib.mjs';
 
 const args = process.argv.slice(2);
 const DRY = args.includes('--dry');
@@ -14,25 +15,38 @@ const setOutput = (k, v) => {
   if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, `${k}=${v}\n`);
 };
 
-if (!DRY && !fileArg && reelSlotTaken()) {
-  console.log('A reel is already scheduled for this time slot — skipping the reel this run.');
+const postedIds = listJson(POSTED).map((f) => readJson(path.join(POSTED, f)).id);
+
+// Decide what to make.
+let jobs = [];
+if (fileArg || DRY) {
+  const f = fileArg ? path.resolve(ROOT, fileArg) : listJson(QUEUE)[0] && path.join(QUEUE, listJson(QUEUE)[0]);
+  if (f) jobs.push({scriptPath: f, dueAt: null});
+} else {
+  const used = [];
+  for (const s of openReelSlots()) {
+    const f = nextReelFor(s.letter, used);
+    if (!f) break;
+    used.push(f);
+    jobs.push({scriptPath: path.join(QUEUE, f), dueAt: s.dueAt});
+  }
+}
+if (!jobs.length) {
+  console.log('Nothing to make (slots already taken or queue empty).');
   setOutput('ready', 'false');
   process.exit(0);
 }
 
-const queue = listJson(QUEUE);
-const scriptPath = fileArg ? path.resolve(ROOT, fileArg) : queue.length ? path.join(QUEUE, queue[0]) : null;
-if (!scriptPath) {
-  console.log('Queue is empty — nothing to make.');
-  setOutput('ready', 'false');
-  process.exit(0);
-}
+fs.mkdirSync(OUT, {recursive: true});
+fs.mkdirSync(path.join(SITE, 'videos'), {recursive: true});
+fs.writeFileSync(path.join(SITE, 'index.html'), '<!doctype html><title>localhost media</title><p>media host for @localhost.wear</p>');
+const plan = [];
+
+const makeReel = async (scriptPath, dueAt) => {
 const script = readJson(scriptPath);
-const postedIds = listJson(POSTED).map((f) => readJson(path.join(POSTED, f)).id);
 const errs = validateReel(script, fileArg ? [] : postedIds);
 if (errs.length) {
-  console.error(`Script ${path.basename(scriptPath)} failed checks:\n- ` + errs.join('\n- '));
-  process.exit(1);
+  throw new Error(`Script ${path.basename(scriptPath)} failed checks:\n- ` + errs.join('\n- '));
 }
 
 const GEN = path.join(VIDEO_DIR, 'public', 'gen');
@@ -150,11 +164,12 @@ execFileSync(
   {cwd: VIDEO_DIR, stdio: 'inherit'},
 );
 
-// ---------- stage for hosting ----------
-fs.rmSync(SITE, {recursive: true, force: true});
-fs.mkdirSync(path.join(SITE, 'videos'), {recursive: true});
+
 fs.copyFileSync(outFile, path.join(SITE, 'videos', `${script.id}.mp4`));
-fs.writeFileSync(path.join(SITE, 'index.html'), '<!doctype html><title>localhost media</title><p>media host for @localhost.wear</p>');
-writeJson(path.join(OUT, 'plan.json'), {scriptPath: path.relative(ROOT, scriptPath), id: script.id, video: `videos/${script.id}.mp4`, duration});
+plan.push({scriptPath: path.relative(ROOT, scriptPath), id: script.id, video: `videos/${script.id}.mp4`, duration, dueAt});
+console.log(`Made ${script.id} (${duration.toFixed(1)}s) for ${dueAt || 'test'}`);
+};
+
+for (const j of jobs) await makeReel(j.scriptPath, j.dueAt);
+writeJson(path.join(OUT, 'plan.json'), plan);
 setOutput('ready', 'true');
-console.log(`Made ${script.id} (${duration.toFixed(1)}s)`);

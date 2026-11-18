@@ -1,7 +1,7 @@
 # Content guide (read this before writing new posts)
 
-This repo runs the **localhost** (@localhost.wear) content machine. A GitHub Action runs **twice a day** (18:00 and 22:30 UTC):
-each run takes the **oldest** file in `content/queue/`, makes the voiceover (ElevenLabs), renders the reel (Remotion),
+This repo runs the **localhost** (@localhost.wear) content machine. A GitHub Action runs **once a day** (12:00 UTC, backup 15:00 UTC)
+and schedules the next ~24 hours. For each reel slot it takes the oldest matching file in `content/queue/`, makes the voiceover (ElevenLabs), renders the reel (Remotion),
 hosts it on GitHub Pages, and schedules it in Buffer for Instagram (Reel) + YouTube (Short). The runs also schedule the oldest files in
 `content/x-queue/` as text posts on X: **3 X posts per day** (6:15am, 6pm, 9:30pm ET). Posted files move to `content/posted/` and `content/x-posted/`.
 `status/log.md` records every run. `status/performance.md` ranks what's been posted (from Buffer stats, refreshed every run).
@@ -49,6 +49,11 @@ Scene types (all text must be short; the card is ~730 px wide):
 Check before committing: `cd video && npm ci && node pipeline/check.mjs` (validates every queued file).
 
 ## X file: `content/x-queue/YYYY-MM-DD-xN.json`
+Optional image card in the reel look (rendered automatically, 1080×1080): add `"card": {…}` using any reel scene type
+except `end` (no `"at"` needed), e.g. `"card": {"type":"list","title":"before you install","items":[{"text":"does it exist?","status":"ok"}]}`.
+Give a card to **about 1 in 3 X posts**: always the mini-explainers, sometimes a joke that works visually (code/compare).
+Keep card text even shorter than in reels.
+
 `{"text": "≤ 280 chars, no links, no hashtag spam"}`. **Three per day; keep at least 21 queued.**
 Name files `YYYY-MM-DD-xN.json` so they sort in posting order.
 Weekly mix (21 posts): 8 one-liner coding jokes/observations, 4 build-in-public posts (true facts only, no

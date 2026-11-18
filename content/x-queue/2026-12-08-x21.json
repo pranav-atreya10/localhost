@@ -1,3 +1,21 @@
 {
-  "text": "before you install a package AI suggested, check it actually exists and people use it.\n\nAI sometimes invents package names. attackers can register those names for real."
+  "text": "before you install a package AI suggested, check it actually exists and people use it.\n\nAI sometimes invents package names. attackers can register those names for real.",
+  "card": {
+    "type": "list",
+    "title": "before you install",
+    "items": [
+      {
+        "text": "does it exist?",
+        "status": "ok"
+      },
+      {
+        "text": "do people use it?",
+        "status": "ok"
+      },
+      {
+        "text": "is it the one you meant?",
+        "status": "ok"
+      }
+    ]
+  }
 }

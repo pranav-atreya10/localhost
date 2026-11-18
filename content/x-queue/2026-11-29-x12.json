@@ -1,3 +1,21 @@
 {
-  "text": "why does 50 tabs make your laptop lag?\n\nRAM fills up, so your computer starts parking stuff on the SSD (swap). the SSD is way slower than RAM.\n\nclose tabs = free RAM. restart = clear RAM."
+  "text": "why does 50 tabs make your laptop lag?\n\nRAM fills up, so your computer starts parking stuff on the SSD (swap). the SSD is way slower than RAM.\n\nclose tabs = free RAM. restart = clear RAM.",
+  "card": {
+    "type": "list",
+    "title": "50 tabs open",
+    "items": [
+      {
+        "text": "RAM full",
+        "status": "bad"
+      },
+      {
+        "text": "swap to SSD → lag",
+        "status": "bad"
+      },
+      {
+        "text": "close tabs → fixed",
+        "status": "ok"
+      }
+    ]
+  }
 }

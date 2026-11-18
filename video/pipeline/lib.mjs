@@ -84,28 +84,41 @@ export const validateX = (x) => {
   return errs;
 };
 
-// Next hh:mm UTC that's at least 20 min away (within the next ~20 hours); otherwise 30 minutes from now.
+// Next hh:mm UTC that's at least 20 minutes away (always within the next 24 hours).
 export const slot = (h, m = 0) => {
   const now = new Date();
   const t = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), h, m));
   if (t.getTime() - now.getTime() < 20 * 60 * 1000) t.setUTCDate(t.getUTCDate() + 1);
-  if (t.getTime() - now.getTime() > 20 * 3600 * 1000) return new Date(now.getTime() + 30 * 60 * 1000).toISOString();
   return t.toISOString();
 };
 
-export const currentSlot = () => {
-  const name = process.env.REEL_SLOT || 'afternoon';
-  const s = config.schedule.slots[name];
-  if (!s) throw new Error(`Unknown REEL_SLOT "${name}"`);
-  return {name, slot: s};
-};
-
-// True if a reel is already scheduled within 2 hours of this run's reel time.
-export const reelSlotTaken = () => {
-  const {slot: s} = currentSlot();
-  const due = new Date(slot(s.hourUTC, s.minuteUTC)).getTime();
-  return listJson(POSTED).some((f) => {
-    const at = readJson(POSTED + '/' + f).scheduledFor;
+// Has something already been scheduled within 2 hours of this time? (Checks posted/ or x-posted/.)
+export const slotTaken = (dir, dueISO) => {
+  const due = new Date(dueISO).getTime();
+  return listJson(dir).some((f) => {
+    const at = readJson(dir + '/' + f).scheduledFor;
     return at && Math.abs(new Date(at).getTime() - due) < 2 * 3600 * 1000;
   });
 };
+
+// The reel slots this run should fill: [{letter, dueAt}] for slots not already taken.
+export const openReelSlots = () =>
+  config.schedule.reels
+    .map((r) => ({letter: r.letter, dueAt: slot(r.hourUTC, r.minuteUTC)}))
+    .filter((r) => !slotTaken(POSTED, r.dueAt));
+
+// The X slots this run should fill, soonest first.
+export const openXSlots = () =>
+  config.schedule.x
+    .map((x) => slot(x.hourUTC, x.minuteUTC))
+    .filter((d) => !slotTaken(X_POSTED, d))
+    .sort();
+
+// Next queued reel for a slot letter ("a" or "b"), falling back to the oldest reel.
+export const nextReelFor = (letter, exclude = []) => {
+  const q = listJson(QUEUE).filter((f) => !exclude.includes(f));
+  return q.find((f) => f.includes(`-${letter}-`)) || q[0] || null;
+};
+
+export const CARDS = ROOT + '/media/cards';
+export const cardName = (xFile) => xFile.replace(/\.json$/, '.png');

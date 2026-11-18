@@ -1,3 +1,13 @@
 {
-  "text": "\"it works on my machine\"\n\n— every dev, right before it doesn't work on anyone else's machine"
+  "text": "\"it works on my machine\"\n\n— every dev, right before it doesn't work on anyone else's machine",
+  "card": {
+    "type": "code",
+    "title": "demo day",
+    "lines": [
+      "$ npm start",
+      "✓ works on my machine",
+      "✗ crashes on the projector"
+    ],
+    "highlight": 1
+  }
 }

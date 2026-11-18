@@ -1,3 +1,14 @@
 {
-  "text": "AI doesn't look up your code. it predicts it, one token at a time.\n\nthat's why it's great at common patterns and can still be confidently wrong."
+  "text": "AI doesn't look up your code. it predicts it, one token at a time.\n\nthat's why it's great at common patterns and can still be confidently wrong.",
+  "card": {
+    "type": "flow",
+    "title": "how AI writes code",
+    "nodes": [
+      "for i in",
+      "+ range",
+      "+ (",
+      "+ 10",
+      "+ ):"
+    ]
+  }
 }

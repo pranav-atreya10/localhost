@@ -1,3 +1,13 @@
 {
-  "text": "a good website doesn't know your password.\n\nit stores a hash: a one-way scramble of it. when you log in, it scrambles what you typed and checks if they match.\n\nif a site can email you your actual password, that's a red flag."
+  "text": "a good website doesn't know your password.\n\nit stores a hash: a one-way scramble of it. when you log in, it scrambles what you typed and checks if they match.\n\nif a site can email you your actual password, that's a red flag.",
+  "card": {
+    "type": "code",
+    "title": "what the site stores",
+    "lines": [
+      "password: \"hunter2\"  ✗ never",
+      "hash: 7f3a…e91c    ✓",
+      "// example, shortened"
+    ],
+    "highlight": 1
+  }
 }

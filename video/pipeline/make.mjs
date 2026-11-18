@@ -106,18 +106,31 @@ if (DRY) {
 } else {
   const key = process.env.ELEVENLABS_API_KEY;
   if (!key) throw new Error('ELEVENLABS_API_KEY is not set');
-  const res = await fetch(
-    `https://api.elevenlabs.io/v1/text-to-speech/${config.elevenlabs.voiceId}/with-timestamps?output_format=mp3_44100_128`,
-    {
-      method: 'POST',
-      headers: {'xi-api-key': key, 'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        text: script.voiceover,
-        model_id: config.elevenlabs.modelId,
-        voice_settings: config.elevenlabs.voiceSettings,
-      }),
-    },
-  );
+  // ElevenLabs sometimes hangs; give each try 2 minutes and retry up to 3 times.
+  let res;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      res = await fetch(
+        `https://api.elevenlabs.io/v1/text-to-speech/${config.elevenlabs.voiceId}/with-timestamps?output_format=mp3_44100_128`,
+        {
+          method: 'POST',
+          headers: {'xi-api-key': key, 'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            text: script.voiceover,
+            model_id: config.elevenlabs.modelId,
+            voice_settings: config.elevenlabs.voiceSettings,
+          }),
+          signal: AbortSignal.timeout(120000),
+        },
+      );
+      if (res.ok || (res.status < 500 && res.status !== 429)) break;
+      console.log(`ElevenLabs returned ${res.status}, retrying (${attempt}/3)…`);
+    } catch (e) {
+      console.log(`ElevenLabs request failed (${e.message}), retrying (${attempt}/3)…`);
+      if (attempt === 3) throw new Error(`ElevenLabs didn't respond after 3 tries: ${e.message}`);
+    }
+    await new Promise((r) => setTimeout(r, 20000 * attempt));
+  }
   if (!res.ok) throw new Error(`ElevenLabs error ${res.status}: ${await res.text()}`);
   const data = await res.json();
   fs.writeFileSync(voiceFile, Buffer.from(data.audio_base64, 'base64'));

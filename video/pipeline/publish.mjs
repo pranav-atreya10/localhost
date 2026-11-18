@@ -50,6 +50,10 @@ const createPost = async (input) => {
   if (!r?.post?.id) throw new Error(r?.message || 'unknown createPost error');
   return r.post.id;
 };
+const bufferIds = {};
+const track = async (service, input) => {
+  bufferIds[service] = await createPost(input);
+};
 
 const {name: SLOT_NAME, slot: SLOT} = currentSlot();
 
@@ -81,7 +85,7 @@ if (fs.existsSync(planFile)) {
   const ig = byService('instagram');
   if (ig) {
     try {
-      await createPost({
+      await track('instagram', {
         channelId: ig.id,
         text: script.captions.instagram,
         schedulingType: 'automatic',
@@ -100,7 +104,7 @@ if (fs.existsSync(planFile)) {
   const yt = byService('youtube');
   if (yt) {
     try {
-      await createPost({
+      await track('youtube', {
         channelId: yt.id,
         text: script.captions.youtubeDescription || script.captions.instagram,
         schedulingType: 'automatic',
@@ -127,7 +131,7 @@ if (fs.existsSync(planFile)) {
 
   // Move the script out of the queue as long as at least one platform took it (so nothing double-posts).
   if (results.some((r) => r.includes('✅'))) {
-    writeJson(path.join(POSTED, path.basename(plan.scriptPath)), {...script, scheduledFor: dueAt, results});
+    writeJson(path.join(POSTED, path.basename(plan.scriptPath)), {...script, scheduledFor: dueAt, results, bufferIds});
     fs.rmSync(path.join(ROOT, plan.scriptPath));
   }
   log(`${SLOT_NAME} reel **${script.id}** for ${dueAt.slice(0, 16).replace('T', ' ')} UTC — ${results.join(', ')}`);
@@ -155,8 +159,8 @@ for (const xs of xc ? xSlots : []) {
   }
   const dueAt = slot(xs.hourUTC, xs.minuteUTC);
   try {
-    await createPost({channelId: xc.id, text: item.text, schedulingType: 'automatic', mode: 'customScheduled', dueAt});
-    writeJson(path.join(X_POSTED, file), {...item, scheduledFor: dueAt});
+    const bufferId = await createPost({channelId: xc.id, text: item.text, schedulingType: 'automatic', mode: 'customScheduled', dueAt});
+    writeJson(path.join(X_POSTED, file), {...item, scheduledFor: dueAt, bufferId});
     fs.rmSync(path.join(X_QUEUE, file));
     log(`X post for ${dueAt.slice(0, 16).replace('T', ' ')} UTC "${item.text.slice(0, 40).replace(/\n/g, ' ')}…" ✅`);
   } catch (e) {

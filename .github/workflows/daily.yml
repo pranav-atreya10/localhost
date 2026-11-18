@@ -10,6 +10,10 @@ on:
         description: 'Dry run (fake voice, no Buffer posts)'
         type: boolean
         default: false
+      stats_only:
+        description: 'Only refresh status/performance.md'
+        type: boolean
+        default: false
       inspect:
         description: 'Only print Buffer API schema (debug)'
         type: boolean
@@ -56,6 +60,7 @@ jobs:
 
       - name: Make video
         id: make
+        if: ${{ !inputs.stats_only }}
         working-directory: video
         env:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
@@ -74,12 +79,20 @@ jobs:
         uses: actions/deploy-pages@v4
 
       - name: Send to Buffer
-        if: ${{ !inputs.dry }}
+        if: ${{ !inputs.dry && !inputs.stats_only }}
         working-directory: video
         env:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
           REEL_SLOT: ${{ github.event.schedule == '30 22 * * *' && 'evening' || 'afternoon' }}
         run: node pipeline/publish.mjs
+
+      - name: Update performance stats
+        if: ${{ !inputs.dry && !inputs.inspect }}
+        continue-on-error: true
+        working-directory: video
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+        run: node pipeline/stats.mjs
 
       - name: Note failure in log
         if: failure()

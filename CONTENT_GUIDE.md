@@ -4,7 +4,7 @@ This repo runs the **localhost** (@localhost.wear) content machine. A GitHub Act
 each run takes the **oldest** file in `content/queue/`, makes the voiceover (ElevenLabs), renders the reel (Remotion),
 hosts it on GitHub Pages, and schedules it in Buffer for Instagram (Reel) + YouTube (Short). The runs also schedule the oldest files in
 `content/x-queue/` as text posts on X: **3 X posts per day** (6:15am, 6pm, 9:30pm ET). Posted files move to `content/posted/` and `content/x-posted/`.
-`status/log.md` records every run.
+`status/log.md` records every run. `status/performance.md` ranks what's been posted (from Buffer stats, refreshed every run).
 
 ## Brand
 - Audience: teens and college kids who code, vibe-code, do hackathons.
@@ -54,3 +54,12 @@ Name files `YYYY-MM-DD-xN.json` so they sort in posting order.
 Weekly mix (21 posts): 8 one-liner coding jokes/observations, 4 build-in-public posts (true facts only, no
 made-up numbers), 4 mini-explainers tied to that week's reels, 3 questions that invite replies, 2 "hot takes"
 about coding/AI (light, never mean). Morning posts (the 6:15am one) work best as quick jokes or questions.
+
+## Learning from performance
+Before writing new content, read `status/performance.md` (and `status/performance.json` for per-platform numbers).
+- Score = 70% engagement rate + 30% views. Engagement counts comments, shares, saves and follows more than likes.
+- Make **more** of what the top-scoring posts share: topic area, hook style (question? surprising claim?), scene
+  types, voiceover structure, length, X post format. Make **less** of what the bottom ones share.
+- Replicate the *pattern*, never repeat the same topic or joke.
+- With fewer than ~6 scored posts, the numbers are mostly noise: keep variety and only lean a little.
+- In the commit message, write one line on what you leaned into and why (e.g. "more 'myth vs fact' hooks: top 2 reels").

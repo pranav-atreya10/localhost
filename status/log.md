@@ -9,3 +9,7 @@ Newest at the bottom.
 - 2026-11-18 03:49 UTC — evening reel **b1-hashing** for 2026-11-18 04:19 UTC — Instagram ✅, YouTube ✅
 - 2026-11-18 03:49 UTC — X post for 2026-11-18 04:19 UTC "15, building a clothing brand for people…" ✅
 - 2026-11-18 17:15 UTC — ❌ run failed (see the GitHub email / Actions tab for details)
+- 2026-11-18 17:25 UTC — reel **b2-salting** for 2026-11-19 01:00 UTC — Instagram ✅, YouTube ✅
+- 2026-11-18 17:25 UTC — X post + card for 2026-11-18 23:00 UTC "tabs or spaces. wrong answers only.…" ✅
+- 2026-11-18 17:25 UTC — X post + card for 2026-11-19 02:30 UTC "a good website doesn't know your passwor…" ✅
+- 2026-11-18 17:25 UTC — X post + card for 2026-11-19 11:15 UTC ""it works on my machine"  — every dev, r…" ✅

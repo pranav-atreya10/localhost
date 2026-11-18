@@ -88,5 +88,14 @@
   "captions": {
     "instagram": "Password salting: why two identical passwords get different hashes.\nAnd why it still can't save \"password123.\" Part 2/3 of \"behind the login.\"\n#cybersecurity #infosec #learntocode #webdev #backend",
     "youtubeTitle": "Why 2 identical passwords get different hashes #infosec"
+  },
+  "scheduledFor": "2026-11-19T01:00:00.000Z",
+  "results": [
+    "Instagram ✅",
+    "YouTube ✅"
+  ],
+  "bufferIds": {
+    "instagram": "6afddf83ba7cb28cce126371",
+    "youtube": "6afddf84a11f24337a0cd5a2"
   }
 }

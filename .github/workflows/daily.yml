@@ -69,6 +69,13 @@ jobs:
           REEL_SLOT: ${{ github.event.schedule == '30 22 * * *' && 'evening' || 'afternoon' }}
         run: node pipeline/publish.mjs
 
+      - name: Note failure in log
+        if: failure()
+        run: |
+          mkdir -p status
+          [ -f status/log.md ] || printf '# Posting log\n\nNewest at the bottom.\n\n' > status/log.md
+          echo "- $(date -u '+%F %H:%M') UTC — ❌ run failed (see the GitHub email / Actions tab for details)" >> status/log.md
+
       - name: Save queue + log
         if: always()
         run: |

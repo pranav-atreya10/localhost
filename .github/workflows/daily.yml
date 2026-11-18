@@ -10,6 +10,10 @@ on:
         description: 'Dry run (fake voice, no Buffer posts)'
         type: boolean
         default: false
+      inspect:
+        description: 'Only print Buffer API schema (debug)'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -42,6 +46,13 @@ jobs:
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg > /dev/null
           npm ci
           npx remotion browser ensure
+
+      - name: Inspect Buffer schema
+        if: ${{ inputs.inspect }}
+        working-directory: video
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+        run: node pipeline/inspect.mjs && exit 1
 
       - name: Make video
         id: make

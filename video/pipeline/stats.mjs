@@ -99,9 +99,15 @@ const xs = listJson(X_POSTED)
   })
   .filter(Boolean);
 
-// Score = 70% engagement (rate) + 30% reach (views), each ranked 0–1 among posts that have been live ≥ 24h.
+// Posts need 48h to settle. On Saturday (the weekly review day) the newest posts count once they've had 24h,
+// so the end of the week isn't left out.
+const REVIEW_DAY = new Date().getUTCDay() === 6;
+const MIN_HOURS = 48;
+const MIN_HOURS_REVIEW = 24;
+// Score = 70% engagement (rate) + 30% reach (views), each ranked 0–1 among the posts that qualify.
 const score = (list) => {
-  const ready = list.filter((r) => r.hoursLive >= 24);
+  const ready = list.filter((r) => r.hoursLive >= (REVIEW_DAY ? MIN_HOURS_REVIEW : MIN_HOURS));
+  for (const r of ready) r.early = r.hoursLive < MIN_HOURS;
   const rank = (key) => {
     const sorted = [...ready].sort((a, b) => a[key] - b[key]);
     return (r) => (ready.length > 1 ? sorted.indexOf(r) / (ready.length - 1) : 0.5);
@@ -116,14 +122,14 @@ const rankedX = score(xs);
 
 const pct = (x) => (x * 100).toFixed(1) + '%';
 let md = `# Performance (auto-updated ${new Date().toISOString().slice(0, 16).replace('T', ' ')} UTC)\n\n`;
-md += `Score = 70% engagement rate + 30% views, ranked against each other (100 = best). Only posts live 24h+ are scored.\n`;
+md += `Score = 70% engagement rate + 30% views, ranked against each other (100 = best). Posts are scored after 48h live; on Saturdays (review day) the newest ones count after 24h (marked *).\n`;
 md += `Engagement = likes + 2×comments + 3×shares + 3×saves + 4×follows. Small numbers early on = noisy, treat as hints.\n\n`;
 md += `## Reels (Instagram + YouTube combined)\n\n| score | id | series | hook | views | likes | comments | shares | saves | follows | eng. rate |\n|---|---|---|---|---|---|---|---|---|---|---|\n`;
-for (const r of rankedReels) md += `| ${r.score} | ${r.id} | ${r.series} | ${r.hook} | ${r.views} | ${r.likes} | ${r.comments} | ${r.shares} | ${r.saves} | ${r.follows} | ${pct(r.engagementRate)} |\n`;
-if (!rankedReels.length) md += `| – | no reels live 24h+ yet | | | | | | | | | |\n`;
+for (const r of rankedReels) md += `| ${r.score}${r.early ? '*' : ''} | ${r.id} | ${r.series} | ${r.hook} | ${r.views} | ${r.likes} | ${r.comments} | ${r.shares} | ${r.saves} | ${r.follows} | ${pct(r.engagementRate)} |\n`;
+if (!rankedReels.length) md += `| – | no reels old enough to score yet | | | | | | | | | |\n`;
 md += `\n## X posts\n\n| score | post | views | likes | replies | reposts | eng. rate |\n|---|---|---|---|---|---|---|\n`;
-for (const r of rankedX) md += `| ${r.score} | ${r.text.replace(/\n+/g, ' / ').slice(0, 90)} | ${r.views} | ${r.likes} | ${r.replies} | ${r.reposts} | ${pct(r.engagementRate)} |\n`;
-if (!rankedX.length) md += `| – | no X posts live 24h+ yet | | | | | |\n`;
+for (const r of rankedX) md += `| ${r.score}${r.early ? '*' : ''} | ${r.text.replace(/\n+/g, ' / ').slice(0, 90)} | ${r.views} | ${r.likes} | ${r.replies} | ${r.reposts} | ${pct(r.engagementRate)} |\n`;
+if (!rankedX.length) md += `| – | no X posts old enough to score yet | | | | | |\n`;
 
 fs.mkdirSync(path.join(ROOT, 'status'), {recursive: true});
 fs.writeFileSync(path.join(ROOT, 'status', 'performance.md'), md);

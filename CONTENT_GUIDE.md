@@ -57,7 +57,7 @@ about coding/AI (light, never mean). Morning posts (the 6:15am one) work best as
 
 ## Learning from performance
 Before writing new content, read `status/performance.md` (and `status/performance.json` for per-platform numbers).
-- Score = 70% engagement rate + 30% views. Engagement counts comments, shares, saves and follows more than likes.
+- Score = 70% engagement rate + 30% views. Posts are scored after 48h; on Saturday the newest count after 24h (marked * — treat as less certain). Engagement counts comments, shares, saves and follows more than likes.
 - Make **more** of what the top-scoring posts share: topic area, hook style (question? surprising claim?), scene
   types, voiceover structure, length, X post format. Make **less** of what the bottom ones share.
 - Replicate the *pattern*, never repeat the same topic or joke.

@@ -100,5 +100,14 @@
   "captions": {
     "instagram": "Session cookies: how websites remember you're logged in.\nHTTP forgets you after every request. The cookie is why it doesn't. Part 3/3 of \"behind the login.\"\n#webdev #cybersecurity #backend #learntocode #codinglife",
     "youtubeTitle": "How websites remember you're logged in #webdev"
+  },
+  "scheduledFor": "2026-11-20T01:00:00.000Z",
+  "results": [
+    "Instagram ✅",
+    "YouTube ✅"
+  ],
+  "bufferIds": {
+    "instagram": "6aff583ae62825b98904c950",
+    "youtube": "6aff583b7c739ea0add9fa91"
   }
 }

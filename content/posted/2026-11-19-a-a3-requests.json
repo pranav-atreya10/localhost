@@ -91,5 +91,14 @@
   "captions": {
     "instagram": "HTTP requests: your browser asks for way more than one file.\n200, 404, 500, and the dozens of requests behind one page. Part 3/3 of \"you hit enter.\"\n#http #webdev #frontend #learntocode #codinglife",
     "youtubeTitle": "Why one webpage = dozens of requests #webdev"
+  },
+  "scheduledFor": "2026-11-20T21:30:00.000Z",
+  "results": [
+    "Instagram ✅",
+    "YouTube ✅"
+  ],
+  "bufferIds": {
+    "instagram": "6aff7a71ef915da8dbc55f61",
+    "youtube": "6aff7a72b3e65522f8359a79"
   }
 }

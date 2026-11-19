@@ -1,3 +1,5 @@
+import {Easing} from 'remotion';
+
 // "Lit Terminal" — the localhost reel look.
 export const C = {
   base: '#07090C',
@@ -30,3 +32,7 @@ export const CAPTION_Y = 1060;
 export const FPS = 30;
 export const W = 1080;
 export const H = 1920;
+
+// House easing: everything that moves eases. Springs handle entrances; these cover the rest.
+export const EASE_OUT = Easing.bezier(0.2, 0, 0, 1); // things arriving / growing
+export const EASE_IN_OUT = Easing.bezier(0.65, 0, 0.35, 1); // things traveling or leaving

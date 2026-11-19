@@ -1,7 +1,7 @@
 import React from 'react';
 import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
 import {Scene} from './types';
-import {C, FONT, SAFE, SAFE_W, STAGE} from './theme';
+import {C, FONT, SAFE, SAFE_W, STAGE, EASE_IN_OUT, EASE_OUT} from './theme';
 import {Cursor, Glass, Label, Rise, Typed} from './anim';
 
 const Stage: React.FC<{children: React.ReactNode; align?: 'center' | 'start'}> = ({children, align = 'center'}) => (
@@ -222,8 +222,8 @@ const Flow: React.FC<{title?: string; nodes: string[]; dur: number}> = ({title, 
   const revealEach = Math.max(10, Math.floor((dur * 0.55) / n));
   const totalH = (n - 1) * gap + nodeH;
   // dot goes down then back up
-  const down = interpolate(f, [revealEach * n, revealEach * n + 40], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-  const up = interpolate(f, [revealEach * n + 46, revealEach * n + 80], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const down = interpolate(f, [revealEach * n, revealEach * n + 40], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE_IN_OUT});
+  const up = interpolate(f, [revealEach * n + 46, revealEach * n + 80], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE_IN_OUT});
   const dotY = up > 0 ? (1 - up) * (totalH - nodeH) : down * (totalH - nodeH);
   const dotColor = up > 0 ? C.cyan : C.green;
   return (
@@ -241,7 +241,7 @@ const Flow: React.FC<{title?: string; nodes: string[]; dur: number}> = ({title, 
             left: 60,
             top: nodeH / 2,
             width: 3,
-            height: interpolate(f, [0, revealEach * n], [0, totalH - nodeH], {extrapolateRight: 'clamp'}),
+            height: interpolate(f, [0, revealEach * n], [0, totalH - nodeH], {extrapolateRight: 'clamp', easing: EASE_IN_OUT}),
             background: `linear-gradient(${C.green}, ${C.cyan})`,
             opacity: 0.6,
           }}
@@ -332,7 +332,7 @@ const Pair: React.FC<{
         ))}
         {messages.map((m, i) => {
           const s = 12 + i * each;
-          const p = interpolate(f, [s, s + 16], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+          const p = interpolate(f, [s, s + 16], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE_OUT});
           const x0 = boxW / 2;
           const x1 = SAFE_W - boxW / 2;
           const color = m.dir === 'right' ? C.green : C.cyan;

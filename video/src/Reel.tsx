@@ -5,14 +5,14 @@ import {Background} from './Background';
 import {SceneView} from './scenes';
 import {Captions} from './Captions';
 import {sceneStarts} from './timing';
-import {C, FONT, SAFE} from './theme';
+import {C, FONT, SAFE, EASE_IN_OUT, EASE_OUT} from './theme';
 import {FontFaces} from './fonts';
 
 const TRANSITION = 10; // frames of push/blur between scenes
 
 const SceneWrap: React.FC<{children: React.ReactNode; dur: number; isLast: boolean}> = ({children, dur, isLast}) => {
   const f = useCurrentFrame();
-  const out = isLast ? 0 : interpolate(f, [dur - TRANSITION, dur], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const out = isLast ? 0 : interpolate(f, [dur - TRANSITION, dur], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE_IN_OUT});
   return (
     <AbsoluteFill
       style={{
@@ -28,7 +28,7 @@ const SceneWrap: React.FC<{children: React.ReactNode; dur: number; isLast: boole
 
 const Badge: React.FC<{text: string}> = ({text}) => {
   const f = useCurrentFrame();
-  const o = interpolate(f, [6, 20], [0, 1], {extrapolateRight: 'clamp'});
+  const o = interpolate(f, [6, 20], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE_OUT});
   return (
     <div
       style={{

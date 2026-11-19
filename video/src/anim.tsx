@@ -1,6 +1,6 @@
 import React from 'react';
 import {interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
-import {C, FONT} from './theme';
+import {C, FONT, EASE_IN_OUT} from './theme';
 
 // Rise from blur: the house entrance.
 export const Rise: React.FC<{delay?: number; children: React.ReactNode; style?: React.CSSProperties}> = ({
@@ -81,4 +81,4 @@ export const Label: React.FC<{children: React.ReactNode; color?: string}> = ({ch
 );
 
 export const fadeOut = (frame: number, dur: number) =>
-  interpolate(frame, [dur - 8, dur], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  interpolate(frame, [dur - 8, dur], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE_IN_OUT});

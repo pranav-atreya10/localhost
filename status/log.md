@@ -20,3 +20,8 @@ Newest at the bottom.
 - 2026-11-19 20:12 UTC — X post + card for 2026-11-20 11:15 UTC "your computer doesn't understand python.…" ✅
 - 2026-11-19 22:38 UTC — reel **a3-requests** for 2026-11-20 21:30 UTC — Instagram ✅, YouTube ✅
 - 2026-11-20 19:46 UTC — ❌ run failed (see the GitHub email / Actions tab for details)
+- 2026-11-20 22:12 UTC — reel **c1-compiled** for 2026-11-21 21:30 UTC — Instagram ✅, YouTube ✅
+- 2026-11-20 22:12 UTC — reel **d1-tokens** for 2026-11-21 01:00 UTC — Instagram ✅, YouTube ✅
+- 2026-11-20 22:12 UTC — X post for 2026-11-20 23:00 UTC "what's the first thing you ever built wi…" ✅
+- 2026-11-20 22:12 UTC — X post for 2026-11-21 02:30 UTC "hot take: reading error messages is the …" ✅
+- 2026-11-20 22:12 UTC — X post + card for 2026-11-21 11:15 UTC "why does 50 tabs make your laptop lag?  …" ✅

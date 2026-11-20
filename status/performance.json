@@ -1,7 +1,88 @@
 {
-  "updatedAt": "2026-11-19T22:38:43.345Z",
-  "reels": [],
-  "x": [],
+  "updatedAt": "2026-11-20T22:12:07.190Z",
+  "reels": [
+    {
+      "id": "b1-hashing",
+      "series": "behind_the_login · 1/3",
+      "hook": "That site doesn't know your password.",
+      "sceneTypes": "hook > code > compare > code > list > statement > end",
+      "sentAt": "2026-11-18T04:19:16.523Z",
+      "hoursLive": 66,
+      "views": 154,
+      "likes": 4,
+      "comments": 0,
+      "shares": 0,
+      "saves": 0,
+      "follows": 0,
+      "byPlatform": {
+        "youtube": {
+          "reactions": 0,
+          "comments": 0,
+          "engagementRate": 0,
+          "views": 0
+        },
+        "instagram": {
+          "reactions": 4,
+          "comments": 0,
+          "engagementRate": 3.05,
+          "views": 154,
+          "shares": 0,
+          "saves": 0,
+          "totalTimeWatched": 18.31,
+          "averageTimeWatched": 8.2,
+          "reach": 131
+        }
+      },
+      "engagement": 4,
+      "engagementRate": 0.025974025974025976,
+      "early": false,
+      "score": 50
+    }
+  ],
+  "x": [
+    {
+      "text": "15, building a clothing brand for people who code.\n\nthe twist: AI writes, voices, edits, and posts every video. I just build the machine.\n\nweek 1. 0 followers. let's see where this goes.",
+      "sentAt": "2026-11-18T04:19:30.428Z",
+      "hoursLive": 66,
+      "views": 1,
+      "likes": 0,
+      "replies": 0,
+      "reposts": 0,
+      "follows": 0,
+      "engagement": 0,
+      "engagementRate": 0,
+      "early": false,
+      "score": 100
+    },
+    {
+      "text": "every website you've ever opened started with your computer asking \"what's the number for this name?\"\n\nthat's DNS. the internet's contacts app.\n\nmade a reel series breaking down what happens when you hit enter. part 1 is up.",
+      "sentAt": "2026-11-18T11:15:12.358Z",
+      "hoursLive": 59,
+      "views": 1,
+      "likes": 0,
+      "replies": 0,
+      "reposts": 0,
+      "follows": 0,
+      "engagement": 0,
+      "engagementRate": 0,
+      "early": false,
+      "score": 50
+    },
+    {
+      "text": "my code works and I have no idea why.\n\nshipping it.",
+      "sentAt": "2026-11-18T02:17:15.439Z",
+      "hoursLive": 68,
+      "views": 1,
+      "likes": 0,
+      "replies": 0,
+      "reposts": 0,
+      "follows": 0,
+      "engagement": 0,
+      "engagementRate": 0,
+      "early": false,
+      "score": 0
+    }
+  ],
   "unscored": {
     "reels": 3,
     "x": 6

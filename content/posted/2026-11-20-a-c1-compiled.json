@@ -75,5 +75,14 @@
   "captions": {
     "instagram": "Compiled vs interpreted languages, explained in 40 seconds.\nYour CPU only speaks machine code. Part 1/3 of \"inside your computer.\"\n#learntocode #python #javascript #computerscience #programming",
     "youtubeTitle": "Compiled vs interpreted, explained #programming"
+  },
+  "scheduledFor": "2026-11-21T21:30:00.000Z",
+  "results": [
+    "Instagram ✅",
+    "YouTube ✅"
+  ],
+  "bufferIds": {
+    "instagram": "6b00c5b4d9cbb430a1fdd437",
+    "youtube": "6b00c5b520a2d09a0ab44f22"
   }
 }

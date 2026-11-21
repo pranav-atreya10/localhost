@@ -69,5 +69,14 @@
   "captions": {
     "instagram": "Why AI forgets what you told it: the context window.\nThe fix takes 5 seconds. Part 2/3 of \"how AI codes.\"\n#vibecoding #ai #llm #learntocode #buildinpublic",
     "youtubeTitle": "Why AI forgets what you told it #vibecoding"
+  },
+  "scheduledFor": "2026-11-22T01:00:00.000Z",
+  "results": [
+    "Instagram ✅",
+    "YouTube ✅"
+  ],
+  "bufferIds": {
+    "instagram": "6b01e861d5eabfb8cc52e56a",
+    "youtube": "6b01e862142c95751937e581"
   }
 }

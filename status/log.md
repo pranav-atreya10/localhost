@@ -25,3 +25,7 @@ Newest at the bottom.
 - 2026-11-20 22:12 UTC — X post for 2026-11-20 23:00 UTC "what's the first thing you ever built wi…" ✅
 - 2026-11-20 22:12 UTC — X post for 2026-11-21 02:30 UTC "hot take: reading error messages is the …" ✅
 - 2026-11-20 22:12 UTC — X post + card for 2026-11-21 11:15 UTC "why does 50 tabs make your laptop lag?  …" ✅
+- 2026-11-21 18:52 UTC — reel **d2-context** for 2026-11-22 01:00 UTC — Instagram ✅, YouTube ✅
+- 2026-11-21 18:52 UTC — X post for 2026-11-21 23:00 UTC "the code at 2am: works perfectly the cod…" ✅
+- 2026-11-21 18:52 UTC — X post for 2026-11-22 02:30 UTC "build in public: the reel machine now po…" ✅
+- 2026-11-21 18:52 UTC — X post + card for 2026-11-22 11:15 UTC "AI doesn't look up your code. it predict…" ✅

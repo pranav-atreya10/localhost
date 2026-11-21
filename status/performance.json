@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-21T18:52:20.126Z",
+  "updatedAt": "2026-11-21T20:47:09.287Z",
   "reels": [
     {
       "id": "b2-salting",
@@ -7,8 +7,8 @@
       "hook": "Same password. Different hash.",
       "sceneTypes": "hook > compare > code > code > statement > list > end",
       "sentAt": "2026-11-19T01:01:06.904Z",
-      "hoursLive": 66,
-      "views": 270,
+      "hoursLive": 68,
+      "views": 271,
       "likes": 10,
       "comments": 0,
       "shares": 2,
@@ -24,56 +24,19 @@
         "instagram": {
           "reactions": 10,
           "comments": 0,
-          "engagementRate": 7.49,
-          "views": 270,
+          "engagementRate": 7.46,
+          "views": 271,
           "shares": 2,
           "saves": 5,
           "totalTimeWatched": 54.12,
-          "averageTimeWatched": 13.94,
-          "reach": 227
+          "averageTimeWatched": 13.88,
+          "reach": 228
         }
       },
       "engagement": 31,
-      "engagementRate": 0.11481481481481481,
+      "engagementRate": 0.11439114391143912,
       "early": false,
       "score": 100
-    },
-    {
-      "id": "a2-handshake",
-      "series": "you_hit_enter · 2/3",
-      "hook": "Your browser shakes hands first.",
-      "sceneTypes": "hook > pair > statement > pair > list > end",
-      "sentAt": "2026-11-19T21:30:23.717Z",
-      "hoursLive": 45,
-      "views": 116,
-      "likes": 3,
-      "comments": 0,
-      "shares": 0,
-      "saves": 0,
-      "follows": 0,
-      "byPlatform": {
-        "youtube": {
-          "reactions": 0,
-          "comments": 0,
-          "engagementRate": 0,
-          "views": 1
-        },
-        "instagram": {
-          "reactions": 3,
-          "comments": 0,
-          "engagementRate": 2.75,
-          "views": 115,
-          "shares": 0,
-          "saves": 0,
-          "totalTimeWatched": 8.3,
-          "averageTimeWatched": 4.49,
-          "reach": 109
-        }
-      },
-      "engagement": 3,
-      "engagementRate": 0.02586206896551724,
-      "early": true,
-      "score": 35
     },
     {
       "id": "b1-hashing",
@@ -81,7 +44,7 @@
       "hook": "That site doesn't know your password.",
       "sceneTypes": "hook > code > compare > code > list > statement > end",
       "sentAt": "2026-11-18T04:19:16.523Z",
-      "hoursLive": 87,
+      "hoursLive": 88,
       "views": 155,
       "likes": 4,
       "comments": 0,
@@ -110,14 +73,51 @@
       "engagement": 4,
       "engagementRate": 0.025806451612903226,
       "early": false,
-      "score": 15
+      "score": 50
+    },
+    {
+      "id": "a2-handshake",
+      "series": "you_hit_enter · 2/3",
+      "hook": "Your browser shakes hands first.",
+      "sceneTypes": "hook > pair > statement > pair > list > end",
+      "sentAt": "2026-11-19T21:30:23.717Z",
+      "hoursLive": 47,
+      "views": 117,
+      "likes": 3,
+      "comments": 0,
+      "shares": 0,
+      "saves": 0,
+      "follows": 0,
+      "byPlatform": {
+        "youtube": {
+          "reactions": 0,
+          "comments": 0,
+          "engagementRate": 0,
+          "views": 1
+        },
+        "instagram": {
+          "reactions": 3,
+          "comments": 0,
+          "engagementRate": 2.73,
+          "views": 116,
+          "shares": 0,
+          "saves": 0,
+          "totalTimeWatched": 8.32,
+          "averageTimeWatched": 4.46,
+          "reach": 110
+        }
+      },
+      "engagement": 3,
+      "engagementRate": 0.02564102564102564,
+      "early": true,
+      "score": 0
     }
   ],
   "x": [
     {
       "text": "build in public update: wrote a pipeline that turns a script into a finished reel and schedules it, no clicks.\n\nRemotion for video, a GitHub Action runs it daily.\n\nwhat should the next coding series explain?",
       "sentAt": "2026-11-19T23:00:48.899Z",
-      "hoursLive": 44,
+      "hoursLive": 46,
       "views": 3,
       "likes": 1,
       "replies": 0,
@@ -131,7 +131,7 @@
     {
       "text": "\"it works on my machine\"\n\n— every dev, right before it doesn't work on anyone else's machine",
       "sentAt": "2026-11-19T11:15:07.988Z",
-      "hoursLive": 56,
+      "hoursLive": 58,
       "views": 1,
       "likes": 0,
       "replies": 0,
@@ -145,7 +145,7 @@
     {
       "text": "your computer doesn't understand python.\n\nit only runs machine code. something has to translate: a compiler (all at once, ahead of time) or an interpreter (line by line, as it runs).\n\nthat's the whole difference.",
       "sentAt": "2026-11-20T11:15:07.128Z",
-      "hoursLive": 32,
+      "hoursLive": 34,
       "views": 0,
       "likes": 0,
       "replies": 0,
@@ -159,7 +159,7 @@
     {
       "text": "a good website doesn't know your password.\n\nit stores a hash: a one-way scramble of it. when you log in, it scrambles what you typed and checks if they match.\n\nif a site can email you your actual password, that's a red flag.",
       "sentAt": "2026-11-19T02:30:11.051Z",
-      "hoursLive": 64,
+      "hoursLive": 66,
       "views": 1,
       "likes": 0,
       "replies": 0,
@@ -173,7 +173,7 @@
     {
       "text": "good morning to everyone except the bug I left for future me yesterday",
       "sentAt": "2026-11-20T02:30:09.936Z",
-      "hoursLive": 40,
+      "hoursLive": 42,
       "views": 0,
       "likes": 0,
       "replies": 0,
@@ -187,7 +187,7 @@
     {
       "text": "15, building a clothing brand for people who code.\n\nthe twist: AI writes, voices, edits, and posts every video. I just build the machine.\n\nweek 1. 0 followers. let's see where this goes.",
       "sentAt": "2026-11-18T04:19:30.428Z",
-      "hoursLive": 87,
+      "hoursLive": 88,
       "views": 1,
       "likes": 0,
       "replies": 0,
@@ -201,7 +201,7 @@
     {
       "text": "tabs or spaces. wrong answers only.",
       "sentAt": "2026-11-18T23:00:53.464Z",
-      "hoursLive": 68,
+      "hoursLive": 70,
       "views": 0,
       "likes": 0,
       "replies": 0,
@@ -215,7 +215,7 @@
     {
       "text": "every website you've ever opened started with your computer asking \"what's the number for this name?\"\n\nthat's DNS. the internet's contacts app.\n\nmade a reel series breaking down what happens when you hit enter. part 1 is up.",
       "sentAt": "2026-11-18T11:15:12.358Z",
-      "hoursLive": 80,
+      "hoursLive": 82,
       "views": 1,
       "likes": 0,
       "replies": 0,
@@ -229,7 +229,7 @@
     {
       "text": "my code works and I have no idea why.\n\nshipping it.",
       "sentAt": "2026-11-18T02:17:15.439Z",
-      "hoursLive": 89,
+      "hoursLive": 90,
       "views": 1,
       "likes": 0,
       "replies": 0,

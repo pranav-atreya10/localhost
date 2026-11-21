@@ -1,4 +1,4 @@
-# Performance (auto-updated 2026-11-21 18:52 UTC)
+# Performance (auto-updated 2026-11-21 20:47 UTC)
 
 Score = 70% engagement rate + 30% views, ranked against each other (100 = best). Posts are scored after 48h live; on Saturdays (review day) the newest ones count after 24h (marked *).
 Engagement = likes + 2×comments + 3×shares + 3×saves + 4×follows. Small numbers early on = noisy, treat as hints.
@@ -7,9 +7,9 @@ Engagement = likes + 2×comments + 3×shares + 3×saves + 4×follows. Small numb
 
 | score | id | series | hook | views | likes | comments | shares | saves | follows | eng. rate |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 100 | b2-salting | behind_the_login · 2/3 | Same password. Different hash. | 270 | 10 | 0 | 2 | 5 | 0 | 11.5% |
-| 35* | a2-handshake | you_hit_enter · 2/3 | Your browser shakes hands first. | 116 | 3 | 0 | 0 | 0 | 0 | 2.6% |
-| 15 | b1-hashing | behind_the_login · 1/3 | That site doesn't know your password. | 155 | 4 | 0 | 0 | 0 | 0 | 2.6% |
+| 100 | b2-salting | behind_the_login · 2/3 | Same password. Different hash. | 271 | 10 | 0 | 2 | 5 | 0 | 11.4% |
+| 50 | b1-hashing | behind_the_login · 1/3 | That site doesn't know your password. | 155 | 4 | 0 | 0 | 0 | 0 | 2.6% |
+| 0* | a2-handshake | you_hit_enter · 2/3 | Your browser shakes hands first. | 117 | 3 | 0 | 0 | 0 | 0 | 2.6% |
 
 ## X posts
 

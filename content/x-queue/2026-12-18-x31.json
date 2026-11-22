@@ -1,0 +1,12 @@
+{
+  "text": "your authenticator code isn't sent to you. your phone makes it.\n\nat setup, the QR code shares a secret key. every 30 seconds, your phone and the server mix that secret with the time and get the same 6 digits.\n\nworks offline.",
+  "card": {
+    "type": "flow",
+    "title": "authenticator code",
+    "nodes": [
+      "secret key (from QR)",
+      "+ current time",
+      "= 482 913 (example)"
+    ]
+  }
+}

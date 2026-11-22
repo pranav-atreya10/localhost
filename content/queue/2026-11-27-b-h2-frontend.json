@@ -1,0 +1,78 @@
+{
+  "id": "h2-frontend",
+  "seriesBadge": "secrets_in_code · 2/3",
+  "voiceover": "Anything you ship to the browser, the user can read. Your JavaScript, your API calls, any key you put in frontend code. It's all visible in the browser's dev tools. Minifying doesn't hide it; it just makes it uglier. So if your app calls a paid API straight from the frontend with your secret key, anyone can copy that key. The fix: put a small backend in the middle. The browser talks to your server, and only your server holds the key and calls the API. Some keys are designed to be public, so check the docs for which is which. Part three: never trust the client.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "Your frontend can't keep secrets."
+    },
+    {
+      "type": "list",
+      "at": "Your JavaScript",
+      "title": "visible to every user",
+      "items": [
+        {
+          "text": "your JS code",
+          "status": "bad"
+        },
+        {
+          "text": "every API call",
+          "status": "bad"
+        },
+        {
+          "text": "keys in frontend code",
+          "status": "bad"
+        }
+      ]
+    },
+    {
+      "type": "statement",
+      "at": "Minifying doesn't hide it",
+      "big": "minified ≠ hidden",
+      "small": "just harder to read"
+    },
+    {
+      "type": "flow",
+      "at": "The fix",
+      "title": "safer setup",
+      "nodes": [
+        "browser",
+        "your backend (holds key)",
+        "paid API"
+      ]
+    },
+    {
+      "type": "compare",
+      "at": "Some keys are designed",
+      "left": {
+        "label": "publishable key",
+        "value": "fine in frontend"
+      },
+      "right": {
+        "label": "secret key",
+        "value": "backend only"
+      },
+      "verdict": "check the docs",
+      "verdictTone": "ok"
+    },
+    {
+      "type": "end",
+      "at": "Part three",
+      "text": "part 3: never trust the client"
+    }
+  ],
+  "keywords": [
+    "browser",
+    "visible",
+    "minifying",
+    "secret",
+    "backend",
+    "server",
+    "public"
+  ],
+  "captions": {
+    "instagram": "Why API keys in frontend code aren't secret.\nThe small backend fix. Part 2/3 of \"secrets in code.\"\n#webdev #javascript #vibecoding #cybersecurity #learntocode",
+    "youtubeTitle": "Your frontend can't keep secrets #webdev"
+  }
+}

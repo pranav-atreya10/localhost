@@ -1,0 +1,75 @@
+{
+  "id": "g2-branches",
+  "seriesBadge": "git_under_the_hood · 2/3",
+  "voiceover": "A git branch is just a tiny file holding one commit hash. That's it. Creating a branch doesn't copy your project; it writes about forty characters. That's why it's instant. There's also HEAD, which points to the branch you're on. When you commit, git makes the new commit and moves your current branch forward to it. Switching branches moves HEAD and updates your files to match that snapshot. Merging finds where two branches split and combines the work since then. So branches are basically free. Make one for every experiment, and delete it when you're done. Part three: why deleted commits usually aren't gone.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "A branch is one line of text."
+    },
+    {
+      "type": "code",
+      "at": "Creating a branch doesn't copy",
+      "title": ".git/refs/heads/main",
+      "lines": [
+        "3f9a2c71e0b4d85a…",
+        "// one commit hash. that's it.",
+        "✓ new branch = new tiny file"
+      ],
+      "highlight": 0
+    },
+    {
+      "type": "statement",
+      "at": "There's also HEAD",
+      "big": "HEAD → main → 3f9a…",
+      "small": "HEAD = where you are right now"
+    },
+    {
+      "type": "flow",
+      "at": "When you commit",
+      "title": "git commit",
+      "nodes": [
+        "new commit",
+        "branch moves to it",
+        "HEAD comes along"
+      ]
+    },
+    {
+      "type": "list",
+      "at": "So branches are basically free",
+      "title": "branches",
+      "items": [
+        {
+          "text": "create: instant",
+          "status": "ok"
+        },
+        {
+          "text": "one per experiment",
+          "status": "ok"
+        },
+        {
+          "text": "delete when done",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "type": "end",
+      "at": "Part three",
+      "text": "part 3: deleted ≠ gone"
+    }
+  ],
+  "keywords": [
+    "branch",
+    "hash",
+    "instant",
+    "HEAD",
+    "moves",
+    "merging",
+    "free"
+  ],
+  "captions": {
+    "instagram": "What a git branch really is: a tiny file with one commit hash.\nThat's why branches are instant and free. Part 2/3 of \"git under the hood.\"\n#git #github #learntocode #programming #coding",
+    "youtubeTitle": "A git branch is one line of text #git"
+  }
+}

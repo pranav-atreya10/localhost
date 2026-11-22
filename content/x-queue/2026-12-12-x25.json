@@ -1,0 +1,12 @@
+{
+  "text": "a git branch isn't a copy of your project.\n\nit's a tiny file holding one commit hash. that's why creating one is instant.\n\nso make a branch for every experiment. they're basically free.",
+  "card": {
+    "type": "code",
+    "title": ".git/refs/heads/main",
+    "lines": [
+      "3f9a2c71e0b4…",
+      "// one commit hash. that's all."
+    ],
+    "highlight": 0
+  }
+}

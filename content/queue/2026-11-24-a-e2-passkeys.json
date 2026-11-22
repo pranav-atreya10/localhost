@@ -1,0 +1,80 @@
+{
+  "id": "e2-passkeys",
+  "seriesBadge": "beyond_passwords · 2/3",
+  "voiceover": "With a passkey, the site never stores anything worth stealing. When you create one, your device makes a key pair: a private key that stays with you, and a public key the site stores. To log in, the site sends a random challenge. You unlock with your fingerprint, face or PIN, and your device signs the challenge with the private key. The site checks that signature with the public key. Your fingerprint never leaves your device; it just unlocks the key. And a passkey only works on the real site's domain, so a fake login page gets nothing. Part three: if you still use passwords.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "A login with nothing to steal.",
+      "sub": "passkeys, explained"
+    },
+    {
+      "type": "compare",
+      "at": "your device makes a key pair",
+      "left": {
+        "label": "private key",
+        "value": "stays on your device"
+      },
+      "right": {
+        "label": "public key",
+        "value": "stored by the site"
+      }
+    },
+    {
+      "type": "pair",
+      "at": "To log in",
+      "left": "you",
+      "right": "site",
+      "messages": [
+        {
+          "dir": "left",
+          "label": "challenge: 7f2c… (random)"
+        },
+        {
+          "dir": "right",
+          "label": "signed with private key"
+        }
+      ],
+      "result": "checked with public key ✓"
+    },
+    {
+      "type": "statement",
+      "at": "Your fingerprint never leaves",
+      "big": "fingerprint unlocks. never uploads.",
+      "small": "biometrics stay on the device"
+    },
+    {
+      "type": "list",
+      "at": "And a passkey only works",
+      "title": "fake login page",
+      "items": [
+        {
+          "text": "real domain → signs",
+          "status": "ok"
+        },
+        {
+          "text": "lookalike domain → nothing",
+          "status": "bad"
+        }
+      ]
+    },
+    {
+      "type": "end",
+      "at": "Part three",
+      "text": "part 3: if you still use passwords"
+    }
+  ],
+  "keywords": [
+    "passkey",
+    "private",
+    "public",
+    "challenge",
+    "signs",
+    "fingerprint",
+    "domain"
+  ],
+  "captions": {
+    "instagram": "Passkeys: why the site stores nothing worth stealing.\nThe site only stores your public key. Part 2/3 of \"beyond passwords.\"\n#cybersecurity #passkeys #infosec #learntocode #webdev",
+    "youtubeTitle": "Passkeys: a login with nothing to steal #infosec"
+  }
+}

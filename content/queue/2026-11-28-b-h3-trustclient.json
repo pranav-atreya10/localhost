@@ -1,0 +1,88 @@
+{
+  "id": "h3-trustclient",
+  "seriesBadge": "secrets_in_code · 3/3",
+  "voiceover": "Your server should trust nothing that comes from the client. Your frontend checks that a username is short or a quantity is positive? Nice for the user, but requests can reach your server without ever going through your frontend, with whatever values someone wants. So the server has to check everything again: is this user logged in, are they allowed to do this, is this value valid? Never let the client decide things like prices, roles, or whether someone paid. The server looks those up itself. Frontend checks are for user experience. Backend checks are for security. Send this to whoever only validates in the browser.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "Your server should trust no one."
+    },
+    {
+      "type": "compare",
+      "at": "Your frontend checks",
+      "left": {
+        "label": "frontend check",
+        "value": "helps the user"
+      },
+      "right": {
+        "label": "backend check",
+        "value": "actually enforced"
+      }
+    },
+    {
+      "type": "pair",
+      "at": "requests can reach your server",
+      "left": "client",
+      "right": "server",
+      "messages": [
+        {
+          "dir": "right",
+          "label": "role: admin (says client)"
+        },
+        {
+          "dir": "left",
+          "label": "rejected: server checks"
+        }
+      ],
+      "result": "server decides ✓"
+    },
+    {
+      "type": "list",
+      "at": "So the server has to check",
+      "title": "server checks",
+      "items": [
+        {
+          "text": "logged in?",
+          "status": "ok"
+        },
+        {
+          "text": "allowed to do this?",
+          "status": "ok"
+        },
+        {
+          "text": "valid value?",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "type": "statement",
+      "at": "Never let the client decide",
+      "big": "the server looks it up",
+      "chips": [
+        "prices",
+        "roles",
+        "paid?"
+      ]
+    },
+    {
+      "type": "end",
+      "at": "Send this",
+      "text": "secrets_in_code ✓ complete",
+      "sub": "send to whoever only validates in the browser"
+    }
+  ],
+  "keywords": [
+    "trust",
+    "client",
+    "server",
+    "check",
+    "allowed",
+    "prices",
+    "security"
+  ],
+  "captions": {
+    "instagram": "Never trust the client: why frontend validation isn't security.\nWhat your server should check every time. Part 3/3 of \"secrets in code.\"\n#webdev #cybersecurity #backend #vibecoding #learntocode",
+    "youtubeTitle": "Frontend checks aren't security #webdev"
+  }
+}

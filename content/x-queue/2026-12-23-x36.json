@@ -1,0 +1,3 @@
+{
+  "text": "the bug: exists\nme: adds a console.log\nthe bug: disappears\nme: leaves the console.log in forever"
+}

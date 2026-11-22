@@ -1,0 +1,83 @@
+{
+  "id": "e3-managers",
+  "seriesBadge": "beyond_passwords · 3/3",
+  "voiceover": "Here's how one leaked password unlocks ten accounts. When a site gets breached, attackers take the leaked emails and passwords and automatically try them on other sites. That's called credential stuffing, and it only works if you reuse passwords. The defense is boring: a different password for every site. Nobody can remember that, so use a password manager. It generates long random passwords, stores them in an encrypted vault, and you remember one strong master password. Bonus: it won't autofill on a fake site's domain. And turn on two factor for the manager itself. Send this to whoever uses the same password everywhere.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "One leak. Ten accounts."
+    },
+    {
+      "type": "flow",
+      "at": "When a site gets breached",
+      "title": "credential stuffing",
+      "nodes": [
+        "site A leaks",
+        "email + password",
+        "tried on sites B, C, D…",
+        "reused = unlocked"
+      ]
+    },
+    {
+      "type": "compare",
+      "at": "The defense is boring",
+      "left": {
+        "label": "reused",
+        "value": "1 leak = every account"
+      },
+      "right": {
+        "label": "unique",
+        "value": "1 leak = 1 account"
+      },
+      "verdict": "a different password per site",
+      "verdictTone": "ok"
+    },
+    {
+      "type": "code",
+      "at": "It generates long random passwords",
+      "title": "vault (example)",
+      "lines": [
+        "example.com     q7#Lp2…vX9!",
+        "school.example  Zr4&m…8kQ",
+        "// encrypted, unlocked by",
+        "// one master password ✓"
+      ],
+      "highlight": 3
+    },
+    {
+      "type": "list",
+      "at": "Bonus",
+      "title": "also",
+      "items": [
+        {
+          "text": "no autofill on fake domains",
+          "status": "ok"
+        },
+        {
+          "text": "two factor on the manager",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "type": "end",
+      "at": "Send this",
+      "text": "beyond_passwords ✓ complete",
+      "sub": "send to whoever reuses passwords"
+    }
+  ],
+  "keywords": [
+    "leaked",
+    "reuse",
+    "stuffing",
+    "different",
+    "manager",
+    "random",
+    "encrypted",
+    "master"
+  ],
+  "captions": {
+    "instagram": "Credential stuffing: how one leaked password unlocks ten accounts.\nThe boring fix that works. Part 3/3 of \"beyond passwords.\"\n#cybersecurity #passwords #infosec #learntocode #techtips",
+    "youtubeTitle": "How 1 leaked password unlocks 10 accounts #cybersecurity"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "text": "build in public: every reel starts as one json file: voiceover, scenes, captions.\n\na github action voices it, renders it, and schedules it. AI writes the scripts. I build the machine.",
+  "card": {
+    "type": "flow",
+    "title": "one reel",
+    "nodes": [
+      "json file",
+      "voiceover",
+      "render",
+      "scheduled"
+    ]
+  }
+}

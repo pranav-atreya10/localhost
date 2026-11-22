@@ -1,0 +1,21 @@
+{
+  "text": "the stages of debugging",
+  "card": {
+    "type": "list",
+    "title": "debugging",
+    "items": [
+      {
+        "text": "it can't be my code",
+        "status": "bad"
+      },
+      {
+        "text": "it's my code",
+        "status": "bad"
+      },
+      {
+        "text": "it was a typo",
+        "status": "ok"
+      }
+    ]
+  }
+}

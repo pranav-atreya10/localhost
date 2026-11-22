@@ -1,0 +1,79 @@
+{
+  "id": "h1-leakedkeys",
+  "seriesBadge": "secrets_in_code · 1/3",
+  "voiceover": "Bots are reading public code right now, looking for API keys and passwords. If your key is in a public repo, someone can run up your bill or use your account. And deleting that line in a new commit doesn't help: the key is still in your git history. So keep secrets out of your code. Put them in environment variables or a dot env file, and add that file to your gitignore before your first commit. If a key ever leaks, revoke it and make a new one right away. That's the only real fix. Part two: why your frontend can't keep secrets.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "Bots are reading your repo.",
+      "sub": "the public ones, at least"
+    },
+    {
+      "type": "statement",
+      "at": "If your key is in a public repo",
+      "big": "leaked keys get found fast",
+      "chips": [
+        "your bill",
+        "your account"
+      ]
+    },
+    {
+      "type": "code",
+      "at": "deleting that line",
+      "title": "git log",
+      "lines": [
+        "commit 2: remove key  ✓",
+        "commit 1: add key  ✗ still here",
+        "// history keeps everything"
+      ],
+      "highlight": 1
+    },
+    {
+      "type": "code",
+      "at": "Put them in environment variables",
+      "title": "app.js",
+      "lines": [
+        "const key = \"abc123…\"     ✗",
+        "const key = process.env.KEY ✓",
+        "// .env listed in .gitignore"
+      ],
+      "highlight": 1
+    },
+    {
+      "type": "list",
+      "at": "If a key ever leaks",
+      "title": "leaked a key?",
+      "items": [
+        {
+          "text": "revoke it now",
+          "status": "ok"
+        },
+        {
+          "text": "make a new one",
+          "status": "ok"
+        },
+        {
+          "text": "just deleting the line",
+          "status": "bad"
+        }
+      ]
+    },
+    {
+      "type": "end",
+      "at": "Part two",
+      "text": "part 2: frontend can't keep secrets"
+    }
+  ],
+  "keywords": [
+    "bots",
+    "keys",
+    "history",
+    "environment",
+    "gitignore",
+    "revoke"
+  ],
+  "captions": {
+    "instagram": "Leaked API keys: why deleting the line doesn't fix it.\nWhere secrets should live instead. Part 1/3 of \"secrets in code.\"\n#cybersecurity #webdev #vibecoding #learntocode #git",
+    "youtubeTitle": "Deleting a leaked API key doesn't fix it #webdev"
+  }
+}

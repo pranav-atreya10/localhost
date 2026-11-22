@@ -1,0 +1,76 @@
+{
+  "id": "g1-snapshots",
+  "seriesBadge": "git_under_the_hood · 1/3",
+  "voiceover": "Git doesn't think in changes. It stores snapshots. Every commit records what every file in your project looked like at that moment. That sounds huge, but git is clever: each file's content gets a hash, a kind of fingerprint, and identical content is stored only once. If a file didn't change, the new commit just points to the copy git already has. Each commit also stores the hash of the commit before it, so history is a chain. Change anything old and every hash after it changes too. When git shows you a diff, it's comparing two snapshots on the spot. Part two: what a branch really is.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "Git saves snapshots, not changes."
+    },
+    {
+      "type": "compare",
+      "at": "Every commit records",
+      "left": {
+        "label": "what you'd think",
+        "value": "a list of changes"
+      },
+      "right": {
+        "label": "what git stores",
+        "value": "a full snapshot"
+      }
+    },
+    {
+      "type": "code",
+      "at": "each file's content gets a hash",
+      "title": "commit 2 (example)",
+      "lines": [
+        "index.html → a1f3… reused",
+        "app.js     → 9c4e… new ✓",
+        "style.css  → 77b0… reused"
+      ],
+      "highlight": 1
+    },
+    {
+      "type": "flow",
+      "at": "Each commit also stores",
+      "title": "history = a chain",
+      "nodes": [
+        "commit 1",
+        "commit 2 → parent: 1",
+        "commit 3 → parent: 2"
+      ]
+    },
+    {
+      "type": "statement",
+      "at": "Change anything old",
+      "big": "edit the past, every hash changes",
+      "small": "that's why history is hard to fake"
+    },
+    {
+      "type": "statement",
+      "at": "When git shows you a diff",
+      "big": "a diff = two snapshots compared",
+      "chips": [
+        "git diff",
+        "on the spot"
+      ]
+    },
+    {
+      "type": "end",
+      "at": "Part two",
+      "text": "part 2: what a branch really is"
+    }
+  ],
+  "keywords": [
+    "snapshots",
+    "hash",
+    "fingerprint",
+    "once",
+    "chain",
+    "diff"
+  ],
+  "captions": {
+    "instagram": "How git actually stores your code: snapshots, not changes.\nAnd why editing old history changes every hash. Part 1/3 of \"git under the hood.\"\n#git #github #learntocode #programming #coding",
+    "youtubeTitle": "Git saves snapshots, not changes #git"
+  }
+}

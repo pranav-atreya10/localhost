@@ -1,0 +1,16 @@
+{
+  "text": "\"this'll take 10 minutes\"",
+  "card": {
+    "type": "compare",
+    "left": {
+      "label": "estimate",
+      "value": "10 min"
+    },
+    "right": {
+      "label": "reality",
+      "value": "3 hours"
+    },
+    "verdict": "every time",
+    "verdictTone": "bad"
+  }
+}

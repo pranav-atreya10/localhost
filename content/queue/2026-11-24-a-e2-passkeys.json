@@ -1,12 +1,11 @@
 {
   "id": "e2-passkeys",
   "seriesBadge": "beyond_passwords · 2/3",
-  "voiceover": "With a passkey, the site never stores anything worth stealing. When you create one, your device makes a key pair: a private key that stays with you, and a public key the site stores. To log in, the site sends a random challenge. You unlock with your fingerprint, face or PIN, and your device signs the challenge with the private key. The site checks that signature with the public key. Your fingerprint never leaves your device; it just unlocks the key. And a passkey only works on the real site's domain, so a fake login page gets nothing. Part three: if you still use passwords.",
+  "voiceover": "A site you use gets breached. If you used a passkey, you're fine, because the site never stored anything worth stealing. When you create one, your device makes a key pair: a private key that stays with you, and a public key the site stores. To log in, the site sends a random challenge. You unlock with your fingerprint, face or PIN, and your device signs the challenge with the private key. The site checks that signature with the public key. Your fingerprint never leaves your device; it just unlocks the key. And a passkey only works on the real site's domain, so a fake login page gets nothing. Part three: if you still use passwords.",
   "scenes": [
     {
       "type": "hook",
-      "text": "A login with nothing to steal.",
-      "sub": "passkeys, explained"
+      "text": "Your site got hacked. You're fine."
     },
     {
       "type": "compare",

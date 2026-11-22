@@ -1,11 +1,11 @@
 {
   "id": "g2-branches",
   "seriesBadge": "git_under_the_hood · 2/3",
-  "voiceover": "A git branch is just a tiny file holding one commit hash. That's it. Creating a branch doesn't copy your project; it writes about forty characters. That's why it's instant. There's also HEAD, which points to the branch you're on. When you commit, git makes the new commit and moves your current branch forward to it. Switching branches moves HEAD and updates your files to match that snapshot. Merging finds where two branches split and combines the work since then. So branches are basically free. Make one for every experiment, and delete it when you're done. Part three: why deleted commits usually aren't gone.",
+  "voiceover": "Scared a wild idea will break code that works? Relax: a git branch is just a tiny file holding one commit hash. That's it. Creating a branch doesn't copy your project; it writes about forty characters. That's why it's instant. There's also HEAD, which points to the branch you're on. When you commit, git makes the new commit and moves your current branch forward to it. Switching branches moves HEAD and updates your files to match that snapshot. Merging finds where two branches split and combines the work. So branches are basically free. Make one for every experiment, and delete it when you're done. Part three: why deleted commits usually aren't gone.",
   "scenes": [
     {
       "type": "hook",
-      "text": "A branch is one line of text."
+      "text": "Scared to break your code?"
     },
     {
       "type": "code",

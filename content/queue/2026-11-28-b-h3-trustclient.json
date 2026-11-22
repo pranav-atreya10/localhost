@@ -1,11 +1,11 @@
 {
   "id": "h3-trustclient",
   "seriesBadge": "secrets_in_code · 3/3",
-  "voiceover": "Your server should trust nothing that comes from the client. Your frontend checks that a username is short or a quantity is positive? Nice for the user, but requests can reach your server without ever going through your frontend, with whatever values someone wants. So the server has to check everything again: is this user logged in, are they allowed to do this, is this value valid? Never let the client decide things like prices, roles, or whether someone paid. The server looks those up itself. Frontend checks are for user experience. Backend checks are for security. Send this to whoever only validates in the browser.",
+  "voiceover": "Your checkout page only offers real prices, but an order comes in for one cent. That's why your server should trust nothing that comes from the client. Your frontend checks that a username is short or a quantity is positive? Nice, but requests can reach your server without ever going through your frontend. So the server has to check everything again: is this user logged in, are they allowed to do this, is this value valid? Never let the client decide things like prices, roles, or whether someone paid. The server looks those up itself. Frontend checks are for user experience. Backend checks are for security. Send this to whoever only validates in the browser.",
   "scenes": [
     {
       "type": "hook",
-      "text": "Your server should trust no one."
+      "text": "The order that cost one cent."
     },
     {
       "type": "compare",

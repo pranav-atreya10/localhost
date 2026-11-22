@@ -1,11 +1,11 @@
 {
   "id": "d3-hallucinations",
   "seriesBadge": "how_ai_codes · 3/3",
-  "voiceover": "Sometimes AI invents a function, a setting, or even a whole package that doesn't exist. That's called a hallucination. Remember, it predicts what looks right, so a made-up name that sounds real can come out sounding totally confident. With packages, that's actually a security risk: attackers can register those made-up names as real packages, hoping someone installs them. So before you install something an AI suggested, check that it exists, that people actually use it, and that it's the one you meant. Run the code. Read the error. AI is a fast intern, not an oracle. Send this to whoever pastes AI code without reading it.",
+  "voiceover": "You ask AI for help. It confidently imports a package, you run the code, and it crashes: no such module. That package never existed. That's called a hallucination. Remember, it predicts what looks right, so a made-up name that sounds real can come out sounding totally confident. With packages, that's actually a security risk: attackers can register those made-up names as real packages, hoping someone installs them. So before you install something an AI suggested, check that it exists, that people actually use it, and that it's the one you meant. Run the code. Read the error. AI is a fast intern, not an oracle. Send this to whoever pastes AI code without reading it.",
   "scenes": [
     {
       "type": "hook",
-      "text": "AI makes up code sometimes."
+      "text": "The package AI swore was real."
     },
     {
       "type": "code",

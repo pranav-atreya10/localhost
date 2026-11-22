@@ -1,16 +1,15 @@
 {
   "id": "e1-authcodes",
   "seriesBadge": "beyond_passwords · 1/3",
-  "voiceover": "That six digit code in your authenticator app? Nobody sends it to you. Your phone makes it itself. When you set up two factor, the site shows a QR code holding a secret key. Your app saves it, and the server keeps a copy. Every 30 seconds, both sides mix that secret with the current time and get the same six digits. No internet needed on your phone. So even if someone steals your password, they still need the code from your device. Many servers also accept a code that's slightly early or late, in case clocks drift. Part two: logging in with no password at all.",
+  "voiceover": "You open your authenticator app, see six digits, and type them in. But nobody sent you that code. Your phone made it itself. When you set up two factor, the site shows a QR code holding a secret key. Your app saves it, and the server keeps a copy. Every 30 seconds, both sides mix that secret with the current time and get the same six digits. No internet needed on your phone. So even if someone steals your password, they still need the code from your device. Many servers also accept a code that's slightly early or late, in case clocks drift. Part two: logging in with no password at all.",
   "scenes": [
     {
       "type": "hook",
-      "text": "That code isn't sent to you.",
-      "sub": "authenticator apps, explained"
+      "text": "Nobody sent you that code."
     },
     {
       "type": "statement",
-      "at": "Your phone makes it itself",
+      "at": "Your phone made it itself",
       "big": "your phone makes the code",
       "small": "no text. no email. no internet."
     },

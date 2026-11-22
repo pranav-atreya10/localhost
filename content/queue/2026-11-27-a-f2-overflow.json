@@ -1,11 +1,11 @@
 {
   "id": "f2-overflow",
   "seriesBadge": "number_glitches · 2/3",
-  "voiceover": "Many languages store whole numbers in a fixed number of bits, and those can run out. An 8 bit unsigned number holds 0 to 255. Add one to 255 and it wraps around to 0, like an old odometer rolling over. In many languages, signed numbers wrap from the biggest positive to the most negative. This one has a real deadline: lots of older systems store time as seconds since 1970 in a signed 32 bit number. That runs out on January 19, 2038, and the clock would jump back to 1901. Most modern systems already use 64 bits, which lasts billions of years. Part three: how text becomes numbers.",
+  "voiceover": "January 19, 2038, just after 3:14 in the morning UTC: some old computers will think it's 1901. Here's why. Many languages store whole numbers in a fixed number of bits, and those can run out. An 8 bit unsigned number holds 0 to 255. Add one to 255 and it wraps around to 0. In many languages, signed numbers wrap from the biggest positive to the most negative. Lots of older systems store time as seconds since 1970 in a signed 32 bit number. That runs out in 2038, and the clock jumps back to 1901. Most modern systems already use 64 bits, which lasts billions of years. Part three: how text becomes numbers.",
   "scenes": [
     {
       "type": "hook",
-      "text": "Computers can run out of numbers."
+      "text": "2038. 3:14 a.m. Suddenly, 1901."
     },
     {
       "type": "code",

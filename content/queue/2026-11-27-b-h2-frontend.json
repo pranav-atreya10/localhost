@@ -1,11 +1,11 @@
 {
   "id": "h2-frontend",
   "seriesBadge": "secrets_in_code · 2/3",
-  "voiceover": "Anything you ship to the browser, the user can read. Your JavaScript, your API calls, any key you put in frontend code. It's all visible in the browser's dev tools. Minifying doesn't hide it; it just makes it uglier. So if your app calls a paid API straight from the frontend with your secret key, anyone can copy that key. The fix: put a small backend in the middle. The browser talks to your server, and only your server holds the key and calls the API. Some keys are designed to be public, so check the docs for which is which. Part three: never trust the client.",
+  "voiceover": "Your AI app calls a paid API straight from the browser. A week later, strangers are using your key. Anything you ship to the browser, the user can read. Your JavaScript, your API calls, any key you put in frontend code. It's all visible in the browser's dev tools. Minifying doesn't hide it; it just makes it uglier. So a secret key in your frontend is a key anyone can copy. The fix: put a small backend in the middle. The browser talks to your server, and only your server holds the key and calls the API. Some keys are designed to be public, so check the docs. Part three: never trust the client.",
   "scenes": [
     {
       "type": "hook",
-      "text": "Your frontend can't keep secrets."
+      "text": "Strangers are using your API key."
     },
     {
       "type": "list",

@@ -1,16 +1,15 @@
 {
   "id": "f1-floats",
   "seriesBadge": "number_glitches · 1/3",
-  "voiceover": "Add point one and point two in JavaScript or Python, and you don't get point three. You get zero point three, then fifteen zeros, then a four. That's not a bug in the language. Computers store most decimals in binary floating point, and in binary, point one can't be written exactly. It's like one third in decimal: 0.333 forever. So the computer stores the closest value it can, and tiny errors show up when you add. That's why you shouldn't compare floats with double equals; check if they're close enough instead. And for money, count whole cents, or use a decimal type. Part two: when numbers run out of room.",
+  "voiceover": "You build a shopping cart in JavaScript. Ten cents plus twenty cents, and the total isn't point three. It's zero point three, then fifteen zeros, then a four. Python does the same. That's not a bug in the language. Computers store most decimals in binary floating point, and in binary, point one can't be written exactly. It's like one third in decimal: 0.333 forever. So the computer stores the closest value it can, and tiny errors show up when you add. That's why you shouldn't compare floats with double equals; check if they're close enough instead. And for money, count whole cents, or use a decimal type. Part two: when numbers run out of room.",
   "scenes": [
     {
       "type": "hook",
-      "text": "0.1 + 0.2 isn't 0.3.",
-      "sub": "try it"
+      "text": "Your cart total is slightly wrong."
     },
     {
       "type": "code",
-      "at": "You get zero point three",
+      "at": "It's zero point three",
       "title": "python",
       "lines": [
         ">>> 0.1 + 0.2",

@@ -1,11 +1,11 @@
 {
   "id": "e3-managers",
   "seriesBadge": "beyond_passwords · 3/3",
-  "voiceover": "Here's how one leaked password unlocks ten accounts. When a site gets breached, attackers take the leaked emails and passwords and automatically try them on other sites. That's called credential stuffing, and it only works if you reuse passwords. The defense is boring: a different password for every site. Nobody can remember that, so use a password manager. It generates long random passwords, stores them in an encrypted vault, and you remember one strong master password. Bonus: it won't autofill on a fake site's domain. And turn on two factor for the manager itself. Send this to whoever uses the same password everywhere.",
+  "voiceover": "A forum you joined in eighth grade gets breached. Two years later, someone logs into your email with that same password. When a site gets breached, attackers take the leaked emails and passwords and automatically try them on other sites. That's called credential stuffing, and it only works if you reuse passwords. The defense is boring: a different password for every site. Nobody can remember that, so use a password manager. It generates long random passwords, stores them in an encrypted vault, and you remember one strong master password. Bonus: it won't autofill on a fake site's domain. And turn on two factor for the manager itself. Send this to whoever uses the same password everywhere.",
   "scenes": [
     {
       "type": "hook",
-      "text": "One leak. Ten accounts."
+      "text": "An old forum leak. Your email."
     },
     {
       "type": "flow",

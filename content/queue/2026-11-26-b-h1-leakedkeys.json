@@ -1,12 +1,11 @@
 {
   "id": "h1-leakedkeys",
   "seriesBadge": "secrets_in_code · 1/3",
-  "voiceover": "Bots are reading public code right now, looking for API keys and passwords. If your key is in a public repo, someone can run up your bill or use your account. And deleting that line in a new commit doesn't help: the key is still in your git history. So keep secrets out of your code. Put them in environment variables or a dot env file, and add that file to your gitignore before your first commit. If a key ever leaks, revoke it and make a new one right away. That's the only real fix. Part two: why your frontend can't keep secrets.",
+  "voiceover": "You push your project to a public repo at midnight. By morning, someone else is using your API key. Bots scan public code constantly for keys. If your key is in a public repo, someone can run up your bill or use your account. And deleting that line in a new commit doesn't help: the key is still in your git history. So keep secrets out of your code. Put them in environment variables or a dot env file, and add that file to your gitignore before your first commit. If a key ever leaks, revoke it and make a new one right away. Part two: why your frontend can't keep secrets.",
   "scenes": [
     {
       "type": "hook",
-      "text": "Bots are reading your repo.",
-      "sub": "the public ones, at least"
+      "text": "Midnight push. Stolen key by morning."
     },
     {
       "type": "statement",

@@ -1,11 +1,11 @@
 {
   "id": "c3-cpu",
   "seriesBadge": "inside_your_computer · 3/3",
-  "voiceover": "At its core, your processor repeats one simple loop. Fetch an instruction, decode it, execute it, repeat. That's the instruction cycle. A 3 gigahertz clock ticks about three billion times every second, and modern chips can finish several instructions per tick. They also have multiple cores, basically several processors on one chip, so different tasks can truly run at the same time. But one program only gets faster with more cores if it's written to split up its work. That's why a game can max out one core while the others sit almost idle. Send this to whoever says their laptop is slow.",
+  "voiceover": "Your game is stuttering, but most of your processor is barely working. Here's why. Your processor repeats one simple loop. Fetch an instruction, decode it, execute it, repeat. That's the instruction cycle. A 3 gigahertz clock ticks about three billion times every second, and modern chips can finish several instructions per tick. They also have multiple cores, basically several processors on one chip, so different tasks can truly run at the same time. But one program only gets faster with more cores if it's written to split up its work. That's why a game can max out one core while the others sit almost idle. Send this to whoever says their laptop is slow.",
   "scenes": [
     {
       "type": "hook",
-      "text": "Your CPU runs one loop. Forever."
+      "text": "Your game lags. Most cores nap."
     },
     {
       "type": "flow",

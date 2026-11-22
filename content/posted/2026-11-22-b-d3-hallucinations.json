@@ -62,5 +62,14 @@
   "captions": {
     "instagram": "AI hallucinations in code: when it invents packages that don't exist.\nCheck before you install. Part 3/3 of \"how AI codes.\"\n#vibecoding #ai #cybersecurity #learntocode #coding",
     "youtubeTitle": "When AI invents code that doesn't exist #ai"
+  },
+  "scheduledFor": "2026-11-23T01:00:00.000Z",
+  "results": [
+    "Instagram ✅",
+    "YouTube ✅"
+  ],
+  "bufferIds": {
+    "instagram": "6b033fc4c72676f5e9536abf",
+    "youtube": "6b033fc5cc364169c17b67ba"
   }
 }

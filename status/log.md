@@ -29,3 +29,8 @@ Newest at the bottom.
 - 2026-11-21 18:52 UTC — X post for 2026-11-21 23:00 UTC "the code at 2am: works perfectly the cod…" ✅
 - 2026-11-21 18:52 UTC — X post for 2026-11-22 02:30 UTC "build in public: the reel machine now po…" ✅
 - 2026-11-21 18:52 UTC — X post + card for 2026-11-22 11:15 UTC "AI doesn't look up your code. it predict…" ✅
+- 2026-11-22 19:17 UTC — reel **c2-ram** for 2026-11-22 21:30 UTC — Instagram ✅, YouTube ✅
+- 2026-11-22 19:17 UTC — reel **d3-hallucinations** for 2026-11-23 01:00 UTC — Instagram ✅, YouTube ✅
+- 2026-11-22 19:17 UTC — X post for 2026-11-22 23:00 UTC "if your variable is named "temp2_final_r…" ✅
+- 2026-11-22 19:17 UTC — X post for 2026-11-23 02:30 UTC "what's a coding concept you wish someone…" ✅
+- 2026-11-22 19:17 UTC — X post for 2026-11-23 11:15 UTC ""I'll refactor it later"  later:…" ✅

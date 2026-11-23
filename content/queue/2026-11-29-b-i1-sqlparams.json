@@ -1,0 +1,76 @@
+{
+  "id": "i1-sqlparams",
+  "seriesBadge": "untrusted_input · 1/3",
+  "voiceover": "You build a login form, someone types a quote mark into the username box, and your app crashes with a database error. That error means your data is at risk. Here's why. If your code glues user input straight into a SQL query, the database can't tell your code apart from their text. A quote can end your string early, and whatever comes after gets run as part of the query. That's SQL injection. The fix is simple: parameterized queries. You send the query with a placeholder, and the input separately. The database treats the input as plain data, never as code. Most database libraries support this. Part two: when the input is HTML.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "One quote mark broke your login.",
+      "sub": "and your database noticed"
+    },
+    {
+      "type": "compare",
+      "at": "If your code glues",
+      "left": {
+        "label": "glued in",
+        "value": "input becomes code"
+      },
+      "right": {
+        "label": "parameter",
+        "value": "input stays data"
+      },
+      "verdict": "use parameters",
+      "verdictTone": "ok"
+    },
+    {
+      "type": "code",
+      "at": "A quote can end",
+      "title": "glued query",
+      "lines": [
+        "// ✗ input glued into SQL",
+        "\"WHERE name = '\" + input + \"'\"",
+        "// a ' in input ends the string"
+      ],
+      "highlight": 1
+    },
+    {
+      "type": "statement",
+      "at": "That's SQL injection",
+      "big": "that's SQL injection",
+      "small": "the database runs their text as code"
+    },
+    {
+      "type": "code",
+      "at": "The fix is simple",
+      "title": "parameterized query",
+      "lines": [
+        "db.query(",
+        "  \"SELECT * FROM users",
+        "   WHERE name = ?\",",
+        "  [input]",
+        ")",
+        "✓ input sent separately"
+      ],
+      "highlight": 3,
+      "note": "placeholder style varies: ? or $1"
+    },
+    {
+      "type": "end",
+      "at": "Part two",
+      "text": "part 2: when the input is HTML"
+    }
+  ],
+  "keywords": [
+    "quote",
+    "SQL",
+    "injection",
+    "parameterized",
+    "placeholder",
+    "data",
+    "code"
+  ],
+  "captions": {
+    "instagram": "SQL injection and the fix: parameterized queries.\nWhy a single quote mark can crash your login. Part 1/3 of \"untrusted input.\"\n#webdev #cybersecurity #sql #backend #learntocode",
+    "youtubeTitle": "One quote mark can break your login #webdev"
+  }
+}

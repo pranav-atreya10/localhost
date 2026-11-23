@@ -1,0 +1,16 @@
+{
+  "text": "why \"café\" sometimes shows up as \"cafÃ©\":\n\nUTF-8 saves é as two bytes, C3 A9. open the file as Latin-1 and each byte becomes its own character: Ã and ©.\n\nnothing's corrupted. it's just read with the wrong encoding. fix: UTF-8 everywhere.",
+  "card": {
+    "type": "compare",
+    "left": {
+      "label": "saved",
+      "value": "café"
+    },
+    "right": {
+      "label": "opened",
+      "value": "cafÃ©"
+    },
+    "verdict": "wrong encoding",
+    "verdictTone": "bad"
+  }
+}

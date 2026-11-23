@@ -1,0 +1,14 @@
+{
+  "text": "my commit history at 1am",
+  "card": {
+    "type": "code",
+    "title": "git log --oneline",
+    "lines": [
+      "fix",
+      "actually fix",
+      "fix for real",
+      "pls"
+    ],
+    "highlight": 3
+  }
+}

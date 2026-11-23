@@ -1,0 +1,90 @@
+{
+  "id": "f3-unicode",
+  "seriesBadge": "number_glitches · 3/3",
+  "voiceover": "You save the word café, and your friend's app shows it as caf, then two random symbols. Here's why. Computers only store numbers, so every character gets a number. In ASCII, capital A is 65 and lowercase a is 97. Unicode gives every character in every language, plus emoji, its own number: over 150,000. UTF-8 turns those numbers into bytes. English letters take one byte. The é takes two: C3 and A9. Open those two bytes with the wrong encoding, and each byte becomes its own character: an A with a tilde, and a copyright sign. The fix: save and read everything as UTF-8. Send this to whoever's app still shows weird symbols.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "Your café became cafÃ©.",
+      "sub": "same bytes, wrong decoder"
+    },
+    {
+      "type": "compare",
+      "at": "Here's why",
+      "left": {
+        "label": "saved",
+        "value": "café"
+      },
+      "right": {
+        "label": "opened",
+        "value": "cafÃ©"
+      },
+      "verdict": "nothing was lost, just misread",
+      "verdictTone": "bad"
+    },
+    {
+      "type": "code",
+      "at": "In ASCII",
+      "title": "ASCII",
+      "lines": [
+        "A → 65",
+        "a → 97",
+        "0 → 48",
+        "// 128 characters total"
+      ],
+      "highlight": 0
+    },
+    {
+      "type": "statement",
+      "at": "Unicode gives every character",
+      "big": "one number per character",
+      "small": "Unicode: over 150,000 so far",
+      "chips": [
+        "letters",
+        "scripts",
+        "emoji"
+      ]
+    },
+    {
+      "type": "code",
+      "at": "UTF-8 turns those numbers",
+      "title": "UTF-8 bytes (hex)",
+      "lines": [
+        "A → 41",
+        "é → C3 A9",
+        "€ → E2 82 AC",
+        "// emoji: 4 bytes"
+      ],
+      "highlight": 1
+    },
+    {
+      "type": "flow",
+      "at": "Open those two bytes",
+      "title": "wrong decoder",
+      "nodes": [
+        "bytes C3 A9",
+        "read as Latin-1 ✗",
+        "Ã + ©"
+      ]
+    },
+    {
+      "type": "end",
+      "at": "The fix",
+      "text": "number_glitches ✓ complete",
+      "sub": "fix: UTF-8 everywhere"
+    }
+  ],
+  "keywords": [
+    "numbers",
+    "ASCII",
+    "Unicode",
+    "UTF-8",
+    "bytes",
+    "encoding",
+    "café"
+  ],
+  "captions": {
+    "instagram": "Why café turns into cafÃ©: text encoding, ASCII, Unicode and UTF-8.\nHow text becomes bytes. Part 3/3 of \"number glitches.\"\n#computerscience #programming #unicode #learntocode #coding",
+    "youtubeTitle": "Why café turns into cafÃ© (UTF-8 explained) #coding"
+  }
+}

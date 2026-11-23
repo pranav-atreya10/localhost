@@ -22,7 +22,7 @@ export type Scene =
       verdict?: string;
       verdictTone?: 'ok' | 'bad';
     }
-  | {type: 'shirt'; at: string; item: 'tee' | 'hoodie'; joke?: string; line?: string}
+  | {type: 'shirt'; at: string; item: 'tee' | 'hoodie'; joke?: string; accent?: string; line?: string}
   | {type: 'end'; at: string; text: string; sub?: string};
 
 export type ReelProps = {

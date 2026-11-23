@@ -31,8 +31,9 @@
     {
       "type": "shirt",
       "at": "there's no place like 127.0.0.1",
-      "item": "tee",
-      "joke": "no place like 127.0.0.1"
+      "item": "hoodie",
+      "joke": "there's no\nplace like",
+      "accent": "127.0.0.1"
     }
   ],
   "keywords": [

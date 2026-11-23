@@ -19,8 +19,8 @@ hosts it on GitHub Pages, and schedules it in Buffer for Instagram (Reel) + YouT
 The store sells exactly two products. Never show or mention anything else.
 - **terminal tee**: $25 → scene `"item": "tee"`
 - **terminal hoodie**: $47 → scene `"item": "hoodie"`
-Chest design: a terminal-style `> localhost` (green prompt, blinking cursor).
-Shirt jokes (the only ones that may go in the `joke` field): "works on my machine", "shipped it at 3am", "there's no place like 127.0.0.1".
+Front (chest): terminal-style `> localhost█`, green prompt and cursor, logo only, no joke text.
+Back print: the joke, e.g. white "there's no place like" + green "127.0.0.1" + small "// localhost". Only the jokes the store really prints may be shown on a back: **"there's no place like 127.0.0.1"** (confirmed on the hoodie back). "works on my machine" and "shipped it at 3am" are brand jokes but their back layouts aren't confirmed, so don't use `joke` for them until the exact print is added here.
 Never put prices in the voiceover or captions. No real company logos, no AI images of people wearing the shirts.
 
 ## Reel mix: "the joke is the shirt"
@@ -62,8 +62,8 @@ Scene types (all text must be short; the card is ~730 px wide):
 - `{"type":"flow","at":"…","title":"…","nodes":["a","b","c"]}` (3–5 nodes, vertical chain with a traveling dot)
 - `{"type":"pair","at":"…","left":"you","right":"server","messages":[{"dir":"right","label":"SYN"},{"dir":"left","label":"SYN-ACK"}],"result":"optional pill"}` (2–4 messages)
 - `{"type":"compare","at":"…","left":{"label":"…","value":"…"},"right":{"label":"…","value":"…"},"verdict":"…","verdictTone":"ok|bad"}`
-- `{"type":"shirt","at":"…","item":"tee|hoodie","joke":"optional small line under the logo","line":"optional wordmark under the shirt (default: localhost)"}`
-  **Last scene only.** Draws a black tee or hoodie (SVG) with the terminal `> localhost` logo on the chest and a small `> localhost` line under it. `at` = the words where the shirt appears (usually the punchline, a few seconds before the end). Use `joke` only for the three real shirt jokes listed above; otherwise leave it out.
+- `{"type":"shirt","at":"…","item":"tee|hoodie","joke":"optional white back text (use \n for line breaks)","accent":"optional green back text","line":"optional wordmark under the shirt (default: localhost)"}`
+  **Last scene only.** Draws a black tee or hoodie (SVG). It shows the front first (`> localhost` logo on the chest, small `> localhost` line under it). If `joke`/`accent` are set it flips to the back print after ~1.5 s. `at` = the words where the shirt appears (usually the punchline). Only set `joke`/`accent` for back prints listed in "What we sell"; otherwise leave them out and the scene stays on the front. Example (confirmed): `"joke":"there's no\nplace like","accent":"127.0.0.1"` on a hoodie.
 - `{"type":"end","at":"…","text":"part 2: …","sub":"optional"}`
 
 Check before committing: `cd video && npm ci && node pipeline/check.mjs` (validates every queued file).

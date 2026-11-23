@@ -480,16 +480,95 @@ const TEE_PATH =
 const HOODIE_BODY =
   'M215 92 L140 120 L58 400 L112 420 L150 300 L150 570 L450 570 L450 300 L488 420 L542 400 L460 120 L385 92 Q300 190 215 92 Z';
 
-const Shirt: React.FC<{item: 'tee' | 'hoodie'; joke?: string; line?: string}> = ({item, joke, line = 'localhost'}) => {
+const ShirtArt: React.FC<{
+  item: 'tee' | 'hoodie';
+  side: 'front' | 'back';
+  word: string;
+  cursorOn: boolean;
+  joke?: string;
+  accent?: string;
+}> = ({item, side, word, cursorOn, joke, accent}) => {
+  const hoodie = item === 'hoodie';
+  const front = side === 'front';
+  const chestY = hoodie ? 345 : 245;
+  const backY = hoodie ? 300 : 215;
+  const jokeLines = (joke || '').split('\n');
+  return (
+    <svg width={540} height={540} viewBox="0 0 600 600">
+      <defs>
+        <linearGradient id="fabric" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#1A1E25" />
+          <stop offset="1" stopColor="#0C0E12" />
+        </linearGradient>
+      </defs>
+      {hoodie ? (
+        <g strokeLinejoin="round" strokeLinecap="round">
+          <path d="M215 96 Q300 -22 385 96 Q380 176 300 196 Q220 176 215 96 Z" fill="#0A0C10" stroke="rgba(255,255,255,0.12)" strokeWidth={3} />
+          <path d={HOODIE_BODY} fill="url(#fabric)" stroke="rgba(255,255,255,0.14)" strokeWidth={3} />
+          <path d="M215 92 Q300 190 385 92" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth={3} />
+          <path d="M150 570 L450 570 L450 548 L150 548 Z" fill="#12151A" stroke="rgba(255,255,255,0.1)" strokeWidth={2} />
+          {front ? (
+            <>
+              <path d="M205 430 L395 430 L425 540 L175 540 Z" fill="#0E1116" stroke="rgba(255,255,255,0.1)" strokeWidth={2.5} />
+              <path d="M272 190 L266 280" stroke="#8A919C" strokeWidth={4} fill="none" />
+              <path d="M328 190 L334 280" stroke="#8A919C" strokeWidth={4} fill="none" />
+              <circle cx={266} cy={284} r={5} fill="#8A919C" />
+              <circle cx={334} cy={284} r={5} fill="#8A919C" />
+            </>
+          ) : (
+            <path d="M215 96 Q300 150 385 96 Q380 176 300 196 Q220 176 215 96 Z" fill="#0A0C10" opacity={0.6} />
+          )}
+        </g>
+      ) : (
+        <g strokeLinejoin="round" strokeLinecap="round">
+          <path d={TEE_PATH} fill="url(#fabric)" stroke="rgba(255,255,255,0.14)" strokeWidth={3} />
+          <path d={front ? 'M235 40 Q300 112 365 40' : 'M235 40 Q300 66 365 40'} fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth={9} />
+          <path d="M150 205 L96 238 M450 205 L504 238" stroke="rgba(255,255,255,0.1)" strokeWidth={2} />
+        </g>
+      )}
+      {front ? (
+        <g fontFamily={FONT.mono} fontWeight={700}>
+          <text x={192} y={chestY} fontSize={30} fill={C.text}>
+            <tspan fill={C.green}>&gt; </tspan>
+            {word}
+          </text>
+          <rect x={192 + (2 + word.length) * 18 + 2} y={chestY - 24} width={15} height={29} fill={C.green} opacity={cursorOn ? 1 : 0} />
+        </g>
+      ) : (
+        <g fontFamily={FONT.mono} fontWeight={700} textAnchor="middle">
+          {jokeLines.map((l, i) => (
+            <text key={i} x={300} y={backY + i * 36} fontSize={26} fill={C.text}>
+              {l}
+            </text>
+          ))}
+          {accent ? (
+            <text x={300} y={backY + jokeLines.length * 36 + 14} fontSize={accent.length > 10 ? 36 : 44} fill={C.green}>
+              {accent}
+            </text>
+          ) : null}
+          <text x={300} y={backY + jokeLines.length * 36 + 56} fontSize={14} fontWeight={400} fill={C.text}>
+            {'// localhost'}
+          </text>
+        </g>
+      )}
+    </svg>
+  );
+};
+
+// Front view first (logo only, like the real product). If the reel has a joke, it flips to the back print.
+const Shirt: React.FC<{item: 'tee' | 'hoodie'; joke?: string; accent?: string; line?: string}> = ({item, joke, accent, line = 'localhost'}) => {
   const f = useCurrentFrame();
   const {fps} = useVideoConfig();
   const p = spring({frame: f, fps, config: {damping: 16, mass: 0.9}});
   const float = Math.sin(f / 22) * 5;
   const cursorOn = Math.floor(f / 15) % 2 === 0;
-  const hoodie = item === 'hoodie';
-  const chestY = hoodie ? 345 : 245;
   const typed = Math.max(0, Math.floor((f - 14) * 0.7));
   const word = 'localhost'.slice(0, typed);
+  const hasBack = !!(joke || accent);
+  const FLIP_AT = 46;
+  const flip = hasBack ? interpolate(f, [FLIP_AT, FLIP_AT + 14], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE_IN_OUT}) : 0;
+  const showBack = flip >= 0.5;
+  const scaleX = showBack ? (flip - 0.5) * 2 : 1 - flip * 2;
   return (
     <Stage>
       <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
@@ -500,47 +579,9 @@ const Shirt: React.FC<{item: 'tee' | 'hoodie'; joke?: string; line?: string}> = 
             filter: `blur(${(1 - p) * 10}px) drop-shadow(0 30px 40px rgba(0,0,0,0.55))`,
           }}
         >
-          <svg width={540} height={540} viewBox="0 0 600 600">
-            <defs>
-              <linearGradient id="fabric" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stopColor="#1A1E25" />
-                <stop offset="1" stopColor="#0C0E12" />
-              </linearGradient>
-            </defs>
-            {hoodie ? (
-              <g strokeLinejoin="round" strokeLinecap="round">
-                <path d="M215 96 Q300 -22 385 96 Q380 176 300 196 Q220 176 215 96 Z" fill="#0A0C10" stroke="rgba(255,255,255,0.12)" strokeWidth={3} />
-                <path d={HOODIE_BODY} fill="url(#fabric)" stroke="rgba(255,255,255,0.14)" strokeWidth={3} />
-                <path d="M215 92 Q300 190 385 92" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth={3} />
-                <path d="M150 570 L450 570 L450 548 L150 548 Z" fill="#12151A" stroke="rgba(255,255,255,0.1)" strokeWidth={2} />
-                <path d="M205 430 L395 430 L425 540 L175 540 Z" fill="#0E1116" stroke="rgba(255,255,255,0.1)" strokeWidth={2.5} />
-                <path d="M272 190 L266 280" stroke="#8A919C" strokeWidth={4} fill="none" />
-                <path d="M328 190 L334 280" stroke="#8A919C" strokeWidth={4} fill="none" />
-                <circle cx={266} cy={284} r={5} fill="#8A919C" />
-                <circle cx={334} cy={284} r={5} fill="#8A919C" />
-                <path d="M112 420 L120 400" stroke="rgba(255,255,255,0.1)" strokeWidth={2} />
-              </g>
-            ) : (
-              <g strokeLinejoin="round" strokeLinecap="round">
-                <path d={TEE_PATH} fill="url(#fabric)" stroke="rgba(255,255,255,0.14)" strokeWidth={3} />
-                <path d="M235 40 Q300 112 365 40" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth={9} />
-                <path d="M150 205 L96 238 M450 205 L504 238" stroke="rgba(255,255,255,0.1)" strokeWidth={2} />
-              </g>
-            )}
-            {/* chest design: terminal prompt */}
-            <g fontFamily={FONT.mono} fontWeight={700}>
-              <text x={192} y={chestY} fontSize={30} fill={C.text}>
-                <tspan fill={C.green}>&gt; </tspan>
-                {word}
-              </text>
-              <rect x={192 + (2 + word.length) * 18 + 2} y={chestY - 24} width={15} height={29} fill={C.green} opacity={cursorOn ? 1 : 0} />
-              {joke ? (
-                <text x={300} y={chestY + 36} textAnchor="middle" fontSize={17} fontWeight={400} fill={C.muted}>
-                  {joke}
-                </text>
-              ) : null}
-            </g>
-          </svg>
+          <div style={{transform: `scaleX(${Math.max(0.02, scaleX)})`}}>
+            <ShirtArt item={item} side={showBack ? 'back' : 'front'} word={word} cursorOn={cursorOn} joke={joke} accent={accent} />
+          </div>
         </div>
         <Rise delay={22}>
           <div style={{fontFamily: FONT.mono, fontSize: 34, color: C.muted, marginTop: 6, letterSpacing: '0.04em'}}>
@@ -570,7 +611,7 @@ export const SceneView: React.FC<{scene: Scene; dur: number}> = ({scene, dur}) =
     case 'compare':
       return <Compare left={scene.left} right={scene.right} verdict={scene.verdict} verdictTone={scene.verdictTone} />;
     case 'shirt':
-      return <Shirt item={scene.item} joke={scene.joke} line={scene.line} />;
+      return <Shirt item={scene.item} joke={scene.joke} accent={scene.accent} line={scene.line} />;
     case 'end':
       return <End text={scene.text} sub={scene.sub} />;
   }

@@ -45,5 +45,14 @@
   "captions": {
     "instagram": "Works on my machine: why code breaks on someone else's computer.\nDifferent versions, missing env variables, local files.\n#programming #coding #webdev #developerlife #devhumor",
     "youtubeTitle": "\"It works on my machine\" (every dev) #coding"
+  },
+  "scheduledFor": "2026-11-24T21:30:00.000Z",
+  "results": [
+    "Instagram ✅",
+    "YouTube ✅"
+  ],
+  "bufferIds": {
+    "instagram": "6b04cdee9a4bd32ca3d99d11",
+    "youtube": "6b04cdef8b92f49dc8f03a61"
   }
 }

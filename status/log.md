@@ -34,3 +34,8 @@ Newest at the bottom.
 - 2026-11-22 19:17 UTC — X post for 2026-11-22 23:00 UTC "if your variable is named "temp2_final_r…" ✅
 - 2026-11-22 19:17 UTC — X post for 2026-11-23 02:30 UTC "what's a coding concept you wish someone…" ✅
 - 2026-11-22 19:17 UTC — X post for 2026-11-23 11:15 UTC ""I'll refactor it later"  later:…" ✅
+- 2026-11-23 23:36 UTC — reel **j1-worksonmine** for 2026-11-24 21:30 UTC — Instagram ✅, YouTube ✅
+- 2026-11-23 23:36 UTC — reel **j4-pushtomain** for 2026-11-24 01:00 UTC — Instagram ✅, YouTube ✅
+- 2026-11-23 23:36 UTC — X post + card for 2026-11-24 02:30 UTC "why AI forgets the rule you told it an h…" ✅
+- 2026-11-23 23:36 UTC — X post for 2026-11-24 11:15 UTC "hot take: the best way to learn to code …" ✅
+- 2026-11-23 23:36 UTC — X post + card for 2026-11-24 23:00 UTC "before you install a package AI suggeste…" ✅

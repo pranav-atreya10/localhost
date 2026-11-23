@@ -17,5 +17,7 @@
         "status": "ok"
       }
     ]
-  }
+  },
+  "scheduledFor": "2026-11-24T02:30:00.000Z",
+  "bufferId": "6b04cdf0c43c1f2f5c701130"
 }

@@ -48,5 +48,14 @@
   "captions": {
     "instagram": "Pushing straight to main: why a branch costs nothing.\nLet someone catch it before it's live.\n#git #programming #webdev #developerlife #devhumor",
     "youtubeTitle": "Pushing straight to main #git #coding"
+  },
+  "scheduledFor": "2026-11-24T01:00:00.000Z",
+  "results": [
+    "Instagram ✅",
+    "YouTube ✅"
+  ],
+  "bufferIds": {
+    "instagram": "6b04cdef9a4bd32ca3d99d64",
+    "youtube": "6b04cdf0f0d7b1e0de95da0c"
   }
 }

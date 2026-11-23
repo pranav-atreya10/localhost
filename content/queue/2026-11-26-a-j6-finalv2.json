@@ -1,0 +1,60 @@
+{
+  "id": "j6-finalv2",
+  "seriesBadge": "dev_pain · #6",
+  "voiceover": "You have a folder. It has project final, project final v2, and project final REAL this one. You open the wrong one at 2am. That's version control done by hand, and it always goes wrong. Git exists so you never name a file final again. Every commit is a snapshot you can go back to, with a message saying what changed. One file, full history. Send this to whoever has ten copies of one project.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "Which file is the real one?",
+      "sub": "final_final_v2"
+    },
+    {
+      "type": "list",
+      "at": "You have a folder",
+      "title": "~/projects",
+      "items": [
+        {
+          "text": "project_final",
+          "status": "bad"
+        },
+        {
+          "text": "project_final_v2",
+          "status": "bad"
+        },
+        {
+          "text": "project_final_REAL",
+          "status": "bad"
+        }
+      ]
+    },
+    {
+      "type": "code",
+      "at": "Git exists",
+      "title": "git log --oneline",
+      "lines": [
+        "a1f3c9e add login page",
+        "b7d204a fix signup typo",
+        "c93e18d finally, final",
+        "// one file. full history."
+      ],
+      "highlight": 2
+    },
+    {
+      "type": "shirt",
+      "at": "One file, full history",
+      "item": "hoodie"
+    }
+  ],
+  "keywords": [
+    "folder",
+    "final",
+    "git",
+    "snapshot",
+    "commit",
+    "history"
+  ],
+  "captions": {
+    "instagram": "final_final_v2: why you need git, not more folders.\nEvery commit is a snapshot you can return to.\n#git #programming #coding #learntocode #developerlife",
+    "youtubeTitle": "final_final_v2 (just use git) #coding"
+  }
+}

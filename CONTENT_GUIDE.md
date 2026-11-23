@@ -9,10 +9,28 @@ hosts it on GitHub Pages, and schedules it in Buffer for Instagram (Reel) + YouT
 ## Brand
 - Audience: teens and college kids who code, vibe-code, do hackathons.
 - Voice: short, dry, a little funny, like a friend who codes at 2am. Lowercase is fine on X.
-- Goal right now: **following and presence**. No selling, no "link in bio", no shirt plugs, no discounts, no links.
+- Goal right now: **views that lead to store visits** (localhostwear.xyz). The reels do the warming up; the profile does the selling.
+- Allowed: showing the shirt at the end of a joke reel. Not allowed: hard selling, "buy now" / "shop now", discounts or codes, prices in the voiceover, links anywhere (captions, voiceover, X), "link in bio".
 - Never name or depict real company logos. Naming tools in words is fine.
 - Every technical fact must be correct. Use `example.com` and IPs from `203.0.113.0/24` for examples, labeled as examples.
 - Security topics: explain defenses only, never attack how-tos.
+
+## What we sell (only ever show these)
+The store sells exactly two products. Never show or mention anything else.
+- **terminal tee**: $25 → scene `"item": "tee"`
+- **terminal hoodie**: $47 → scene `"item": "hoodie"`
+Chest design: a terminal-style `> localhost` (green prompt, blinking cursor).
+Shirt jokes (the only ones that may go in the `joke` field): "works on my machine", "shipped it at 3am", "there's no place like 127.0.0.1".
+Never put prices in the voiceover or captions. No real company logos, no AI images of people wearing the shirts.
+
+## Reel mix: "the joke is the shirt"
+Per week (14 reels): **about 10 joke → shirt reels and 4 lesson reels**. Keep series 1 in the `a` slot and series 2 in the `b` slot only for lessons; joke reels can go in either slot. Spread lessons out, don't stack them.
+- **Joke → shirt reel** (20–35 s, 55–85 words): one relatable coding pain (pushing to main, deploying on Friday, "works on my machine", 3am commits, final_final_v2 files, merge conflicts, "port already in use"). Dry and funny, with a real tip or fact inside it so it's correct and worth saving. Ends on the matching shirt: the last scene is a `shirt` scene. The last voiceover sentence is "Send this to …" (whoever lives this pain). Never a sales pitch.
+  - Set `"seriesBadge": "dev_pain · #N"` and don't say "Part 1/3".
+  - Open with the same story hook as always: a short "you" moment (see Hooks below).
+  - Scene shape: `hook` → 1–2 explainer scenes (compare, code, list, flow, statement) → `shirt`.
+  - Captions: keyword-first line, one dry line, ≤ 5 hashtags, no store name, no link.
+- **Lesson reel**: the old format (security-with-stakes topics like b2-salting do best: something at stake, a compare scene early, 85–115 words). It can end on `end` or `shirt`. Make lessons stand-alone or a complete series. Never queue a part 2 without its part 1.
 
 ## Reel file: `content/queue/YYYY-MM-DD-<a|b>-<id>.json`
 File names sort = posting order. **Two reels per day**: `-a-` posts 4:30pm ET, `-b-` posts 8pm ET.
@@ -23,7 +41,7 @@ Run **two series in parallel**: series 1 always takes the `a` slot, series 2 alw
 {
   "id": "short-unique-id",
   "seriesBadge": "series_name · 1/3",
-  "voiceover": "85–115 words (30–45 s). Hook in the first sentence. Ends with 'Part two: …' or 'Send this to …'.",
+  "voiceover": "joke reels: 55–85 words (20–35 s); lesson reels: 85–115 words. Hook in the first sentence. Ends with 'Send this to …' (lessons in a series: 'Part two: …').",
   "scenes": [ ...4–7 scenes, first is always type "hook"... ],
   "keywords": ["words", "to", "underline", "green", "in", "captions"],
   "captions": {
@@ -44,13 +62,15 @@ Scene types (all text must be short; the card is ~730 px wide):
 - `{"type":"flow","at":"…","title":"…","nodes":["a","b","c"]}` (3–5 nodes, vertical chain with a traveling dot)
 - `{"type":"pair","at":"…","left":"you","right":"server","messages":[{"dir":"right","label":"SYN"},{"dir":"left","label":"SYN-ACK"}],"result":"optional pill"}` (2–4 messages)
 - `{"type":"compare","at":"…","left":{"label":"…","value":"…"},"right":{"label":"…","value":"…"},"verdict":"…","verdictTone":"ok|bad"}`
+- `{"type":"shirt","at":"…","item":"tee|hoodie","joke":"optional small line under the logo","line":"optional wordmark under the shirt (default: localhost)"}`
+  **Last scene only.** Draws a black tee or hoodie (SVG) with the terminal `> localhost` logo on the chest and a small `> localhost` line under it. `at` = the words where the shirt appears (usually the punchline, a few seconds before the end). Use `joke` only for the three real shirt jokes listed above; otherwise leave it out.
 - `{"type":"end","at":"…","text":"part 2: …","sub":"optional"}`
 
 Check before committing: `cd video && npm ci && node pipeline/check.mjs` (validates every queued file).
 
 ## X file: `content/x-queue/YYYY-MM-DD-xN.json`
 Optional image card in the reel look (rendered automatically, 1080×1080): add `"card": {…}` using any reel scene type
-except `end` (no `"at"` needed), e.g. `"card": {"type":"list","title":"before you install","items":[{"text":"does it exist?","status":"ok"}]}`.
+except `end` and `shirt` (no `"at"` needed), e.g. `"card": {"type":"list","title":"before you install","items":[{"text":"does it exist?","status":"ok"}]}`.
 Give a card to **about 1 in 3 X posts**: always the mini-explainers, sometimes a joke that works visually (code/compare).
 Keep card text even shorter than in reels.
 
@@ -76,6 +96,7 @@ Before writing new content, read `status/performance.md` (and `status/performanc
 - The first voiceover sentence sets up a problem or surprise; the payoff comes within ~10 seconds.
 
 ## What the numbers say so far (update as data grows)
+- **Switch (2026-11-23):** reels moved from tech lessons to joke → shirt reels, because the first week of lessons got only 117–271 views per reel and zero follows. Judge the new format on views, shares, saves, profile visits and store visits (Shopify analytics), and compare against these lesson numbers. Keep what the top joke reels share (pain, hook, scene types) and drop what the bottom ones share.
 - Average Instagram watch time is the clearest early signal: b2-salting 13.9 s (best), b1-hashing 8.2 s, a2-handshake 4.5 s (worst). Most viewers leave during the hook.
 - Winners: security topics where the viewer has something at stake (their password), with a concrete side-by-side (compare scene) in the first 5 seconds.
 - Losers: abstract "how the internet works" steps with no personal stakes.

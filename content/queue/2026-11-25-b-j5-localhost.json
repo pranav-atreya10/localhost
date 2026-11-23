@@ -1,0 +1,50 @@
+{
+  "id": "j5-localhost",
+  "seriesBadge": "dev_pain · #5",
+  "voiceover": "Your website loads perfectly. But only for you. That's because your app is running on 127.0.0.1, your own computer's address for talking to itself. It's called localhost. Nobody else can reach it. To show the world, you deploy it to a server with a public address. Until then, there's no place like 127.0.0.1. Send this to the dev who keeps texting friends a localhost link.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "Your site works. Only for you.",
+      "sub": "127.0.0.1"
+    },
+    {
+      "type": "compare",
+      "at": "That's because your app",
+      "left": {
+        "label": "127.0.0.1",
+        "value": "only your computer"
+      },
+      "right": {
+        "label": "public address",
+        "value": "anyone online"
+      },
+      "verdict": "localhost is home",
+      "verdictTone": "ok"
+    },
+    {
+      "type": "statement",
+      "at": "Nobody else can reach it",
+      "big": "nobody else can reach it",
+      "small": "localhost = this computer"
+    },
+    {
+      "type": "shirt",
+      "at": "there's no place like 127.0.0.1",
+      "item": "tee",
+      "joke": "no place like 127.0.0.1"
+    }
+  ],
+  "keywords": [
+    "127.0.0.1",
+    "localhost",
+    "computer",
+    "server",
+    "deploy",
+    "public"
+  ],
+  "captions": {
+    "instagram": "What localhost and 127.0.0.1 actually mean.\nWhy your site only works on your computer.\n#webdev #programming #coding #developerlife #learntocode",
+    "youtubeTitle": "There's no place like 127.0.0.1 #coding"
+  }
+}

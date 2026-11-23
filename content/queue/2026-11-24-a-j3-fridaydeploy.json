@@ -1,0 +1,48 @@
+{
+  "id": "j3-fridaydeploy",
+  "seriesBadge": "dev_pain · #3",
+  "voiceover": "It's Friday, 4:55pm. The feature works on your laptop, so you hit deploy. Now if it breaks, nobody's around to fix it, and your weekend becomes the on call shift. That's why teams have a rule: don't deploy on Fridays. Not because Friday is cursed. Because a fix takes longer when everyone's gone. Ship it Monday morning, when the whole team is awake and the coffee is hot. Send this to whoever just reached for the deploy button.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "Friday, 4:55pm. Deploy?",
+      "sub": "what could go wrong"
+    },
+    {
+      "type": "compare",
+      "at": "Now if it breaks",
+      "left": {
+        "label": "deploy friday 5pm",
+        "value": "bug found saturday, alone"
+      },
+      "right": {
+        "label": "deploy monday 10am",
+        "value": "bug found with the team"
+      },
+      "verdict": "ship when people are awake",
+      "verdictTone": "ok"
+    },
+    {
+      "type": "statement",
+      "at": "Not because Friday is cursed",
+      "big": "it's about who's around to fix it"
+    },
+    {
+      "type": "shirt",
+      "at": "Ship it Monday morning",
+      "item": "tee"
+    }
+  ],
+  "keywords": [
+    "friday",
+    "deploy",
+    "breaks",
+    "weekend",
+    "monday",
+    "fix"
+  ],
+  "captions": {
+    "instagram": "Why you shouldn't deploy on a Friday.\nIt's not superstition, it's who's around to fix it.\n#webdev #devops #programming #developerlife #devhumor",
+    "youtubeTitle": "Never deploy on a Friday (here's why) #coding"
+  }
+}

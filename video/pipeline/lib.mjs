@@ -54,11 +54,19 @@ export const validateReel = (s, postedIds = []) => {
   const words = s.voiceover.split(/\s+/).filter(Boolean).length;
   if (words < 55 || words > 135) errs.push(`voiceover is ${words} words (want 55–135)`);
   if (/https?:\/\//i.test(s.voiceover + s.captions.instagram)) errs.push('no links allowed');
-  if (/link in bio|buy now|shop now|discount/i.test(s.voiceover + s.captions.instagram)) errs.push('no sales CTAs allowed');
+  if (/link in bio|buy now|shop now|discount|use code|% off|free shipping|order now|check out our|link in/i.test(s.voiceover + s.captions.instagram)) errs.push('no sales CTAs allowed');
   if (!s.captions.instagram || s.captions.instagram.length > 2000) errs.push('instagram caption missing/too long');
   const tags = (s.captions.instagram.match(/#\w+/g) || []).length;
   if (tags > 5) errs.push(`${tags} hashtags (max 5)`);
   if (!s.captions.youtubeTitle || s.captions.youtubeTitle.length > 100) errs.push('youtube title missing/too long');
+  const SCENE_TYPES = ['hook', 'statement', 'code', 'list', 'flow', 'pair', 'compare', 'shirt', 'end'];
+  (s.scenes || []).forEach((sc, i) => {
+    if (!SCENE_TYPES.includes(sc.type)) errs.push(`scene ${i + 1} has unknown type "${sc.type}"`);
+    if (sc.type === 'shirt') {
+      if (!['tee', 'hoodie'].includes(sc.item)) errs.push(`scene ${i + 1}: shirt item must be "tee" or "hoodie"`);
+      if (i !== s.scenes.length - 1) errs.push(`scene ${i + 1}: shirt must be the last scene`);
+    }
+  });
   if (postedIds.includes(s.id)) errs.push(`id "${s.id}" was already posted`);
   if (!Array.isArray(s.scenes) || s.scenes.length < 3) errs.push('need at least 3 scenes');
   // Every scene's "at" phrase must appear in the voiceover, in order.

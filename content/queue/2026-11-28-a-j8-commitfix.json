@@ -1,0 +1,43 @@
+{
+  "id": "j8-commitfix",
+  "seriesBadge": "dev_pain · #8",
+  "voiceover": "You open your git log. Fix. Fix again. Fix for real. Update. Asdf. Six months later, you need to find when login broke, and your past self left you nothing. A good commit message is one short sentence: what changed, and why. Fixes login redirect after signup. Future you will read it at the worst possible time. Be kind to them. Send this to the dev whose last ten commits are all fix.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "Commit message: fix. Again.",
+      "sub": "git log, 1am"
+    },
+    {
+      "type": "compare",
+      "at": "A good commit message",
+      "left": {
+        "label": "bad",
+        "value": "fix"
+      },
+      "right": {
+        "label": "good",
+        "value": "fix login redirect after signup"
+      },
+      "verdict": "future you says thanks",
+      "verdictTone": "ok"
+    },
+    {
+      "type": "shirt",
+      "at": "Be kind to them",
+      "item": "hoodie"
+    }
+  ],
+  "keywords": [
+    "commit",
+    "message",
+    "fix",
+    "git",
+    "login",
+    "future"
+  ],
+  "captions": {
+    "instagram": "Better commit messages: what changed, and why.\nFuture you will read it at the worst possible time.\n#git #programming #coding #developerlife #devhumor",
+    "youtubeTitle": "Stop writing \"fix\" as your commit message #git"
+  }
+}

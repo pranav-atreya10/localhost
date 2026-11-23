@@ -1,0 +1,50 @@
+{
+  "id": "j1-worksonmine",
+  "seriesBadge": "dev_pain · #1",
+  "voiceover": "You push your code. It works perfectly. Then your teammate runs it and everything breaks. Different node version. A missing environment variable. A file that only exists on your laptop. Your machine is not the world. It's one very specific, very messy computer. So when someone says it doesn't work for them, believe them, and ask what they're running. Same bug, different machine. Send this to the dev who always says it works on mine.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "It works. On your machine.",
+      "sub": "famous last words"
+    },
+    {
+      "type": "compare",
+      "at": "Different node version",
+      "left": {
+        "label": "your machine",
+        "value": "node 22 ✓"
+      },
+      "right": {
+        "label": "their machine",
+        "value": "node 18 ✗"
+      },
+      "verdict": "same code, different result",
+      "verdictTone": "bad"
+    },
+    {
+      "type": "statement",
+      "at": "Your machine is not the world",
+      "big": "your machine ≠ the world",
+      "small": "node version · env vars · local files"
+    },
+    {
+      "type": "shirt",
+      "at": "Same bug, different machine",
+      "item": "tee",
+      "joke": "works on my machine"
+    }
+  ],
+  "keywords": [
+    "works",
+    "machine",
+    "node",
+    "environment",
+    "bug",
+    "laptop"
+  ],
+  "captions": {
+    "instagram": "Works on my machine: why code breaks on someone else's computer.\nDifferent versions, missing env variables, local files.\n#programming #coding #webdev #developerlife #devhumor",
+    "youtubeTitle": "\"It works on my machine\" (every dev) #coding"
+  }
+}

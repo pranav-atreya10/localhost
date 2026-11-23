@@ -1,6 +1,6 @@
 {
   "id": "e3-managers",
-  "seriesBadge": "beyond_passwords · 3/3",
+  "seriesBadge": "lesson · password managers",
   "voiceover": "A forum you joined in eighth grade gets breached. Two years later, someone logs into your email with that same password. When a site gets breached, attackers take the leaked emails and passwords and automatically try them on other sites. That's called credential stuffing, and it only works if you reuse passwords. The defense is boring: a different password for every site. Nobody can remember that, so use a password manager. It generates long random passwords, stores them in an encrypted vault, and you remember one strong master password. Bonus: it won't autofill on a fake site's domain. And turn on two factor for the manager itself. Send this to whoever uses the same password everywhere.",
   "scenes": [
     {
@@ -62,7 +62,7 @@
     {
       "type": "end",
       "at": "Send this",
-      "text": "beyond_passwords ✓ complete",
+      "text": "password manager ✓",
       "sub": "send to whoever reuses passwords"
     }
   ],
@@ -77,7 +77,7 @@
     "master"
   ],
   "captions": {
-    "instagram": "Credential stuffing: how one leaked password unlocks ten accounts.\nThe boring fix that works. Part 3/3 of \"beyond passwords.\"\n#cybersecurity #passwords #infosec #learntocode #techtips",
+    "instagram": "Credential stuffing: how one leaked password unlocks ten accounts.\nThe boring fix that works. A quick lesson from localhost.\n#cybersecurity #passwords #infosec #learntocode #techtips",
     "youtubeTitle": "How 1 leaked password unlocks 10 accounts #cybersecurity"
   }
 }

@@ -1,0 +1,48 @@
+{
+  "id": "j7-mergeconflict",
+  "seriesBadge": "dev_pain · #7",
+  "voiceover": "You pull the latest code and your file is full of angle brackets, equal signs, and the word HEAD. That's a merge conflict. It sounds scary, but it just means two people changed the same line and git won't guess who's right. In a merge, the top half is your version and the bottom half is theirs. Pick one, or combine them, delete the markers, save, and commit. Git isn't broken. It's asking a question. Send this to whoever panics at merge conflicts.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "Your file says HEAD. Everywhere.",
+      "sub": "<<<<<<< HEAD"
+    },
+    {
+      "type": "code",
+      "at": "That's a merge conflict",
+      "title": "app.js",
+      "lines": [
+        "<<<<<<< HEAD",
+        "const color = \"green\";",
+        "=======",
+        "const color = \"blue\";",
+        ">>>>>>> feature"
+      ],
+      "highlight": 0
+    },
+    {
+      "type": "statement",
+      "at": "Pick one, or combine them",
+      "big": "pick one. delete the markers.",
+      "small": "then save and commit"
+    },
+    {
+      "type": "shirt",
+      "at": "Git isn't broken",
+      "item": "tee"
+    }
+  ],
+  "keywords": [
+    "merge",
+    "conflict",
+    "HEAD",
+    "git",
+    "markers",
+    "commit"
+  ],
+  "captions": {
+    "instagram": "Merge conflicts explained: what <<<<<<< HEAD actually means.\nGit isn't broken, it's asking you a question.\n#git #programming #coding #learntocode #developerlife",
+    "youtubeTitle": "Merge conflicts, explained in 30 seconds #git"
+  }
+}

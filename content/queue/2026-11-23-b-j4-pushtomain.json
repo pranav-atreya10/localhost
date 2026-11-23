@@ -1,0 +1,52 @@
+{
+  "id": "j4-pushtomain",
+  "seriesBadge": "dev_pain · #4",
+  "voiceover": "You fix a tiny bug and push straight to main. No branch, no pull request, no review. It's only one line, what could break? Then the build goes red and every message starts with your name. A branch costs nothing. It lets someone catch your mistake before it's live, and you can throw it away if it's wrong. Main is the version people depend on. Treat it like it matters. Send this to whoever pushes straight to main.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "You pushed straight to main.",
+      "sub": "no branch. no review."
+    },
+    {
+      "type": "code",
+      "at": "You fix a tiny bug",
+      "title": "terminal",
+      "lines": [
+        "$ git push origin main",
+        "✓ pushed",
+        "✗ build failed",
+        "// everyone: who pushed this?"
+      ],
+      "highlight": 2
+    },
+    {
+      "type": "flow",
+      "at": "A branch costs nothing",
+      "title": "the safer path",
+      "nodes": [
+        "branch",
+        "pull request",
+        "review",
+        "main"
+      ]
+    },
+    {
+      "type": "shirt",
+      "at": "Treat it like it matters",
+      "item": "hoodie"
+    }
+  ],
+  "keywords": [
+    "main",
+    "branch",
+    "review",
+    "build",
+    "push",
+    "pull request"
+  ],
+  "captions": {
+    "instagram": "Pushing straight to main: why a branch costs nothing.\nLet someone catch it before it's live.\n#git #programming #webdev #developerlife #devhumor",
+    "youtubeTitle": "Pushing straight to main #git #coding"
+  }
+}

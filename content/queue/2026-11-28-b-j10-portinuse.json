@@ -1,0 +1,47 @@
+{
+  "id": "j10-portinuse",
+  "seriesBadge": "dev_pain · #10",
+  "voiceover": "You run your app and get: port 3000 is already in use. But you closed it. You're sure you closed it. A server is still running in a forgotten terminal tab. A port is a numbered door on your computer, and only one app can listen on each door at a time. Find what's using it and stop it, or start your app on another port. Boring fix. Annoying error. Send this to whoever has eight terminals open.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "Port 3000 is already in use.",
+      "sub": "you closed it. you swear."
+    },
+    {
+      "type": "code",
+      "at": "A server is still running",
+      "title": "terminal (mac/linux)",
+      "lines": [
+        "$ lsof -i :3000",
+        "node  4821  :3000 (LISTEN)",
+        "$ kill 4821",
+        "// example process id"
+      ],
+      "highlight": 1
+    },
+    {
+      "type": "statement",
+      "at": "A port is a numbered door",
+      "big": "one app per port",
+      "small": "port 3000 = one door"
+    },
+    {
+      "type": "shirt",
+      "at": "Boring fix. Annoying error",
+      "item": "tee"
+    }
+  ],
+  "keywords": [
+    "port",
+    "3000",
+    "already",
+    "server",
+    "terminal",
+    "listen"
+  ],
+  "captions": {
+    "instagram": "Port 3000 is already in use: why it happens and the fix.\nOne app per port, and you left a server running.\n#webdev #nodejs #programming #coding #learntocode",
+    "youtubeTitle": "Port 3000 is already in use (the fix) #webdev"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "j9-aiwroteit",
+  "seriesBadge": "dev_pain · #9",
+  "voiceover": "You ask AI for a feature. It works on the first try. You ship it. Then a user finds a bug, and you open the file and realize you don't understand any of it. That's the trap. AI code that runs isn't the same as code you can fix. Before you ship, read it once and ask it to explain each part. If you can't explain it, you can't fix it at 3am. Send this to the vibe coder in your group chat.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "AI wrote it. You shipped it.",
+      "sub": "do you know why it works?"
+    },
+    {
+      "type": "compare",
+      "at": "That's the trap",
+      "left": {
+        "label": "code that runs",
+        "value": "works today"
+      },
+      "right": {
+        "label": "code you understand",
+        "value": "fixable tomorrow"
+      },
+      "verdict": "you need both",
+      "verdictTone": "ok"
+    },
+    {
+      "type": "list",
+      "at": "Before you ship",
+      "title": "before you ship",
+      "items": [
+        {
+          "text": "read it once",
+          "status": "ok"
+        },
+        {
+          "text": "ask it to explain",
+          "status": "ok"
+        },
+        {
+          "text": "run it yourself",
+          "status": "ok"
+        }
+      ]
+    },
+    {
+      "type": "shirt",
+      "at": "If you can't explain it",
+      "item": "hoodie"
+    }
+  ],
+  "keywords": [
+    "AI",
+    "ships",
+    "bug",
+    "understand",
+    "explain",
+    "fix"
+  ],
+  "captions": {
+    "instagram": "If AI wrote it and you can't explain it, you can't fix it.\nThree checks before you ship.\n#vibecoding #programming #coding #ai #learntocode",
+    "youtubeTitle": "AI wrote it. Do you understand it? #vibecoding"
+  }
+}

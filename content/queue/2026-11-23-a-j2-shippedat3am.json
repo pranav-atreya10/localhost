@@ -1,0 +1,47 @@
+{
+  "id": "j2-shippedat3am",
+  "seriesBadge": "dev_pain · #2",
+  "voiceover": "It's 3am. You tell yourself one last commit. Just a tiny fix, no need to test it. You push, the page loads, you close the laptop. You feel like a genius. Then you wake up, read your own code, and don't recognize a single line. Nothing is wrong with you. Tired brains write confident bugs. Sleep is a free debugger. Send this to the person still up pushing code.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "3am. One last commit.",
+      "sub": "it's just a tiny change"
+    },
+    {
+      "type": "code",
+      "at": "You tell yourself",
+      "title": "git log --oneline",
+      "lines": [
+        "a1b2c3d one last fix",
+        "e4f5a6b actually last fix",
+        "c7d8e9f ok. really last.",
+        "// example commits, 3:07am"
+      ],
+      "highlight": 2
+    },
+    {
+      "type": "statement",
+      "at": "Tired brains write",
+      "big": "tired brains ship confident bugs"
+    },
+    {
+      "type": "shirt",
+      "at": "Sleep is a free debugger",
+      "item": "hoodie",
+      "joke": "shipped it at 3am"
+    }
+  ],
+  "keywords": [
+    "3am",
+    "commit",
+    "tired",
+    "bugs",
+    "sleep",
+    "debugger"
+  ],
+  "captions": {
+    "instagram": "Shipped it at 3am: why late-night commits come back to haunt you.\nTired brains write confident bugs.\n#programming #coding #developerlife #devhumor #learntocode",
+    "youtubeTitle": "3am commits: sleep is a free debugger #coding"
+  }
+}

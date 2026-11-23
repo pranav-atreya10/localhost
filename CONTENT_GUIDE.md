@@ -68,3 +68,15 @@ Before writing new content, read `status/performance.md` (and `status/performanc
 - Replicate the *pattern*, never repeat the same topic or joke.
 - With fewer than ~6 scored posts, the numbers are mostly noise: keep variety and only lean a little.
 - In the commit message, write one line on what you leaned into and why (e.g. "more 'myth vs fact' hooks: top 2 reels").
+
+## Hooks: open on a story (standing rule)
+- Every reel opens on a short "you" scene the viewer has lived: 2am commit, 50 tabs freezing, a push at midnight. Then the explainer.
+- Use second person ("you…"), never made-up first-person events about the brand.
+- Hook card ≤ 6 words, understandable with the sound off. No vague metaphors ("your browser shakes hands first" kept people only 4.5 s).
+- The first voiceover sentence sets up a problem or surprise; the payoff comes within ~10 seconds.
+
+## What the numbers say so far (update as data grows)
+- Average Instagram watch time is the clearest early signal: b2-salting 13.9 s (best), b1-hashing 8.2 s, a2-handshake 4.5 s (worst). Most viewers leave during the hook.
+- Winners: security topics where the viewer has something at stake (their password), with a concrete side-by-side (compare scene) in the first 5 seconds.
+- Losers: abstract "how the internet works" steps with no personal stakes.
+- YouTube Shorts shows ~0 views on every reel so far: don't judge content by YouTube numbers yet.

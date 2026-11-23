@@ -38,7 +38,7 @@ jobs:
     timeout-minutes: 60
     environment:
       name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
+      url: ${{ steps.deploy.outputs.page_url || steps.deploy_try.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -82,9 +82,20 @@ jobs:
         with:
           path: site
 
+      # GitHub sometimes can't see a just-uploaded artifact yet (failed run on 2026-11-20), so retry once after a pause.
       - name: Deploy GitHub Pages
-        id: deploy
+        id: deploy_try
         if: steps.make.outputs.ready == 'true' || steps.cards.outputs.ready == 'true'
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+
+      - name: Wait before retrying deploy
+        if: steps.deploy_try.outcome == 'failure'
+        run: sleep 30
+
+      - name: Deploy GitHub Pages (retry)
+        id: deploy
+        if: steps.deploy_try.outcome == 'failure'
         uses: actions/deploy-pages@v4
 
       - name: Send to Buffer

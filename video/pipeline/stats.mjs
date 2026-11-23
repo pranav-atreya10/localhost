@@ -48,8 +48,13 @@ const ageH = (p) => (Date.now() - new Date(p.sentAt).getTime()) / 3600000;
 const reels = listJson(POSTED)
   .map((f) => readJson(path.join(POSTED, f)))
   .map((s) => {
+    // Match by the Buffer post IDs saved at publish time; fall back to caption text (older posts have no IDs).
+    const ids = Object.values(s.bufferIds || {});
     const cap = norm(s.captions.instagram);
-    const posts = sent.filter((p) => p.service !== 'twitter' && norm(p.text) === cap);
+    const first = norm(s.captions.instagram.split('\n')[0]);
+    let posts = sent.filter((p) => p.service !== 'twitter' && ids.includes(p.id));
+    if (!posts.length) posts = sent.filter((p) => p.service !== 'twitter' && norm(p.text) === cap);
+    if (!posts.length) posts = sent.filter((p) => p.service !== 'twitter' && first && norm(p.text).startsWith(first));
     if (!posts.length) return null;
     const sum = (t) => posts.reduce((a, p) => a + m(p, t), 0);
     const views = Math.max(sum('views'), sum('reach'), sum('impressions'));
@@ -80,7 +85,9 @@ const xs = listJson(X_POSTED)
   .filter((f) => !f.startsWith('FAILED'))
   .map((f) => readJson(path.join(X_POSTED, f)))
   .map((x) => {
-    const p = sent.find((s) => s.service === 'twitter' && norm(s.text) === norm(x.text));
+    const p =
+      sent.find((s) => s.service === 'twitter' && x.bufferId && s.id === x.bufferId) ||
+      sent.find((s) => s.service === 'twitter' && norm(s.text) === norm(x.text));
     if (!p) return null;
     const views = Math.max(m(p, 'impressions'), m(p, 'views'), m(p, 'reach'));
     const r = {
@@ -133,5 +140,5 @@ if (!rankedX.length) md += `| – | no X posts old enough to score yet | | | | |
 
 fs.mkdirSync(path.join(ROOT, 'status'), {recursive: true});
 fs.writeFileSync(path.join(ROOT, 'status', 'performance.md'), md);
-writeJson(path.join(ROOT, 'status', 'performance.json'), {updatedAt: new Date().toISOString(), reels: rankedReels, x: rankedX, unscored: {reels: reels.length - rankedReels.length, x: xs.length - rankedX.length}});
-console.log(`Stats: ${rankedReels.length} reels and ${rankedX.length} X posts scored.`);
+writeJson(path.join(ROOT, 'status', 'performance.json'), {updatedAt: new Date().toISOString(), reels: rankedReels, x: rankedX, unscored: {reels: reels.length - rankedReels.length, x: xs.length - rankedX.length}, unmatched: {reels: listJson(POSTED).length - reels.length, x: listJson(X_POSTED).length - xs.length}});
+console.log(`Stats: ${rankedReels.length} reels and ${rankedX.length} X posts scored; ${listJson(POSTED).length - reels.length} reels and ${listJson(X_POSTED).length - xs.length} X posts not found in Buffer.`);

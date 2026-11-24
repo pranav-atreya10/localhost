@@ -40,3 +40,6 @@ Newest at the bottom.
 - 2026-11-23 23:36 UTC — X post for 2026-11-24 11:15 UTC "hot take: the best way to learn to code …" ✅
 - 2026-11-23 23:36 UTC — X post + card for 2026-11-24 23:00 UTC "before you install a package AI suggeste…" ✅
 - 2026-11-24 02:03 UTC — reel **h1-leakedkeys** for 2026-11-25 01:00 UTC — Instagram ✅, YouTube ✅
+- 2026-11-24 22:04 UTC — reel **j2-shippedat3am** for 2026-11-25 21:30 UTC — Instagram ✅, YouTube ✅
+- 2026-11-24 22:04 UTC — X post for 2026-11-25 02:30 UTC "build in public: every post gets scored …" ✅
+- 2026-11-24 22:04 UTC — X post for 2026-11-25 11:15 UTC "me: I'll just fix one small bug  also me…" ✅

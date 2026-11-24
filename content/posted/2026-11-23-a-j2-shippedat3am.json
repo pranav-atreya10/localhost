@@ -42,5 +42,14 @@
   "captions": {
     "instagram": "Shipped it at 3am: why late-night commits come back to haunt you.\nTired brains write confident bugs.\n#programming #coding #developerlife #devhumor #learntocode",
     "youtubeTitle": "3am commits: sleep is a free debugger #coding"
+  },
+  "scheduledFor": "2026-11-25T21:30:00.000Z",
+  "results": [
+    "Instagram ✅",
+    "YouTube ✅"
+  ],
+  "bufferIds": {
+    "instagram": "6b0609dcea9b23114ff644b6",
+    "youtube": "6b0609dd3c8c84f1808bd6f2"
   }
 }

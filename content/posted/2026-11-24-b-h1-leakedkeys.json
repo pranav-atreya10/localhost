@@ -74,5 +74,14 @@
   "captions": {
     "instagram": "Leaked API keys: why deleting the line doesn't fix it.\nWhere secrets should live instead. Part 1/3 of \"secrets in code.\"\n#cybersecurity #webdev #vibecoding #learntocode #git",
     "youtubeTitle": "Deleting a leaked API key doesn't fix it #webdev"
+  },
+  "scheduledFor": "2026-11-25T01:00:00.000Z",
+  "results": [
+    "Instagram ✅",
+    "YouTube ✅"
+  ],
+  "bufferIds": {
+    "instagram": "6b04f0716734c08a26a30097",
+    "youtube": "6b04f0719a4bd32ca3e698e3"
   }
 }

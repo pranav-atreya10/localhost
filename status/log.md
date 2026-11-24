@@ -43,3 +43,4 @@ Newest at the bottom.
 - 2026-11-24 22:04 UTC — reel **j2-shippedat3am** for 2026-11-25 21:30 UTC — Instagram ✅, YouTube ✅
 - 2026-11-24 22:04 UTC — X post for 2026-11-25 02:30 UTC "build in public: every post gets scored …" ✅
 - 2026-11-24 22:04 UTC — X post for 2026-11-25 11:15 UTC "me: I'll just fix one small bug  also me…" ✅
+- 2026-11-24 23:45 UTC — X post for 2026-11-25 23:00 UTC "what's the worst bug you've spent hours …" ✅

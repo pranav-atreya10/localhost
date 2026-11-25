@@ -44,5 +44,14 @@
   "captions": {
     "instagram": "Why you shouldn't deploy on a Friday.\nIt's not superstition, it's who's around to fix it.\n#webdev #devops #programming #developerlife #devhumor",
     "youtubeTitle": "Never deploy on a Friday (here's why) #coding"
+  },
+  "scheduledFor": "2026-11-26T21:30:00.000Z",
+  "results": [
+    "Instagram ✅",
+    "YouTube ✅"
+  ],
+  "bufferIds": {
+    "instagram": "6b0750b5d4eda4b659af7bda",
+    "youtube": "6b0750b5b96dd8d35161fb6d"
   }
 }

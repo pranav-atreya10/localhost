@@ -47,5 +47,14 @@
   "captions": {
     "instagram": "What localhost and 127.0.0.1 actually mean.\nWhy your site only works on your computer.\n#webdev #programming #coding #developerlife #learntocode",
     "youtubeTitle": "There's no place like 127.0.0.1 #coding"
+  },
+  "scheduledFor": "2026-11-26T01:00:00.000Z",
+  "results": [
+    "Instagram ✅",
+    "YouTube ✅"
+  ],
+  "bufferIds": {
+    "instagram": "6b0750b5a791bea1b2293596",
+    "youtube": "6b0750b6a791bea1b22935db"
   }
 }

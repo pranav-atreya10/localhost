@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-24T23:45:58.509Z",
+  "updatedAt": "2026-11-25T21:18:47.959Z",
   "reels": [
     {
       "id": "b2-salting",
@@ -7,8 +7,8 @@
       "hook": "Same password. Different hash.",
       "sceneTypes": "hook > compare > code > code > statement > list > end",
       "sentAt": "2026-11-19T01:01:06.904Z",
-      "hoursLive": 143,
-      "views": 271,
+      "hoursLive": 164,
+      "views": 272,
       "likes": 10,
       "comments": 0,
       "shares": 2,
@@ -19,7 +19,7 @@
           "reactions": 0,
           "comments": 0,
           "engagementRate": 0,
-          "views": 0
+          "views": 1
         },
         "instagram": {
           "reactions": 10,
@@ -34,7 +34,7 @@
         }
       },
       "engagement": 31,
-      "engagementRate": 0.11439114391143912,
+      "engagementRate": 0.11397058823529412,
       "early": false,
       "score": 100
     },
@@ -44,7 +44,7 @@
       "hook": "One page. Dozens of requests.",
       "sceneTypes": "hook > list > code > code > statement > flow > end",
       "sentAt": "2026-11-20T21:30:26.663Z",
-      "hoursLive": 98,
+      "hoursLive": 120,
       "views": 124,
       "likes": 2,
       "comments": 0,
@@ -73,7 +73,7 @@
       "engagement": 5,
       "engagementRate": 0.04032258064516129,
       "early": false,
-      "score": 62
+      "score": 67
     },
     {
       "id": "b1-hashing",
@@ -81,7 +81,7 @@
       "hook": "That site doesn't know your password.",
       "sceneTypes": "hook > code > compare > code > list > statement > end",
       "sentAt": "2026-11-18T04:19:16.523Z",
-      "hoursLive": 163,
+      "hoursLive": 185,
       "views": 155,
       "likes": 4,
       "comments": 0,
@@ -110,7 +110,7 @@
       "engagement": 4,
       "engagementRate": 0.025806451612903226,
       "early": false,
-      "score": 60
+      "score": 66
     },
     {
       "id": "d2-context",
@@ -118,7 +118,7 @@
       "hook": "AI doesn't remember your project.",
       "sceneTypes": "hook > statement > list > list > end",
       "sentAt": "2026-11-22T01:00:13.829Z",
-      "hoursLive": 71,
+      "hoursLive": 92,
       "views": 103,
       "likes": 2,
       "comments": 0,
@@ -147,7 +147,7 @@
       "engagement": 5,
       "engagementRate": 0.04854368932038835,
       "early": false,
-      "score": 58
+      "score": 60
     },
     {
       "id": "a2-handshake",
@@ -155,7 +155,7 @@
       "hook": "Your browser shakes hands first.",
       "sceneTypes": "hook > pair > statement > pair > list > end",
       "sentAt": "2026-11-19T21:30:23.717Z",
-      "hoursLive": 122,
+      "hoursLive": 144,
       "views": 117,
       "likes": 3,
       "comments": 0,
@@ -184,7 +184,38 @@
       "engagement": 3,
       "engagementRate": 0.02564102564102564,
       "early": false,
-      "score": 28
+      "score": 39
+    },
+    {
+      "id": "d3-hallucinations",
+      "series": "how_ai_codes · 3/3",
+      "hook": "The package AI swore was real.",
+      "sceneTypes": "hook > code > statement > list > end",
+      "sentAt": "2026-11-23T01:00:39.804Z",
+      "hoursLive": 68,
+      "views": 104,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "saves": 0,
+      "follows": 0,
+      "byPlatform": {
+        "instagram": {
+          "reactions": 1,
+          "comments": 0,
+          "engagementRate": 0.99,
+          "views": 104,
+          "shares": 0,
+          "saves": 0,
+          "totalTimeWatched": 10.08,
+          "averageTimeWatched": 6.05,
+          "reach": 101
+        }
+      },
+      "engagement": 1,
+      "engagementRate": 0.009615384615384616,
+      "early": false,
+      "score": 24
     },
     {
       "id": "d1-tokens",
@@ -192,7 +223,7 @@
       "hook": "AI doesn't look up your code.",
       "sceneTypes": "hook > code > flow > statement > list > statement > end",
       "sentAt": "2026-11-21T01:00:25.963Z",
-      "hoursLive": 95,
+      "hoursLive": 116,
       "views": 118,
       "likes": 1,
       "comments": 0,
@@ -221,7 +252,7 @@
       "engagement": 1,
       "engagementRate": 0.00847457627118644,
       "early": false,
-      "score": 22
+      "score": 23
     },
     {
       "id": "c2-ram",
@@ -229,8 +260,8 @@
       "hook": "Fifty tabs. Then everything froze.",
       "sceneTypes": "hook > compare > statement > list > list > end",
       "sentAt": "2026-11-22T21:30:14.791Z",
-      "hoursLive": 50,
-      "views": 137,
+      "hoursLive": 72,
+      "views": 138,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -241,7 +272,7 @@
           "reactions": 0,
           "comments": 0,
           "engagementRate": 0,
-          "views": 3
+          "views": 4
         },
         "instagram": {
           "reactions": 0,
@@ -258,14 +289,14 @@
       "engagement": 0,
       "engagementRate": 0,
       "early": false,
-      "score": 20
+      "score": 21
     }
   ],
   "x": [
     {
       "text": "build in public update: wrote a pipeline that turns a script into a finished reel and schedules it, no clicks.\n\nRemotion for video, a GitHub Action runs it daily.\n\nwhat should the next coding series explain?",
       "sentAt": "2026-11-19T23:00:48.899Z",
-      "hoursLive": 121,
+      "hoursLive": 142,
       "views": 3,
       "likes": 1,
       "replies": 0,
@@ -277,9 +308,9 @@
       "score": 100
     },
     {
-      "text": "if your variable is named \"temp2_final_real\" we need to talk",
-      "sentAt": "2026-11-22T23:00:05.276Z",
-      "hoursLive": 49,
+      "text": "\"I'll refactor it later\"\n\nlater:",
+      "sentAt": "2026-11-23T11:15:07.504Z",
+      "hoursLive": 58,
       "views": 0,
       "likes": 0,
       "replies": 0,
@@ -288,12 +319,40 @@
       "engagement": 0,
       "engagementRate": 0,
       "early": false,
-      "score": 83
+      "score": 85
+    },
+    {
+      "text": "what's a coding concept you wish someone explained to you in 30 seconds?",
+      "sentAt": "2026-11-23T02:30:09.446Z",
+      "hoursLive": 67,
+      "views": 0,
+      "likes": 0,
+      "replies": 0,
+      "reposts": 0,
+      "follows": 0,
+      "engagement": 0,
+      "engagementRate": 0,
+      "early": false,
+      "score": 79
+    },
+    {
+      "text": "if your variable is named \"temp2_final_real\" we need to talk",
+      "sentAt": "2026-11-22T23:00:05.276Z",
+      "hoursLive": 70,
+      "views": 0,
+      "likes": 0,
+      "replies": 0,
+      "reposts": 0,
+      "follows": 0,
+      "engagement": 0,
+      "engagementRate": 0,
+      "early": false,
+      "score": 74
     },
     {
       "text": "AI doesn't look up your code. it predicts it, one token at a time.\n\nthat's why it's great at common patterns and can still be confidently wrong.",
       "sentAt": "2026-11-22T11:15:04.516Z",
-      "hoursLive": 61,
+      "hoursLive": 82,
       "views": 0,
       "likes": 0,
       "replies": 0,
@@ -302,12 +361,12 @@
       "engagement": 0,
       "engagementRate": 0,
       "early": false,
-      "score": 77
+      "score": 68
     },
     {
       "text": "build in public: the reel machine now posts twice a day on instagram and youtube. two coding series running at the same time.\n\nzero clicks from me. just a github action and a lot of json.",
       "sentAt": "2026-11-22T02:30:21.117Z",
-      "hoursLive": 69,
+      "hoursLive": 91,
       "views": 0,
       "likes": 0,
       "replies": 0,
@@ -316,12 +375,12 @@
       "engagement": 0,
       "engagementRate": 0,
       "early": false,
-      "score": 70
+      "score": 62
     },
     {
       "text": "the code at 2am: works perfectly\nthe code at 9am: who wrote this",
       "sentAt": "2026-11-21T23:00:06.252Z",
-      "hoursLive": 73,
+      "hoursLive": 94,
       "views": 0,
       "likes": 0,
       "replies": 0,
@@ -330,40 +389,12 @@
       "engagement": 0,
       "engagementRate": 0,
       "early": false,
-      "score": 63
+      "score": 56
     },
     {
       "text": "why does 50 tabs make your laptop lag?\n\nRAM fills up, so your computer starts parking stuff on the SSD (swap). the SSD is way slower than RAM.\n\nclose tabs = free RAM. restart = clear RAM.",
       "sentAt": "2026-11-21T11:15:14.411Z",
-      "hoursLive": 85,
-      "views": 0,
-      "likes": 0,
-      "replies": 0,
-      "reposts": 0,
-      "follows": 0,
-      "engagement": 0,
-      "engagementRate": 0,
-      "early": false,
-      "score": 57
-    },
-    {
-      "text": "\"it works on my machine\"\n\n— every dev, right before it doesn't work on anyone else's machine",
-      "sentAt": "2026-11-19T11:15:07.988Z",
-      "hoursLive": 133,
-      "views": 1,
-      "likes": 0,
-      "replies": 0,
-      "reposts": 0,
-      "follows": 0,
-      "engagement": 0,
-      "engagementRate": 0,
-      "early": false,
-      "score": 51
-    },
-    {
-      "text": "hot take: reading error messages is the most underrated coding skill",
-      "sentAt": "2026-11-21T02:30:06.041Z",
-      "hoursLive": 93,
+      "hoursLive": 106,
       "views": 0,
       "likes": 0,
       "replies": 0,
@@ -375,9 +406,9 @@
       "score": 50
     },
     {
-      "text": "a good website doesn't know your password.\n\nit stores a hash: a one-way scramble of it. when you log in, it scrambles what you typed and checks if they match.\n\nif a site can email you your actual password, that's a red flag.",
-      "sentAt": "2026-11-19T02:30:11.051Z",
-      "hoursLive": 141,
+      "text": "\"it works on my machine\"\n\n— every dev, right before it doesn't work on anyone else's machine",
+      "sentAt": "2026-11-19T11:15:07.988Z",
+      "hoursLive": 154,
       "views": 1,
       "likes": 0,
       "replies": 0,
@@ -386,13 +417,27 @@
       "engagement": 0,
       "engagementRate": 0,
       "early": false,
-      "score": 45
+      "score": 49
     },
     {
-      "text": "what's the first thing you ever built with code? mine was not good.",
-      "sentAt": "2026-11-20T23:00:07.166Z",
-      "hoursLive": 97,
+      "text": "hot take: reading error messages is the most underrated coding skill",
+      "sentAt": "2026-11-21T02:30:06.041Z",
+      "hoursLive": 115,
       "views": 0,
+      "likes": 0,
+      "replies": 0,
+      "reposts": 0,
+      "follows": 0,
+      "engagement": 0,
+      "engagementRate": 0,
+      "early": false,
+      "score": 44
+    },
+    {
+      "text": "a good website doesn't know your password.\n\nit stores a hash: a one-way scramble of it. when you log in, it scrambles what you typed and checks if they match.\n\nif a site can email you your actual password, that's a red flag.",
+      "sentAt": "2026-11-19T02:30:11.051Z",
+      "hoursLive": 163,
+      "views": 1,
       "likes": 0,
       "replies": 0,
       "reposts": 0,
@@ -403,9 +448,9 @@
       "score": 43
     },
     {
-      "text": "your computer doesn't understand python.\n\nit only runs machine code. something has to translate: a compiler (all at once, ahead of time) or an interpreter (line by line, as it runs).\n\nthat's the whole difference.",
-      "sentAt": "2026-11-20T11:15:07.128Z",
-      "hoursLive": 109,
+      "text": "what's the first thing you ever built with code? mine was not good.",
+      "sentAt": "2026-11-20T23:00:07.166Z",
+      "hoursLive": 118,
       "views": 0,
       "likes": 0,
       "replies": 0,
@@ -414,12 +459,12 @@
       "engagement": 0,
       "engagementRate": 0,
       "early": false,
-      "score": 37
+      "score": 38
     },
     {
       "text": "15, building a clothing brand for people who code.\n\nthe twist: AI writes, voices, edits, and posts every video. I just build the machine.\n\nweek 1. 0 followers. let's see where this goes.",
       "sentAt": "2026-11-18T04:19:30.428Z",
-      "hoursLive": 163,
+      "hoursLive": 185,
       "views": 1,
       "likes": 0,
       "replies": 0,
@@ -431,9 +476,9 @@
       "score": 33
     },
     {
-      "text": "good morning to everyone except the bug I left for future me yesterday",
-      "sentAt": "2026-11-20T02:30:09.936Z",
-      "hoursLive": 117,
+      "text": "your computer doesn't understand python.\n\nit only runs machine code. something has to translate: a compiler (all at once, ahead of time) or an interpreter (line by line, as it runs).\n\nthat's the whole difference.",
+      "sentAt": "2026-11-20T11:15:07.128Z",
+      "hoursLive": 130,
       "views": 0,
       "likes": 0,
       "replies": 0,
@@ -442,12 +487,12 @@
       "engagement": 0,
       "engagementRate": 0,
       "early": false,
-      "score": 30
+      "score": 32
     },
     {
       "text": "every website you've ever opened started with your computer asking \"what's the number for this name?\"\n\nthat's DNS. the internet's contacts app.\n\nmade a reel series breaking down what happens when you hit enter. part 1 is up.",
       "sentAt": "2026-11-18T11:15:12.358Z",
-      "hoursLive": 157,
+      "hoursLive": 178,
       "views": 1,
       "likes": 0,
       "replies": 0,
@@ -459,23 +504,9 @@
       "score": 27
     },
     {
-      "text": "my code works and I have no idea why.\n\nshipping it.",
-      "sentAt": "2026-11-18T02:17:15.439Z",
-      "hoursLive": 165,
-      "views": 1,
-      "likes": 0,
-      "replies": 0,
-      "reposts": 0,
-      "follows": 0,
-      "engagement": 0,
-      "engagementRate": 0,
-      "early": false,
-      "score": 20
-    },
-    {
-      "text": "tabs or spaces. wrong answers only.",
-      "sentAt": "2026-11-18T23:00:53.464Z",
-      "hoursLive": 145,
+      "text": "good morning to everyone except the bug I left for future me yesterday",
+      "sentAt": "2026-11-20T02:30:09.936Z",
+      "hoursLive": 139,
       "views": 0,
       "likes": 0,
       "replies": 0,
@@ -484,15 +515,43 @@
       "engagement": 0,
       "engagementRate": 0,
       "early": false,
-      "score": 14
+      "score": 26
+    },
+    {
+      "text": "my code works and I have no idea why.\n\nshipping it.",
+      "sentAt": "2026-11-18T02:17:15.439Z",
+      "hoursLive": 187,
+      "views": 1,
+      "likes": 0,
+      "replies": 0,
+      "reposts": 0,
+      "follows": 0,
+      "engagement": 0,
+      "engagementRate": 0,
+      "early": false,
+      "score": 21
+    },
+    {
+      "text": "tabs or spaces. wrong answers only.",
+      "sentAt": "2026-11-18T23:00:53.464Z",
+      "hoursLive": 166,
+      "views": 0,
+      "likes": 0,
+      "replies": 0,
+      "reposts": 0,
+      "follows": 0,
+      "engagement": 0,
+      "engagementRate": 0,
+      "early": false,
+      "score": 12
     }
   ],
   "unscored": {
-    "reels": 2,
+    "reels": 1,
     "x": 5
   },
   "unmatched": {
-    "reels": 6,
+    "reels": 8,
     "x": 3
   }
 }

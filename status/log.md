@@ -44,3 +44,7 @@ Newest at the bottom.
 - 2026-11-24 22:04 UTC — X post for 2026-11-25 02:30 UTC "build in public: every post gets scored …" ✅
 - 2026-11-24 22:04 UTC — X post for 2026-11-25 11:15 UTC "me: I'll just fix one small bug  also me…" ✅
 - 2026-11-24 23:45 UTC — X post for 2026-11-25 23:00 UTC "what's the worst bug you've spent hours …" ✅
+- 2026-11-25 21:18 UTC — reel **j3-fridaydeploy** for 2026-11-26 21:30 UTC — Instagram ✅, YouTube ✅
+- 2026-11-25 21:18 UTC — reel **j5-localhost** for 2026-11-26 01:00 UTC — Instagram ✅, YouTube ✅
+- 2026-11-25 21:18 UTC — X post + card for 2026-11-26 02:30 UTC "a git branch isn't a copy of your projec…" ✅
+- 2026-11-25 21:18 UTC — X post + card for 2026-11-26 11:15 UTC "the stages of debugging…" ✅

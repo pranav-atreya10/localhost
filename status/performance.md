@@ -1,4 +1,4 @@
-# Performance (auto-updated 2026-11-25 21:18 UTC)
+# Performance (auto-updated 2026-11-25 23:28 UTC)
 
 Score = 70% engagement rate + 30% views, ranked against each other (100 = best). Posts are scored after 48h live; on Saturdays (review day) the newest ones count after 24h (marked *).
 Engagement = likes + 2×comments + 3×shares + 3×saves + 4×follows. Small numbers early on = noisy, treat as hints.

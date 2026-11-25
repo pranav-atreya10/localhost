@@ -130,3 +130,40 @@ export const nextReelFor = (letter, exclude = []) => {
 
 export const CARDS = ROOT + '/media/cards';
 export const cardName = (xFile) => xFile.replace(/\.json$/, '.png');
+
+// ---------- TikTok photo carousels ----------
+export const TT_QUEUE = path.join(CONTENT, 'tt-queue');
+export const TT_POSTED = path.join(CONTENT, 'tt-posted');
+export const SLIDES = ROOT + '/media/slides';
+export const slideName = (ttFile, i) => ttFile.replace(/\.json$/, `-${i}.jpeg`);
+
+// The carousel slots this run should fill, soonest first.
+export const openTTSlots = () =>
+  (config.schedule.tiktok || [])
+    .map((t) => slot(t.hourUTC, t.minuteUTC))
+    .filter((d) => !slotTaken(TT_POSTED, d))
+    .sort();
+
+export const validateTT = (t, postedIds = []) => {
+  const errs = [];
+  for (const k of ['id', 'tag', 'caption', 'slides']) if (!t[k]) errs.push(`missing "${k}"`);
+  if (errs.length) return errs;
+  if (!Array.isArray(t.slides) || t.slides.length < 2 || t.slides.length > 10) errs.push('need 2–10 slides');
+  if (t.caption.length > 2000) errs.push('caption too long');
+  if (/https?:\/\//i.test(t.caption)) errs.push('no links in captions');
+  if (/buy now|shop now|discount|use code|% off|order now/i.test(t.caption)) errs.push('no hard-sell CTAs');
+  const tags = (t.caption.match(/#\w+/g) || []).length;
+  if (tags > 5) errs.push(`${tags} hashtags (max 5)`);
+  const TYPES = ['hook', 'statement', 'code', 'list', 'flow', 'compare', 'shirt'];
+  (t.slides || []).forEach((sc, i) => {
+    if (!TYPES.includes(sc.type)) errs.push(`slide ${i + 1} has type "${sc.type}" (allowed: ${TYPES.join(', ')})`);
+    if (sc.type === 'shirt') {
+      if (!['tee', 'hoodie'].includes(sc.item)) errs.push(`slide ${i + 1}: shirt item must be "tee" or "hoodie"`);
+      if (sc.joke || sc.accent) errs.push(`slide ${i + 1}: carousel shirts show the real front only (no joke/accent back print)`);
+      if (i !== t.slides.length - 1) errs.push(`slide ${i + 1}: shirt must be the last slide`);
+    }
+  });
+  if (t.slides?.[0]?.type !== 'hook') errs.push('slide 1 must be a hook');
+  if (postedIds.includes(t.id)) errs.push(`id "${t.id}" was already posted`);
+  return errs;
+};

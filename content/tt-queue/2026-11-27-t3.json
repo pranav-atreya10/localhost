@@ -1,0 +1,64 @@
+{
+  "id": "t3-passwords",
+  "tag": "60s lesson",
+  "format": "tutorial",
+  "caption": "how websites store your password (they don't). hashing and salting in 6 slides. #cybersecurity #coding #computerscience #learntocode #programming",
+  "slides": [
+    {
+      "type": "hook",
+      "text": "that site doesn't know your password",
+      "sub": "here's what it stores instead"
+    },
+    {
+      "type": "statement",
+      "big": "it stores a hash",
+      "small": "a one-way scramble. you can't un-scramble it."
+    },
+    {
+      "type": "compare",
+      "left": {
+        "label": "you",
+        "value": "hunter2"
+      },
+      "right": {
+        "label": "your friend",
+        "value": "hunter2"
+      },
+      "verdict": "no salt = same hash. crack one, crack both.",
+      "verdictTone": "bad"
+    },
+    {
+      "type": "statement",
+      "big": "salt = random extra text per user",
+      "small": "hash(password + salt)"
+    },
+    {
+      "type": "list",
+      "title": "what good sites do",
+      "items": [
+        {
+          "text": "unique salt per user",
+          "status": "ok"
+        },
+        {
+          "text": "slow hash (bcrypt, argon2)",
+          "status": "ok"
+        },
+        {
+          "text": "store plain text",
+          "status": "bad"
+        }
+      ]
+    },
+    {
+      "type": "statement",
+      "big": "site emails you your password?",
+      "small": "that means they stored it. change it."
+    },
+    {
+      "type": "shirt",
+      "item": "tee",
+      "line": "localhostwear.xyz"
+    }
+  ]
+}

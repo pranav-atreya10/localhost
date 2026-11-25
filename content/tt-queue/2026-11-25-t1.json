@@ -1,0 +1,49 @@
+{
+  "id": "t1-varnames",
+  "tag": "dev pain",
+  "format": "transformation",
+  "caption": "my variable names over time. day 1 vs day 100 vs 3am. which one are you? #coding #programmer #codinghumor #computerscience #devlife",
+  "slides": [
+    {
+      "type": "hook",
+      "text": "my variable names over time",
+      "sub": "a tragedy in 3 commits"
+    },
+    {
+      "type": "code",
+      "title": "day 1",
+      "lines": [
+        "let x = 5",
+        "let x2 = x",
+        "let data = data2",
+        "// what is any of this"
+      ],
+      "highlight": 3
+    },
+    {
+      "type": "code",
+      "title": "day 100",
+      "lines": [
+        "let userCount = 5",
+        "let maxRetries = 3",
+        "// readable. clean. proud."
+      ],
+      "highlight": 2
+    },
+    {
+      "type": "code",
+      "title": "day 101, 3am",
+      "lines": [
+        "let temp2_final_REAL = 5",
+        "let pls = temp2_final_REAL",
+        "// it works. don't touch it."
+      ],
+      "highlight": 2
+    },
+    {
+      "type": "shirt",
+      "item": "tee",
+      "line": "localhostwear.xyz"
+    }
+  ]
+}

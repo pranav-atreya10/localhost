@@ -1,0 +1,42 @@
+{
+  "id": "t2-vibecoder",
+  "tag": "5 signs",
+  "format": "listicle",
+  "caption": "5 signs you're a vibe coder. the last one hurts. #vibecoding #coding #programmer #codinghumor #ai",
+  "slides": [
+    {
+      "type": "hook",
+      "text": "5 signs you're a vibe coder",
+      "sub": "be honest"
+    },
+    {
+      "type": "statement",
+      "big": "1. every commit says \"fix\"",
+      "small": "git log: fix, fix, fix2, ok fix"
+    },
+    {
+      "type": "statement",
+      "big": "2. you trust the AI more than the docs"
+    },
+    {
+      "type": "statement",
+      "big": "3. \"it works on my machine\"",
+      "small": "said this week. at least once."
+    },
+    {
+      "type": "statement",
+      "big": "4. you've deployed on a friday",
+      "small": "on purpose."
+    },
+    {
+      "type": "statement",
+      "big": "5. localhost is your favorite website",
+      "small": "127.0.0.1, no place like it"
+    },
+    {
+      "type": "shirt",
+      "item": "hoodie",
+      "line": "localhostwear.xyz"
+    }
+  ]
+}

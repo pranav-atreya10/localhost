@@ -2,7 +2,7 @@
 // Needs env BUFFER_API_KEY. Run after make.mjs and after the video is live on GitHub Pages.
 import fs from 'node:fs';
 import path from 'node:path';
-import {ROOT, OUT, POSTED, X_QUEUE, X_POSTED, config, listJson, readJson, writeJson, log, validateX, openXSlots, cardName} from './lib.mjs';
+import {ROOT, OUT, POSTED, X_QUEUE, X_POSTED, TT_QUEUE, TT_POSTED, config, listJson, readJson, writeJson, log, validateX, validateTT, openXSlots, openTTSlots, cardName, slideName} from './lib.mjs';
 
 const KEY = process.env.BUFFER_API_KEY;
 if (!KEY) throw new Error('BUFFER_API_KEY is not set');
@@ -127,7 +127,7 @@ for (const item of plan) {
       results.push('YouTube ❌');
       failures.push(`YouTube: ${e.message}`);
     }
-  } else failures.push('No YouTube channel connected in Buffer');
+  } // YouTube is optional (it can be swapped out in Buffer for TikTok).
 
   // Move the script out of the queue as long as at least one platform took it (so nothing double-posts).
   if (results.some((r) => r.includes('✅'))) {
@@ -173,6 +173,45 @@ for (const dueAt of xc ? xSlots : []) {
     log(`X post${input.assets ? ' + card' : ''} for ${dueAt.slice(0, 16).replace('T', ' ')} UTC "${item.text.slice(0, 40).replace(/\n/g, ' ')}…" ✅`);
   } catch (e) {
     failures.push(`X: ${e.message}`);
+    break;
+  }
+}
+
+// ---------- TikTok photo carousels ----------
+const tt = byService('tiktok');
+const ttSlots = openTTSlots();
+if (ttSlots.length && !tt && listJson(TT_QUEUE).length) console.log('No TikTok channel in Buffer yet: carousels stay queued.');
+for (const dueAt of tt ? ttSlots : []) {
+  const q = listJson(TT_QUEUE);
+  if (!q.length) {
+    failures.push('TikTok carousel queue is empty');
+    break;
+  }
+  const file = q[0];
+  const item = readJson(path.join(TT_QUEUE, file));
+  const errs = validateTT(item);
+  if (errs.length) {
+    failures.push(`TikTok ${file}: ${errs.join(', ')}`);
+    writeJson(path.join(TT_POSTED, 'FAILED-' + file), {...item, errors: errs});
+    fs.rmSync(path.join(TT_QUEUE, file));
+    continue;
+  }
+  const urls = item.slides.map((_, i) => `${config.pagesBase}/slides/${slideName(file, i + 1)}`);
+  try {
+    for (const u of urls) await waitForUrl(u);
+    const bufferId = await createPost({
+      channelId: tt.id,
+      text: item.caption,
+      schedulingType: 'automatic',
+      mode: 'customScheduled',
+      dueAt,
+      assets: urls.map((url) => ({image: {url}})),
+    });
+    writeJson(path.join(TT_POSTED, file), {...item, scheduledFor: dueAt, bufferId});
+    fs.rmSync(path.join(TT_QUEUE, file));
+    log(`TikTok carousel **${item.id}** (${urls.length} slides) for ${dueAt.slice(0, 16).replace('T', ' ')} UTC ✅`);
+  } catch (e) {
+    failures.push(`TikTok: ${e.message}`);
     break;
   }
 }

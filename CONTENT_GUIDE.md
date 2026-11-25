@@ -101,3 +101,25 @@ Before writing new content, read `status/performance.md` (and `status/performanc
 - Winners: security topics where the viewer has something at stake (their password), with a concrete side-by-side (compare scene) in the first 5 seconds.
 - Losers: abstract "how the internet works" steps with no personal stakes.
 - YouTube Shorts shows ~0 views on every reel so far: don't judge content by YouTube numbers yet.
+
+## TikTok carousel file: `content/tt-queue/YYYY-MM-DD-tN.json`
+**One photo carousel a day at 6:30pm ET**, posted to TikTok through Buffer. Carousels only post once a TikTok channel is
+connected in Buffer; until then they wait in the queue (nothing fails). Keep at least 7 queued.
+Slides are rendered as 1080×1920 JPEGs (TikTok rejects PNG) by `pipeline/slides.mjs`, kept in `media/slides/` and hosted on GitHub Pages.
+
+```json
+{
+  "id": "short-unique-id",
+  "tag": "dev pain",            // shown in the slide counter pill: "dev pain · 1/5"
+  "format": "transformation",   // transformation | listicle | tutorial (notes only)
+  "caption": "keyword-first line. one question. max 5 hashtags, no links",
+  "slides": [ {"type":"hook",...}, ..., {"type":"shirt","item":"tee","line":"localhostwear.xyz"} ]
+}
+```
+
+- 4–7 slides. Slide 1 is always a `hook`. Allowed types: hook, statement, code, list, flow, compare, shirt (same fields as reel scenes, no `"at"`).
+- Last slide = `shirt` with **front only** (no `joke`/`accent`): the real product is the front logo, so never show a back print that doesn't exist.
+- What wins on TikTok slideshows (Virlo scan of 117 viral slideshows, Nov 2026): **transformation / before-after** by far, then **tutorials** and **listicles**. Reviews and storytime flop. 2 slides or ~10 slides were the most common winning counts; 9 rarely worked.
+- Mix per week: 3 transformations (day 1 vs day 100, junior vs senior, 9pm vs 3am), 2 listicles ("5 signs you're…"), 2 tutorials (60-second lesson, like b2-salting).
+- Captions: TikTok drops line breaks, so write one flowing line. Don't write "#4" in text (it counts as a hashtag).
+- Preview locally: `REMOTION_BROWSER=/path/to/chrome node pipeline/slides.mjs --all`.

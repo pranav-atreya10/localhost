@@ -1,0 +1,41 @@
+{
+  "id": "t5-hackathon",
+  "tag": "hackathon kit",
+  "format": "listicle",
+  "caption": "what to bring to your first hackathon. number 4 saves your demo. #hackathon #coding #computerscience #programmer #studentdev",
+  "slides": [
+    {
+      "type": "hook",
+      "text": "what to bring to your first hackathon",
+      "sub": "from someone who forgot half of it"
+    },
+    {
+      "type": "statement",
+      "big": "1. a charger. and a backup charger."
+    },
+    {
+      "type": "statement",
+      "big": "2. an idea you can cut in half",
+      "small": "scope creep kills more projects than bugs"
+    },
+    {
+      "type": "statement",
+      "big": "3. a hoodie",
+      "small": "hackathon rooms are always freezing"
+    },
+    {
+      "type": "statement",
+      "big": "4. a demo that works offline",
+      "small": "venue wifi will betray you"
+    },
+    {
+      "type": "statement",
+      "big": "5. snacks that aren't energy drinks"
+    },
+    {
+      "type": "shirt",
+      "item": "hoodie",
+      "line": "localhostwear.xyz"
+    }
+  ]
+}

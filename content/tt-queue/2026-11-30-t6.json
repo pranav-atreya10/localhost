@@ -1,0 +1,43 @@
+{
+  "id": "t6-hitenter",
+  "tag": "60s lesson",
+  "format": "tutorial",
+  "caption": "what actually happens when you type a website and hit enter. DNS, TLS and HTTP in 5 slides. #computerscience #coding #learntocode #webdev #programming",
+  "slides": [
+    {
+      "type": "hook",
+      "text": "you hit enter. then what?",
+      "sub": "what really happens when you open a website"
+    },
+    {
+      "type": "flow",
+      "title": "in order",
+      "nodes": [
+        "DNS lookup",
+        "connect",
+        "TLS (the lock)",
+        "HTTP request",
+        "page renders"
+      ]
+    },
+    {
+      "type": "statement",
+      "big": "DNS = the internet's contacts app",
+      "small": "example.com → 203.0.113.42 (example IP)"
+    },
+    {
+      "type": "statement",
+      "big": "the lock = encrypted",
+      "small": "TLS keeps your data private on the way"
+    },
+    {
+      "type": "statement",
+      "big": "all of that, usually in under a second"
+    },
+    {
+      "type": "shirt",
+      "item": "tee",
+      "line": "localhostwear.xyz"
+    }
+  ]
+}

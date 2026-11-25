@@ -1,7 +1,8 @@
 name: post reels (2x daily)
 
 # One main run a day schedules everything for the next ~24 hours in Buffer:
-#   reel a 4:30pm ET, reel b 8pm ET (Instagram + YouTube), X at 6pm, 9:30pm and 6:15am ET.
+#   reel a 4:30pm ET, reel b 8pm ET (Instagram + YouTube), X at 6pm, 9:30pm and 6:15am ET,
+#   and 1 TikTok photo carousel at 6:30pm ET.
 # GitHub's scheduled runs can start hours late or get skipped, so there's a backup run;
 # anything already scheduled is skipped, so nothing double-posts.
 on:
@@ -76,8 +77,14 @@ jobs:
         working-directory: video
         run: node pipeline/cards.mjs
 
+      - name: Make TikTok carousel slides
+        id: slides
+        if: ${{ !inputs.stats_only && !inputs.dry }}
+        working-directory: video
+        run: node pipeline/slides.mjs
+
       - name: Upload media to GitHub Pages
-        if: steps.make.outputs.ready == 'true' || steps.cards.outputs.ready == 'true'
+        if: steps.make.outputs.ready == 'true' || steps.cards.outputs.ready == 'true' || steps.slides.outputs.ready == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
@@ -85,7 +92,7 @@ jobs:
       # GitHub sometimes can't see a just-uploaded artifact yet (failed run on 2026-11-20), so retry once after a pause.
       - name: Deploy GitHub Pages
         id: deploy_try
-        if: steps.make.outputs.ready == 'true' || steps.cards.outputs.ready == 'true'
+        if: steps.make.outputs.ready == 'true' || steps.cards.outputs.ready == 'true' || steps.slides.outputs.ready == 'true'
         continue-on-error: true
         uses: actions/deploy-pages@v4
 

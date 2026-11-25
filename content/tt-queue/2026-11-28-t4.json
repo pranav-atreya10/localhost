@@ -1,0 +1,42 @@
+{
+  "id": "t4-9pm3am",
+  "tag": "dev pain",
+  "format": "transformation",
+  "caption": "debugging at 9pm vs debugging at 3am. same bug. very different person. #debugging #coding #programmer #codinghumor #devlife",
+  "slides": [
+    {
+      "type": "hook",
+      "text": "debugging: 9pm vs 3am",
+      "sub": "same bug. different person."
+    },
+    {
+      "type": "compare",
+      "left": {
+        "label": "9pm",
+        "value": "reads the error"
+      },
+      "right": {
+        "label": "3am",
+        "value": "reads nothing"
+      },
+      "verdict": "one of these is faster",
+      "verdictTone": "ok"
+    },
+    {
+      "type": "code",
+      "title": "3am.js",
+      "lines": [
+        "console.log('here')",
+        "console.log('here2')",
+        "console.log('WHY')",
+        "✓ fixed. no idea how."
+      ],
+      "highlight": 4
+    },
+    {
+      "type": "shirt",
+      "item": "hoodie",
+      "line": "localhostwear.xyz"
+    }
+  ]
+}

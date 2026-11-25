@@ -11,7 +11,7 @@
     }
   },
   "schedule": {
-    "_note": "Times are UTC (ET = UTC-5 in winter). One main run a day (12:00 UTC, backup 15:00 UTC) schedules everything for the next ~24h. Reel a = 4:30pm ET, reel b = 8pm ET; X = 6pm, 9:30pm, 6:15am ET.",
+    "_note": "Times are UTC (ET = UTC-5 in winter). One main run a day (12:00 UTC, backup 15:00 UTC) schedules everything for the next ~24h. Reel a = 4:30pm ET, reel b = 8pm ET; X = 6pm, 9:30pm, 6:15am ET. TikTok photo carousel = 6:30pm ET (1 a day, only posts once a TikTok channel is connected in Buffer).",
     "reels": [
       {
         "letter": "a",
@@ -36,6 +36,12 @@
       {
         "hourUTC": 11,
         "minuteUTC": 15
+      }
+    ],
+    "tiktok": [
+      {
+        "hourUTC": 23,
+        "minuteUTC": 30
       }
     ]
   },

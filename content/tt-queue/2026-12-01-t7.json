@@ -1,0 +1,57 @@
+{
+  "id": "t7-juniorsenior",
+  "tag": "dev pain",
+  "format": "transformation",
+  "caption": "junior dev vs senior dev. same bug, different energy. which one are you right now? #coding #programmer #softwareengineer #codinghumor #devlife",
+  "slides": [
+    {
+      "type": "hook",
+      "text": "junior vs senior dev",
+      "sub": "same bug. different energy."
+    },
+    {
+      "type": "compare",
+      "left": {
+        "label": "junior",
+        "value": "rewrites the app"
+      },
+      "right": {
+        "label": "senior",
+        "value": "changes one line"
+      },
+      "verdict": "the bug was a typo",
+      "verdictTone": "ok"
+    },
+    {
+      "type": "compare",
+      "left": {
+        "label": "junior",
+        "value": "\"it works!\""
+      },
+      "right": {
+        "label": "senior",
+        "value": "\"why does it work?\""
+      },
+      "verdict": "both are scared",
+      "verdictTone": "bad"
+    },
+    {
+      "type": "compare",
+      "left": {
+        "label": "junior",
+        "value": "googles the error"
+      },
+      "right": {
+        "label": "senior",
+        "value": "googles it faster"
+      },
+      "verdict": "nobody actually knows",
+      "verdictTone": "ok"
+    },
+    {
+      "type": "shirt",
+      "item": "tee",
+      "line": "localhostwear.xyz"
+    }
+  ]
+}

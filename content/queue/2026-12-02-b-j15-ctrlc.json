@@ -1,0 +1,56 @@
+{
+  "id": "j15-ctrlc",
+  "seriesBadge": "dev_pain · #15",
+  "voiceover": "You run your script and the terminal won't stop printing. Scrolling forever. Fans spinning. You forgot to change the loop variable, so the condition never turns false. That's an infinite loop. Press control C. It sends an interrupt signal, and most programs stop right there. Then check that something inside your loop moves it toward the exit. Send this to whoever just restarted their laptop to stop a script.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "Your terminal won't stop.",
+      "sub": "hi hi hi hi hi hi hi"
+    },
+    {
+      "type": "code",
+      "at": "You forgot to change",
+      "title": "loop.py",
+      "lines": [
+        "i = 0",
+        "while i < 5:",
+        "    print(\"hi\")",
+        "✗ i never goes up",
+        "✓ fix: i += 1"
+      ],
+      "highlight": 3
+    },
+    {
+      "type": "compare",
+      "at": "Press control C",
+      "left": {
+        "label": "restart laptop",
+        "value": "works, eventually"
+      },
+      "right": {
+        "label": "ctrl + c",
+        "value": "stops it now"
+      },
+      "verdict": "sends an interrupt",
+      "verdictTone": "ok"
+    },
+    {
+      "type": "shirt",
+      "at": "Send this to",
+      "item": "tee"
+    }
+  ],
+  "keywords": [
+    "terminal",
+    "loop",
+    "variable",
+    "infinite",
+    "control",
+    "interrupt"
+  ],
+  "captions": {
+    "instagram": "Infinite loop? Press Ctrl+C.\nIt sends an interrupt and most programs stop. Then fix the loop variable.\n#python #programming #coding #learntocode #terminal",
+    "youtubeTitle": "Infinite loop? Press Ctrl+C (then fix this) #python"
+  }
+}

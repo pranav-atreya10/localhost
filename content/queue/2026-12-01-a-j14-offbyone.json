@@ -1,0 +1,55 @@
+{
+  "id": "j14-offbyone",
+  "seriesBadge": "dev_pain · #14",
+  "voiceover": "Your loop breaks on the very last item. Index out of range. You count again: ten items, so the last one is number ten, right? Nope. Indexes start at zero, so ten items means zero to nine. Loop while i is less than the length, not less than or equal. That one equals sign is the whole bug. It's called an off by one error, and everyone writes it. Send this to whoever counts from one.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "Breaks on the last item.",
+      "sub": "list index out of range"
+    },
+    {
+      "type": "compare",
+      "at": "Indexes start at zero",
+      "left": {
+        "label": "you count",
+        "value": "1 to 10"
+      },
+      "right": {
+        "label": "the list counts",
+        "value": "0 to 9"
+      },
+      "verdict": "last index = length − 1",
+      "verdictTone": "ok"
+    },
+    {
+      "type": "code",
+      "at": "Loop while i is less",
+      "title": "loop.py",
+      "lines": [
+        "# 10 items: index 0 to 9",
+        "while i <= len(items):  ✗",
+        "while i < len(items):   ✓"
+      ],
+      "highlight": 2,
+      "note": "items[10] doesn't exist"
+    },
+    {
+      "type": "shirt",
+      "at": "It's called an off by one",
+      "item": "hoodie"
+    }
+  ],
+  "keywords": [
+    "loop",
+    "last",
+    "zero",
+    "nine",
+    "equals",
+    "off"
+  ],
+  "captions": {
+    "instagram": "Off-by-one errors: why your loop breaks on the last item.\nTen items means index 0 to 9. One equals sign, whole bug.\n#python #programming #coding #learntocode #debugging",
+    "youtubeTitle": "Why your loop breaks on the last item #python"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "text": "already committed node_modules? adding it to .gitignore won't remove it. git only ignores files it isn't tracking yet.\n\ngit rm -r --cached node_modules\n\nthat stops tracking it but keeps it on your disk. then commit.",
+  "card": {
+    "type": "code",
+    "title": "terminal",
+    "lines": [
+      "$ git rm -r --cached node_modules",
+      "$ git commit -m \"untrack it\"",
+      "// files stay on your disk"
+    ],
+    "highlight": 0
+  }
+}

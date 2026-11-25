@@ -1,0 +1,16 @@
+{
+  "text": "me: closes the terminal\nthe server on port 3000: still here",
+  "card": {
+    "type": "compare",
+    "left": {
+      "label": "you think",
+      "value": "server stopped"
+    },
+    "right": {
+      "label": "port 3000",
+      "value": "still in use"
+    },
+    "verdict": "one app per port",
+    "verdictTone": "bad"
+  }
+}

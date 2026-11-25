@@ -1,0 +1,15 @@
+{
+  "text": "a merge conflict isn't git breaking. it's git asking you to choose.\n\nbetween <<<<<<< and ======= is your version. between ======= and >>>>>>> is the incoming one.\n\nkeep what's right, delete the markers, commit.",
+  "card": {
+    "type": "code",
+    "title": "merge conflict",
+    "lines": [
+      "<<<<<<< HEAD",
+      "your version",
+      "=======",
+      "incoming version",
+      ">>>>>>> main"
+    ],
+    "highlight": 2
+  }
+}

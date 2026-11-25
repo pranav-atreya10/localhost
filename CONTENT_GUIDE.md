@@ -24,7 +24,7 @@ Back print: the joke, e.g. white "there's no place like" + green "127.0.0.1" + s
 Never put prices in the voiceover or captions. No real company logos, no AI images of people wearing the shirts.
 
 ## Reel mix: "the joke is the shirt"
-Per week (14 reels): **about 10 joke → shirt reels and 4 lesson reels**. Keep series 1 in the `a` slot and series 2 in the `b` slot only for lessons; joke reels can go in either slot. Spread lessons out, don't stack them.
+Ratio: **about 5 joke → shirt reels for every 2 lesson reels**. We post 2 reels a day, so per week (14 reels) that's **about 10 joke → shirt and 4 lesson**. Keep series 1 in the `a` slot and series 2 in the `b` slot only for lessons; joke reels can go in either slot. Spread lessons out, don't stack them.
 - **Joke → shirt reel** (20–35 s, 55–85 words): one relatable coding pain (pushing to main, deploying on Friday, "works on my machine", 3am commits, final_final_v2 files, merge conflicts, "port already in use"). Dry and funny, with a real tip or fact inside it so it's correct and worth saving. Ends on the matching shirt: the last scene is a `shirt` scene. The last voiceover sentence is "Send this to …" (whoever lives this pain). Never a sales pitch.
   - Set `"seriesBadge": "dev_pain · #N"` and don't say "Part 1/3".
   - Open with the same story hook as always: a short "you" moment (see Hooks below).

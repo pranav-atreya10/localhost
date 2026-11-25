@@ -1,0 +1,46 @@
+{
+  "id": "j11-nothingchanged",
+  "seriesBadge": "dev_pain · #11",
+  "voiceover": "It worked yesterday. You swear you didn't change anything. Now it's broken. Something changed, and git remembers what. Run git log to see recent commits, or git diff to see exactly what's different. Still lost? Git bisect splits your history in half, again and again, until it finds the exact commit that broke it. You don't have to guess. Send this to whoever says nothing changed.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "It worked yesterday.",
+      "sub": "you changed nothing. promise."
+    },
+    {
+      "type": "code",
+      "at": "Run git log",
+      "title": "terminal",
+      "lines": [
+        "$ git log --oneline",
+        "$ git diff",
+        "$ git bisect start",
+        "// finds the bad commit"
+      ],
+      "highlight": 2
+    },
+    {
+      "type": "statement",
+      "at": "You don't have to guess",
+      "big": "git remembers what changed"
+    },
+    {
+      "type": "shirt",
+      "at": "Send this to",
+      "item": "tee"
+    }
+  ],
+  "keywords": [
+    "yesterday",
+    "changed",
+    "git",
+    "diff",
+    "bisect",
+    "commit"
+  ],
+  "captions": {
+    "instagram": "\"I didn't change anything\": how git finds what you did.\ngit diff, then git bisect to find the exact commit.\n#git #programming #coding #developerlife #devhumor",
+    "youtubeTitle": "\"I didn't change anything\" (git knows) #git"
+  }
+}

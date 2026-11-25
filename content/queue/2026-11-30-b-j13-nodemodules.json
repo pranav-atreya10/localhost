@@ -1,0 +1,54 @@
+{
+  "id": "j13-nodemodules",
+  "seriesBadge": "dev_pain · #13",
+  "voiceover": "You push your project and the upload takes forever. You committed node modules, a folder with thousands of other people's files. You don't need to. Your package.json lists what the project needs, and npm install rebuilds the folder anywhere. Add node modules to a file called .gitignore, and git skips it from then on. Already committed it? Remove it from tracking, then commit again. Send this to whoever pushed node modules.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "Why is your repo so huge?",
+      "sub": "node_modules"
+    },
+    {
+      "type": "compare",
+      "at": "You don't need to",
+      "left": {
+        "label": "node_modules",
+        "value": "rebuilt by npm install"
+      },
+      "right": {
+        "label": "package.json",
+        "value": "the real recipe"
+      },
+      "verdict": "commit the recipe, not the folder",
+      "verdictTone": "ok"
+    },
+    {
+      "type": "code",
+      "at": "Add node modules",
+      "title": ".gitignore",
+      "lines": [
+        "node_modules/",
+        ".env",
+        "// git skips these from now on"
+      ],
+      "highlight": 0
+    },
+    {
+      "type": "shirt",
+      "at": "Send this to",
+      "item": "tee"
+    }
+  ],
+  "keywords": [
+    "repo",
+    "node",
+    "modules",
+    "gitignore",
+    "package",
+    "npm"
+  ],
+  "captions": {
+    "instagram": "Why you should never commit node_modules.\nAdd it to .gitignore and let npm install rebuild it.\n#git #nodejs #programming #coding #learntocode",
+    "youtubeTitle": "Never commit node_modules (do this instead) #git"
+  }
+}

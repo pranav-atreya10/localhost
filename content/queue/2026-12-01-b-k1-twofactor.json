@@ -1,0 +1,75 @@
+{
+  "id": "k1-twofactor",
+  "seriesBadge": "lesson · two factor",
+  "voiceover": "Someone calls your phone carrier, pretends to be you, and moves your number to their SIM card. That's a SIM swap. Now every text code goes to them, including the one that resets your email. Two factor login still matters, and any version beats none. But a text message is the weakest kind, because phone numbers can be taken over. An authenticator app keeps your codes on your own device. Passkeys and security keys are stronger still, because they only work on the real site, so a fake login page gets nothing. Switch your email account first. Send this to whoever still uses text codes.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "Your number. Their phone.",
+      "sub": "SIM swap"
+    },
+    {
+      "type": "flow",
+      "at": "That's a SIM swap",
+      "title": "sim swap",
+      "nodes": [
+        "fake call to carrier",
+        "your number moves",
+        "codes go to them",
+        "email reset"
+      ]
+    },
+    {
+      "type": "compare",
+      "at": "But a text message",
+      "left": {
+        "label": "text code",
+        "value": "follows your number"
+      },
+      "right": {
+        "label": "authenticator app",
+        "value": "stays on your phone"
+      },
+      "verdict": "any 2FA beats none",
+      "verdictTone": "ok"
+    },
+    {
+      "type": "list",
+      "at": "Passkeys and security keys",
+      "title": "strongest first",
+      "items": [
+        {
+          "text": "passkey / security key",
+          "status": "ok"
+        },
+        {
+          "text": "authenticator app",
+          "status": "ok"
+        },
+        {
+          "text": "text code",
+          "status": "none"
+        }
+      ]
+    },
+    {
+      "type": "end",
+      "at": "Send this to",
+      "text": "two factor ✓",
+      "sub": "send to whoever uses text codes"
+    }
+  ],
+  "keywords": [
+    "number",
+    "SIM",
+    "swap",
+    "text",
+    "authenticator",
+    "passkeys",
+    "email"
+  ],
+  "captions": {
+    "instagram": "SIM swap explained: why text codes are the weakest 2FA.\nUse an authenticator app or a passkey instead. A quick lesson from localhost.\n#cybersecurity #2fa #infosec #learntocode #techtips",
+    "youtubeTitle": "Why text-message 2FA is the weakest kind #cybersecurity"
+  }
+}

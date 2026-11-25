@@ -1,0 +1,56 @@
+{
+  "id": "j12-consolelog",
+  "seriesBadge": "dev_pain · #12",
+  "voiceover": "Your bug is somewhere. So you add a console log. Then another. Now there are twenty, and your output is the word here, over and over. A debugger does this better. Set a breakpoint, and the program pauses on that line so you can look at every variable. No guessing, no cleanup. Browsers have one built in, and so does your editor. Then delete the logs you forgot. Send this to the dev with twenty console logs.",
+  "scenes": [
+    {
+      "type": "hook",
+      "text": "console.log(\"here\"). Again.",
+      "sub": "log number 20"
+    },
+    {
+      "type": "code",
+      "at": "Now there are twenty",
+      "title": "console",
+      "lines": [
+        "here",
+        "here 2",
+        "here 3??",
+        "here 4 why",
+        "// 20 more of these"
+      ],
+      "highlight": 4
+    },
+    {
+      "type": "compare",
+      "at": "A debugger does this better",
+      "left": {
+        "label": "console.log",
+        "value": "guess, rerun, repeat"
+      },
+      "right": {
+        "label": "debugger",
+        "value": "pause and look"
+      },
+      "verdict": "see every variable",
+      "verdictTone": "ok"
+    },
+    {
+      "type": "shirt",
+      "at": "Then delete the logs",
+      "item": "hoodie"
+    }
+  ],
+  "keywords": [
+    "console",
+    "log",
+    "debugger",
+    "breakpoint",
+    "variable",
+    "here"
+  ],
+  "captions": {
+    "instagram": "Stop debugging with console.log: use a breakpoint.\nPause the program and look at every variable.\n#javascript #webdev #programming #coding #developerlife",
+    "youtubeTitle": "Stop debugging with console.log #javascript"
+  }
+}

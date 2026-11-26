@@ -58,5 +58,14 @@
   "captions": {
     "instagram": "If AI wrote it and you can't explain it, you can't fix it.\nThree checks before you ship.\n#vibecoding #programming #coding #ai #learntocode",
     "youtubeTitle": "AI wrote it. Do you understand it? #vibecoding"
+  },
+  "scheduledFor": "2026-11-27T01:00:00.000Z",
+  "results": [
+    "Instagram ✅",
+    "YouTube ✅"
+  ],
+  "bufferIds": {
+    "instagram": "6b089f2cc81617797de34470",
+    "youtube": "6b089f2c1fa40915829b428c"
   }
 }

@@ -49,3 +49,6 @@ Newest at the bottom.
 - 2026-11-25 21:18 UTC — X post + card for 2026-11-26 02:30 UTC "a git branch isn't a copy of your projec…" ✅
 - 2026-11-25 21:18 UTC — X post + card for 2026-11-26 11:15 UTC "the stages of debugging…" ✅
 - 2026-11-25 23:28 UTC — X post for 2026-11-26 23:00 UTC "my favorite error message is the one tha…" ✅
+- 2026-11-26 21:05 UTC — reel **j9-aiwroteit** for 2026-11-27 01:00 UTC — Instagram ✅, YouTube ✅
+- 2026-11-26 21:05 UTC — X post for 2026-11-27 02:30 UTC "build in public: the reel machine had 3 …" ✅
+- 2026-11-26 21:05 UTC — X post for 2026-11-27 11:15 UTC "hot take: if AI wrote it and you can't e…" ✅

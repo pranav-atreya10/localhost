@@ -52,3 +52,5 @@ Newest at the bottom.
 - 2026-11-26 21:05 UTC — reel **j9-aiwroteit** for 2026-11-27 01:00 UTC — Instagram ✅, YouTube ✅
 - 2026-11-26 21:05 UTC — X post for 2026-11-27 02:30 UTC "build in public: the reel machine had 3 …" ✅
 - 2026-11-26 21:05 UTC — X post for 2026-11-27 11:15 UTC "hot take: if AI wrote it and you can't e…" ✅
+- 2026-11-26 23:31 UTC — reel **e3-managers** for 2026-11-27 21:30 UTC — Instagram ✅, YouTube ✅
+- 2026-11-26 23:31 UTC — X post for 2026-11-27 23:00 UTC "googling an error and finding one forum …" ✅

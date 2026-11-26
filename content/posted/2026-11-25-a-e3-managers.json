@@ -79,5 +79,14 @@
   "captions": {
     "instagram": "Credential stuffing: how one leaked password unlocks ten accounts.\nThe boring fix that works. A quick lesson from localhost.\n#cybersecurity #passwords #infosec #learntocode #techtips",
     "youtubeTitle": "How 1 leaked password unlocks 10 accounts #cybersecurity"
+  },
+  "scheduledFor": "2026-11-27T21:30:00.000Z",
+  "results": [
+    "Instagram ✅",
+    "YouTube ✅"
+  ],
+  "bufferIds": {
+    "instagram": "6b08c15c70e2a88e2cdb007a",
+    "youtube": "6b08c15c8899c4e779f9efc9"
   }
 }

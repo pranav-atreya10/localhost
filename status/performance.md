@@ -1,4 +1,4 @@
-# Performance (auto-updated 2026-11-26 21:05 UTC)
+# Performance (auto-updated 2026-11-26 23:31 UTC)
 
 Score = 70% engagement rate + 30% views, ranked against each other (100 = best). Posts are scored after 48h live; on Saturdays (review day) the newest ones count after 24h (marked *).
 Engagement = likes + 2×comments + 3×shares + 3×saves + 4×follows. Small numbers early on = noisy, treat as hints.
@@ -22,22 +22,23 @@ Engagement = likes + 2×comments + 3×shares + 3×saves + 4×follows. Small numb
 | score | post | views | likes | replies | reposts | eng. rate |
 |---|---|---|---|---|---|---|
 | 100 | build in public update: wrote a pipeline that turns a script into a finished reel and sche | 3 | 1 | 0 | 0 | 33.3% |
-| 87 | hot take: the best way to learn to code is to build something slightly too hard for you | 0 | 0 | 0 | 0 | 0.0% |
-| 82 | why AI forgets the rule you told it an hour ago: the context window. / it can only read so | 0 | 0 | 0 | 0 | 0.0% |
-| 76 | "I'll refactor it later" / later: | 0 | 0 | 0 | 0 | 0.0% |
-| 71 | what's a coding concept you wish someone explained to you in 30 seconds? | 0 | 0 | 0 | 0 | 0.0% |
-| 66 | if your variable is named "temp2_final_real" we need to talk | 0 | 0 | 0 | 0 | 0.0% |
-| 61 | AI doesn't look up your code. it predicts it, one token at a time. / that's why it's great | 0 | 0 | 0 | 0 | 0.0% |
-| 55 | build in public: the reel machine now posts twice a day on instagram and youtube. two codi | 0 | 0 | 0 | 0 | 0.0% |
-| 50 | the code at 2am: works perfectly / the code at 9am: who wrote this | 0 | 0 | 0 | 0 | 0.0% |
-| 47 | "it works on my machine" / — every dev, right before it doesn't work on anyone else's mach | 1 | 0 | 0 | 0 | 0.0% |
-| 45 | why does 50 tabs make your laptop lag? / RAM fills up, so your computer starts parking stu | 0 | 0 | 0 | 0 | 0.0% |
-| 42 | a good website doesn't know your password. / it stores a hash: a one-way scramble of it. w | 1 | 0 | 0 | 0 | 0.0% |
-| 39 | hot take: reading error messages is the most underrated coding skill | 0 | 0 | 0 | 0 | 0.0% |
-| 34 | what's the first thing you ever built with code? mine was not good. | 0 | 0 | 0 | 0 | 0.0% |
+| 87 | before you install a package AI suggested, check it actually exists and people use it. / A | 0 | 0 | 0 | 0 | 0.0% |
+| 83 | hot take: the best way to learn to code is to build something slightly too hard for you | 0 | 0 | 0 | 0 | 0.0% |
+| 77 | why AI forgets the rule you told it an hour ago: the context window. / it can only read so | 0 | 0 | 0 | 0 | 0.0% |
+| 73 | "I'll refactor it later" / later: | 0 | 0 | 0 | 0 | 0.0% |
+| 68 | what's a coding concept you wish someone explained to you in 30 seconds? | 0 | 0 | 0 | 0 | 0.0% |
+| 63 | if your variable is named "temp2_final_real" we need to talk | 0 | 0 | 0 | 0 | 0.0% |
+| 57 | AI doesn't look up your code. it predicts it, one token at a time. / that's why it's great | 0 | 0 | 0 | 0 | 0.0% |
+| 53 | build in public: the reel machine now posts twice a day on instagram and youtube. two codi | 0 | 0 | 0 | 0 | 0.0% |
+| 48 | the code at 2am: works perfectly / the code at 9am: who wrote this | 0 | 0 | 0 | 0 | 0.0% |
+| 46 | "it works on my machine" / — every dev, right before it doesn't work on anyone else's mach | 1 | 0 | 0 | 0 | 0.0% |
+| 43 | why does 50 tabs make your laptop lag? / RAM fills up, so your computer starts parking stu | 0 | 0 | 0 | 0 | 0.0% |
+| 41 | a good website doesn't know your password. / it stores a hash: a one-way scramble of it. w | 1 | 0 | 0 | 0 | 0.0% |
+| 38 | hot take: reading error messages is the most underrated coding skill | 0 | 0 | 0 | 0 | 0.0% |
 | 33 | 15, building a clothing brand for people who code. / the twist: AI writes, voices, edits,  | 1 | 0 | 0 | 0 | 0.0% |
-| 29 | your computer doesn't understand python. / it only runs machine code. something has to tra | 0 | 0 | 0 | 0 | 0.0% |
+| 32 | what's the first thing you ever built with code? mine was not good. | 0 | 0 | 0 | 0 | 0.0% |
 | 27 | every website you've ever opened started with your computer asking "what's the number for  | 1 | 0 | 0 | 0 | 0.0% |
-| 24 | good morning to everyone except the bug I left for future me yesterday | 0 | 0 | 0 | 0 | 0.0% |
+| 27 | your computer doesn't understand python. / it only runs machine code. something has to tra | 0 | 0 | 0 | 0 | 0.0% |
 | 22 | my code works and I have no idea why. / shipping it. | 1 | 0 | 0 | 0 | 0.0% |
+| 22 | good morning to everyone except the bug I left for future me yesterday | 0 | 0 | 0 | 0 | 0.0% |
 | 11 | tabs or spaces. wrong answers only. | 0 | 0 | 0 | 0 | 0.0% |

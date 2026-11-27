@@ -74,5 +74,14 @@
   "captions": {
     "instagram": "Why API keys in frontend code aren't secret.\nThe small backend fix. Part 2/3 of \"secrets in code.\"\n#webdev #javascript #vibecoding #cybersecurity #learntocode",
     "youtubeTitle": "Your frontend can't keep secrets #webdev"
+  },
+  "scheduledFor": "2026-11-28T01:00:00.000Z",
+  "results": [
+    "Instagram ✅",
+    "YouTube ✅"
+  ],
+  "bufferIds": {
+    "instagram": "6b09ed4f585cafb820deca84",
+    "youtube": "6b09ed4fc02ca0988ab4ac5c"
   }
 }

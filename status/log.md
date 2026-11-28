@@ -59,3 +59,6 @@ Newest at the bottom.
 - 2026-11-27 20:51 UTC — X post + card for 2026-11-28 11:15 UTC "build in public: every reel starts as on…" ✅
 - 2026-11-27 23:16 UTC — reel **j6-finalv2** for 2026-11-28 21:30 UTC — Instagram ✅, YouTube ✅
 - 2026-11-27 23:16 UTC — X post for 2026-11-28 23:00 UTC "what's one thing about computers you've …" ✅
+- 2026-11-28 19:42 UTC — reel **j10-portinuse** for 2026-11-29 01:00 UTC — Instagram ✅, YouTube ✅
+- 2026-11-28 19:42 UTC — X post + card for 2026-11-29 02:30 UTC ""this'll take 10 minutes"…" ✅
+- 2026-11-28 19:42 UTC — X post for 2026-11-29 11:15 UTC "build in public: the content machine rea…" ✅

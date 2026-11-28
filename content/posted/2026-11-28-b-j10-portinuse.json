@@ -43,5 +43,14 @@
   "captions": {
     "instagram": "Port 3000 is already in use: why it happens and the fix.\nOne app per port, and you left a server running.\n#webdev #nodejs #programming #coding #learntocode",
     "youtubeTitle": "Port 3000 is already in use (the fix) #webdev"
+  },
+  "scheduledFor": "2026-11-29T01:00:00.000Z",
+  "results": [
+    "Instagram ✅",
+    "YouTube ✅"
+  ],
+  "bufferIds": {
+    "instagram": "6b0b2ea95e276ead9fcb5fe3",
+    "youtube": "6b0b2ea96deb644351d3c456"
   }
 }
